@@ -41,5 +41,9 @@ mkdir alternate
 cd lxxmorph
 mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23.TobitS.mlxx ../alternate
 
+3) Convert to imp.
+
+This text is in a format not directly usable. The next step is to imp format.
+https://wiki.crosswire.org/DevTools:IMP_Format
 
 

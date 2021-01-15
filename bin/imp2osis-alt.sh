@@ -40,9 +40,9 @@ sed -ri 's/(packard:[A-Z1-5]+) +([A-Z])/\1\+\2/g' LXX.alt.osis
 sed -ri 's/lemma="/lemma="strong:G lex:/g' LXX.alt.osis
 #suppression espace après virgule pour lex
 sed -ri 's/, /,/g' LXX.alt.osis
-./inversion_lignes.py <LXX.alt.osis >lxx.alt.osis.xml
-./fusion.sh codesStrong.strong lxx.alt.osis.xml
+./bin/inversion_lignes.py <LXX.alt.osis >lxx.alt.osis.xml
+./bin/fusion.sh codesStrong.strong lxx.alt.osis.xml
 mv lxx.alt.osis.xml lxx.alt.osis.xml_old
 mv done_lxx.alt.osis.xml lxx.alt.osis.xml
 #<seg type="x-variant" subType="x-2">/g'
-xmllint --noout --schema ~/.bin/osisCore.2.1.1.xsd lxx.alt.osis.xml
+#xmllint --noout --schema ~/.bin/osisCore.2.1.1.xsd lxx.alt.osis.xml

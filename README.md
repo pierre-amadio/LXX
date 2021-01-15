@@ -73,3 +73,16 @@ We now have the main LXX in 002.txt and some alternate version in 002.alt
 ./bin/imp2osis.sh
 
 
+And now for the alt one:
+./bin/imp2osis-alt.sh
+
+Let s clean a bit: 
+rm LXX.alt.osis lxx.alt.osis.xml_old LXX.new.osis lxx.osis.xml_old
+
+
+The resulting file are: 
+lxx.osis.xml and lxx.alt.osis.xml
+
+
+
+

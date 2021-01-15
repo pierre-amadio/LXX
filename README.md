@@ -25,13 +25,14 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 From now on, we are using a specific version of python where we can install whatever we want without messing with the actual set of python package coming from the distribution.
 You can return to a "normal" environnment running "deactivate". Dont do it now.
 
+```
 ~/dev/lxxmodule/bin/python3 -m pip install bs4
 ~/dev/lxxmodule/bin/python3 -m pip install betacode
 ~/dev/lxxmodule/bin/python3 -m pip install pygtrie
-
+```
 
 2) Download the text from ccat.sas.upenn.edu
-
+```
 cd original-text 
 wget -r -np http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/
 cp -r ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/ .
@@ -40,7 +41,7 @@ cp -r ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/ .
 mkdir alternate
 cd lxxmorph
 mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23.TobitS.mlxx ../alternate
-
+```
 3) Convert this to imp.
 
 This text is in a format not directly usable. The next step is to imp format.

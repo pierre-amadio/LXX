@@ -126,7 +126,6 @@ we have
 instead of
 </verse> </chapter> </div> <div type="book" osisID="Josh">
 
-Looks like the following from imp2osis.sh should have dealt with it:
 
 If i look in cyrille's repository's 002.txt file , when the Deut chapter close, there also is a </seg> closure. (line 17787)
 i do not find the opening seg there.
@@ -147,7 +146,7 @@ and replace it with
 <chapter osisId="Josh.1">
  <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">
 
-It should not have included the </seg> node.
+It should not have included the </seg> tag.
 
 
 ```

@@ -44,7 +44,7 @@ mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23
 ```
 3) Convert this to imp.
 
-This text is in a format not directly usable. The next step is to imp format.
+This text is in a format not directly usable. The next step is to transform it in imp format.
 https://wiki.crosswire.org/DevTools:IMP_Format
 
 You should still be in LXX/original-text/lxxmorph with your virtualenv activated.

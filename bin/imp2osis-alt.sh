@@ -1,5 +1,5 @@
 #!/bin/bash
-cp 002_alt_orig 002.alt
+#cp 002_alt_orig 002.alt
 #Corrections des noms des livres
 sed -ri 's/(\$\$\$[A-Za-z]+)\/([0-9]+)\/([0-9]+)/\1 \2:\3/g' 002.alt
 sed -ri 's/\$\$\$([A-Za-z]+) ([0-9]+)$/\$\$\$\1 1:\2/g' 002.alt

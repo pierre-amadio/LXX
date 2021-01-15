@@ -1,9 +1,4 @@
 #!/bin/bash
-cd lxxm-gen
-./convert.sh
-cd ../
-killall xiphos
-cp 002_orig 002.txt
 
 #Correction du chapitrage dans Prov
 sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' 002.txt
@@ -116,5 +111,5 @@ sed -ri 's/(verse osisID=")(Bel\.)(31)(\.32")/\1\21\.\3 \21\4/g' lxx.osis.xml
 mv lxx.osis.xml lxx.osis.xml_old
 mv done_lxx.osis.xml lxx.osis.xml
 #Check osis file
-xmllint --noout --schema ~/.bin/osisCore.2.1.1.xsd lxx.osis.xml
+#xmllint --noout --schema ~/.bin/osisCore.2.1.1.xsd lxx.osis.xml
 #osis2mod ~/.sword/modules/texts/ztext/lxxnv/ lxx.osis.xml -z -v LXX #>build_LXX.log

@@ -46,12 +46,26 @@ mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23
 This text is in a format not directly usable. The next step is to imp format.
 https://wiki.crosswire.org/DevTools:IMP_Format
 
-#cd $WORKDIR/buildLXX/lxxm-gen/lxxmorph
-#java -jar ../lxxm.jar [0-9][0-9]\.* > lxxm-decomp.imp
-
 You should still be in LXX/original-text/lxxmorph with your virtualenv activated.
 
 rm lxxm-decomp.imp
-for i in `ls *mlxx`; do echo $i; ../../bin/mlxx2imp.py $i >> lxxm-decomp.imp ;done
+for i in `ls *mlxx`; do echo $i; ../../bin/mlxx2imp.py $i >> ../lxxm-decomp.imp ;done
+cd ..
+Lets have normalisation
+#https://unix.stackexchange.com/questions/90100/convert-between-unicode-normalization-forms-on-the-unix-command-line
+uconv -x Any-NFC lxxm-decomp.imp > lxxm.imp
+rm lxxm-decomp.imp
+mv lxxm.imp ../002.txt
+
+Let s do the same for the alternates versions.
+cd original-text/alternate
+rm lxxm-decomp-alternate.imp
+for i in `ls *mlxx`; do echo $i; ../../bin/mlxx2imp.py $i >> ../lxxm-decomp-alternate.imp ; done
+cd ..
+uconv -x Any-NFC lxxm-decomp-alternate.imp > lxxm-alternate.imp
+rm lxxm-decomp-alternate.imp
+mv lxxm-alternate.imp ../002.alt
+
+
 
 

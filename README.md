@@ -102,6 +102,7 @@ xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
 This fail at several steps (Josh and Tob)
 By example:
 
+```
 lxx.osis.xml:11804: parser error : Opening and ending tag mismatch: verse line 11802 and seg
 </seg> </verse> </div> <div type="book" osisID="Josh">
 
@@ -129,6 +130,7 @@ Looks like the following from imp2osis.sh should have dealt with it:
 
 If i look in cyrille's repository's 002.txt file , when the Deut chapter close, there also is a </seg> closure. (line 17787)
 i do not find the opening seg there.
+```
 
 also, no trace of the book of Sus in the new lxx.osis.xml
 There is howeverr original-text/lxxmorph/63.SusOG.mlxx , but mlxx2imp.py does not generate any output with it...

@@ -85,5 +85,20 @@ The resulting file are:
 lxx.osis.xml and lxx.alt.osis.xml
 
 
+5) Validate the file.
 
+Download the osis schema
+
+```
+wget http://www.crosswire.org/osis/osisCore.2.1.1.xsd
+```
+
+Validate the files:
+
+```
+xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
+xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
+
+6) Create the mod module.
+```
 

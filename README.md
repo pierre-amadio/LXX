@@ -70,5 +70,6 @@ We now have the main LXX in 002.txt and some alternate version in 002.alt
 
 4) Convert from imp to osis.
 
+./bin/imp2osis.sh
 
 

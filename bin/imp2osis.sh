@@ -95,7 +95,7 @@ sed -ri 's/lemma="/lemma="strong:G lex:/g' LXX.new.osis
 sed -ri ':a;N;$!ba;s/(ὄνομα<\/w> <w lemma="strong:G lex:αὐτός" morph="packard:RD\+GSF" xlit="betacode:AU\)TH=S">αὐτῆς<\/w>)\n<\/seg>/\1/g' LXX.new.osis
 #suppression espace après virgule pour lex
 sed -ri 's/, /,/g' LXX.new.osis
-./inversion_lignes.py <LXX.new.osis >lxx.osis.xml
+./bin/inversion_lignes.py <LXX.new.osis >lxx.osis.xml
 
 #sed -i '90032d' lxx.osis.xml #A revoir
 sed -i '68582,68586d' lxx.osis.xml #Sir 1.1
@@ -106,7 +106,9 @@ sed -i "90033{h;s/.*/sed -n 90034p lxx.osis.xml/e};90034g" lxx.osis.xml #Bel.1.2
 sed -i "90996{h;s/.*/sed -n 90997p lxx.osis.xml/e};90997g" lxx.osis.xml #Dan.5.1
 sed -ri 's/(verse osisID=")(Bel\.)(31)(\.32")/\1\21\.\3 \21\4/g' lxx.osis.xml
 #Addition of the strong numbers fusion.sh utilise le fichier avec les nombres de strong et le mot équivalent codesStrong.strong
-./fusion.sh codesStrong.strong lxx.osis.xml
+
+
+./bin/fusion.sh codesStrong.strong lxx.osis.xml
 #Renommage pour des fichiers et néttoyage
 mv lxx.osis.xml lxx.osis.xml_old
 mv done_lxx.osis.xml lxx.osis.xml

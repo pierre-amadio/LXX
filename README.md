@@ -130,10 +130,32 @@ Looks like the following from imp2osis.sh should have dealt with it:
 
 If i look in cyrille's repository's 002.txt file , when the Deut chapter close, there also is a </seg> closure. (line 17787)
 i do not find the opening seg there.
+
+This seems to be caused by this line in imp2osis.sh
+
+#Tag chapitre avec texte alternatif
+sed -ri 's/\$\$\$(Tob|Bel|Sus|Dan|Judg|Josh) ([0-9]+):1$/<\/seg>\n<\/verse>\n<\/chapter>\n\t<chapter osisID="\1\.\2">\n\t\t<verse osisID="\1\.\2\.1"><seg type="x-variant" subType="x-1">/g' 002.txt
+
+This remove 
+$$$Josh 1:1
+
+and replace it with
+
+</seg>
+<verse>
+</chapter>
+<chapter osisId="Josh.1">
+ <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">
+
+It should not have included the </seg> node.
+
+
 ```
 
 also, no trace of the book of Sus in the new lxx.osis.xml
 There is howeverr original-text/lxxmorph/63.SusOG.mlxx , but mlxx2imp.py does not generate any output with it...
+
+
 
 
 6) Create the mod module.

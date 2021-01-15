@@ -11,7 +11,7 @@ https://git.crosswire.org/cyrille/lxx
 #This java code used by Cyrille's scripts.
 #https://crosswire.org/svn/sword-tools/trunk/modules/lxxm/src/lxxm/LXXMConv.java
 #It require the following class: http://www.mneuhold.at/antike/grkconv_en.html
-#I failed to recompile all this from scratch so i re implemeted it in python.
+#I failed to recompile all this from scratch so i re implemeted it in python (mlxx2imp.py)
 
 1) Prepare your environnement.
 
@@ -45,5 +45,13 @@ mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23
 
 This text is in a format not directly usable. The next step is to imp format.
 https://wiki.crosswire.org/DevTools:IMP_Format
+
+#cd $WORKDIR/buildLXX/lxxm-gen/lxxmorph
+#java -jar ../lxxm.jar [0-9][0-9]\.* > lxxm-decomp.imp
+
+You should still be in LXX/original-text/lxxmorph with your virtualenv activated.
+
+rm lxxm-decomp.imp
+for i in `ls *mlxx`; do echo $i; ../../bin/mlxx2imp.py $i >> lxxm-decomp.imp ;done
 
 

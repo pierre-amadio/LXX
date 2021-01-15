@@ -30,4 +30,16 @@ You can return to a "normal" environnment running "deactivate". Dont do it now.
 ~/dev/lxxmodule/bin/python3 -m pip install pygtrie
 
 
+2) Download the text from ccat.sas.upenn.edu
+
+cd original-text 
+wget -r -np http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/
+cp -r ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/ .
+# Lets create a directory for the alternative verse too
+# and put the alternate chapters there.
+mkdir alternate
+cd lxxmorph
+mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23.TobitS.mlxx ../alternate
+
+
 

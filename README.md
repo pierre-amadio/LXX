@@ -102,59 +102,6 @@ xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
 This fail at several steps (Josh and Tob)
 By example:
 
-```
-lxx.osis.xml:11804: parser error : Opening and ending tag mismatch: verse line 11802 and seg
-</seg> </verse> </div> <div type="book" osisID="Josh">
-
-Looking in the file:
-
-<verse osisID="Deut.34.12">
-<w lemma="strong:G3588 lex:ὁ" morph="packard:RA+APN" xlit="betacode:TA\">τὰ</w><w lemma="strong:G2297 lex:θαυμάσιος" morph="packard:A1A+APN" xlit="betacode:QAUMA/SIA">θαυμάσια</w><w lemma="strong:G3588 lex:ὁ" morph="packard:RA+APN" xlit="betacode:TA\">τὰ</w><w lemma="strong:G3173 lex:μέγας" morph="packard:A1+APN" xlit="betacode:MEGA/LA">μεγάλα</w><w lemma="strong:G2532 lex:καί" morph="packard:C" xlit="betacode:KAI\">καὶ</w><w lemma="strong:G3588 lex:ὁ" morph="packard:RA+ASF" xlit="betacode:TH\N">τὴν</w><w lemma="strong:G5495 lex:χείρ" morph="packard:N3+ASF" xlit="betacode:XEI=RA">χεῖρα</w><w lemma="strong:G3588 lex:ὁ" morph="packard:RA+ASF" xlit="betacode:TH\N">τὴν</w><w lemma="strong:G2900 lex:κραταιός" morph="packard:A1A+ASF" xlit="betacode:KRATAIA/N">κραταιάν</w><w lemma="strong:G3739 lex:ὅς" morph="packard:RR+APN" xlit="betacode:A(\">ἃ</w><w lemma="strong:G4160 lex:ποιέω" morph="packard:VAI+AAI3S" xlit="betacode:E)POI/HSEN">ἐποίησεν</w><w lemma="strong:G0 lex:Μωυσῆς" morph="packard:N+NSM" xlit="betacode:*MWUSH=S">Μωυσῆς</w><w lemma="strong:G1725 lex:ἔναντι" morph="packard:P" xlit="betacode:E)/NANTI">ἔναντι</w><w lemma="strong:G3956 lex:πᾶς" morph="packard:A3+GSM" xlit="betacode:PANTO\S">παντὸς</w><w lemma="strong:G2474 lex:Ἰσραήλ" morph="packard:N+GSM" xlit="betacode:*ISRAHL">Ισραηλ</w>
-</seg> </verse> </div> <div type="book" osisID="Josh">
-<chapter osisID="Josh.1">
-
-And in a correct one:
-
-<verse osisID="Deut.34.12">
-<w lemma="strong:G3588 lex:ὁ" morph="packard:RA+APN" xlit="betacode:TA\">τὰ</w> <w lemma="strong:G2297 lex:θαυμάσιος" morph="packard:A1A+APN" xlit="betacode:QAUMA/SIA">θαυμάσια</w> <w lemma="strong:G3588 lex:ὁ" morph="packard:RA+APN" xlit="betacode:TA\">τὰ</w> <w lemma="strong:G3173 lex:μέγας" morph="packard:A1+APN" xlit="betacode:MEGA/LA">μεγάλα</w> <w lemma="strong:G2532 lex:καί" morph="packard:C" xlit="betacode:KAI\">καὶ</w> <w lemma="strong:G3588 lex:ὁ" morph="packard:RA+ASF" xlit="betacode:TH\N">τὴν</w> <w lemma="strong:G5495 lex:χείρ" morph="packard:N3+ASF" xlit="betacode:XEI=RA">χεῖρα</w> <w lemma="strong:G3588 lex:ὁ" morph="packard:RA+ASF" xlit="betacode:TH\N">τὴν</w> <w lemma="strong:G2900 lex:κραταιός" morph="packard:A1A+ASF" xlit="betacode:KRATAIA/N">κραταιάν</w> <w lemma="strong:G3739 lex:ὅς" morph="packard:RR+APN" xlit="betacode:A(\">ἃ</w> <w lemma="strong:G4160 lex:ποιέω" morph="packard:VAI+AAI3S" xlit="betacode:E)POI/HSEN">ἐποίησεν</w> <w lemma="strong:G0 lex:Μωυσῆς" morph="packard:N+NSM" xlit="betacode:*MWUSH=S">Μωυσῆς</w> <w lemma="strong:G1725 lex:ἔναντι" morph="packard:P" xlit="betacode:E)/NANTI">ἔναντι</w> <w lemma="strong:G3956 lex:πᾶς" morph="packard:A3+GSM" xlit="betacode:PANTO\S">παντὸς</w> <w lemma="strong:G2474 lex:Ἰσραήλ" morph="packard:N+GSM" xlit="betacode:*ISRAHL">Ισραηλ</w>
-</verse> </chapter> </div> <div type="book" osisID="Josh">
-<chapter osisID="Josh.1">
-
-we have 
-
-</seg> </verse> </div> <div type="book" osisID="Josh">
-instead of
-</verse> </chapter> </div> <div type="book" osisID="Josh">
-
-
-If i look in cyrille's repository's 002.txt file , when the Deut chapter close, there also is a </seg> closure. (line 17787)
-i do not find the opening seg there.
-
-This seems to be caused by this line in imp2osis.sh
-
-#Tag chapitre avec texte alternatif
-sed -ri 's/\$\$\$(Tob|Bel|Sus|Dan|Judg|Josh) ([0-9]+):1$/<\/seg>\n<\/verse>\n<\/chapter>\n\t<chapter osisID="\1\.\2">\n\t\t<verse osisID="\1\.\2\.1"><seg type="x-variant" subType="x-1">/g' 002.txt
-
-This remove 
-$$$Josh 1:1
-
-and replace it with
-
-</seg>
-<verse>
-</chapter>
-<chapter osisId="Josh.1">
- <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">
-
-It should not have included the </seg> tag.
-
-
-```
-
-also, no trace of the book of Sus in the new lxx.osis.xml
-There is howeverr original-text/lxxmorph/63.SusOG.mlxx , but mlxx2imp.py does not generate any output with it...
-
-
 
 
 6) Create the mod module.

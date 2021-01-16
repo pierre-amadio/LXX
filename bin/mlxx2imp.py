@@ -29,6 +29,15 @@ python: <w lemma="βαίνω, προς, ἀνα" morph="packard:V1  PAI3S" xlit=
 PROSANABAI/NEI           V1  PAI3S  BAI/NW           PROS  A)NA 
 
 
+#######
+job 28:4
+<w lemma="διακοπή^[)α^N" morph="packard:N1  NSF" xlit="betacode:DIAKOPH\">διακοπὴ</w> 
+
+DIAKOPH\                 N1  NSF    DIAKOPH/^[)A^N
+
+this is actually an incorrect beta code in the original text
+https://www.translatum.gr/converter/beta-code.htm
+
 """
 
 inputFile=sys.argv[1]

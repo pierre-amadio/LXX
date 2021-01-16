@@ -55,7 +55,7 @@ with open(inputFile) as fp:
                 print("") 
 
                 if(len(headingTxt)):
-                    print("<title type=\"section\" subtype=\"x-preverse\">%s</title>"%headingTxt)
+                    print("<title type=\"section\" subtype=\"x-preverse\">%s</title>"%headingTxt,end='')
                     headingTxt=""
                     heading=False
             else:
@@ -73,15 +73,18 @@ with open(inputFile) as fp:
                 print("What are len(36) line for???",line)
                 sys.exit()
             #print(line)
-            word=line[0:25].rstrip()
-            parse=line[25:36].rstrip()
-            lemma=line[36:].rstrip()
+            word=line[0:25].strip()
+            parse=line[25:36].strip()
+            lemma=line[36:].strip()
             #print("before='%s"%lemma)
             lemma=re.sub('\s+',',',lemma)
-            parse=re.sub('\s+',' ',parse)
+            #print("\nparse avant '%s'"%parse,end="\n")
+            #parse=re.sub('\s+',' ',parse)
+            #print("parse apres '%s'"%parse,end="\n")
             #print("word '%s'"%word)
             #print("parse '%s'"%parse)
             #print("lemma '%s'"%lemma)
+            #print("first",first)
             if not first :
                 """
                     space between words
@@ -89,11 +92,12 @@ with open(inputFile) as fp:
                 out+=" "
             else:
                 first=False
+            #print("out='%s'"%out)
             convertWord=betacode.conv.beta_to_uni(word)
             convertLemma=betacode.conv.beta_to_uni(lemma)
             #print("convert word='%s'"%convertWord)
             #print("convert lemma='%s"%convertLemma)
-            out="<w lemma=\"%s\" morph=\"packard:%s\" xlit=\"betacode:%s\">%s</w>"%(convertLemma,parse,word,convertWord)
+            out+="<w lemma=\"%s\" morph=\"packard:%s\" xlit=\"betacode:%s\">%s</w>"%(convertLemma,parse,word,convertWord)
             #print(out)
             if heading:
                 headingTxt+=out

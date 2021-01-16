@@ -56,9 +56,11 @@ with open(inputFile) as fp:
                 # chapter (or verse if no chapter)
                 if ":" in line:
                     ind=line.index(":")
+                    #System.out.print("/"+((line.indexOf(':') > 0) ? line.substring(line.indexOf(' ') + 1, line.indexOf(':')) : line.substring(line.indexOf(' ') + 1)));
                     if ind>0:
                         print("/%s"%line[line.index(" ")+1:ind],end='')
-                        print("/%s"%line[line.index(":")+1],end='')
+                        #System.out.print("/"+line.substring(line.indexOf(':') + 1));
+                        print("/%s"%line[line.index(":")+1:],end='')
                     else:
                         print("/%s"%line[0:line.index(" ")],end='')
                 print("") 

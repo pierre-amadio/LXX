@@ -11,6 +11,9 @@ https://pypi.org/project/betacode/
 
 ./mlxxtoimp.py ~/dev/lxx/scripts/lxxm-gen/lxxmorph/01.Gen.1.mlxx 
 
+
+Trying to figure out the difference of outpout between the original java code and the  python one:
+
 java -jar  ~/dev/lxx-cyrille/scripts/lxxm-gen/lxxm.jar original-text/lxxmorph/07.JoshB.mlxx > java.plop
  ./bin/mlxx2imp.py original-text/lxxmorph/07.JoshB.mlxx > python.plop
 
@@ -18,6 +21,13 @@ uconv -x Any-NFC  java.plop > java.conv
 uconv -x Any-NFC  python.plop > python.conv
 
 vimdiff java.conv python.conv
+
+Josh5/15/7
+java:   <w lemma="βαίνω, ἀνα" morph="packard:V1  PAI3S" xlit="betacode:PROSANABAI/NEI">προσαναβαίνει</w>
+python: <w lemma="βαίνω, προς, ἀνα" morph="packard:V1  PAI3S" xlit="betacode:PROSANABAI/NEI">προσαναβαίνει</w>
+
+PROSANABAI/NEI           V1  PAI3S  BAI/NW           PROS  A)NA 
+
 
 """
 
@@ -94,7 +104,7 @@ with open(inputFile) as fp:
             #print("parse apres '%s'"%parse,end="\n")
             #print("word '%s'"%word)
             #print("parse '%s'"%parse)
-            #print("lemma '%s'"%lemma)
+            #print("\nlemma '%s'\n"%lemma)
             #print("first",first)
             if not first :
                 """

@@ -42,6 +42,18 @@ mkdir alternate
 cd lxxmorph
 mv 08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23.TobitS.mlxx ../alternate
 ```
+There are some error we need to change in the original text:
+```
+cp original-text/lxxmorph/34.Job.mlxx original-text/lxxmorph/34.Job.mlxx-orig
+# job 28:4 
+# orig: DIAKOPH\                 N1  NSF    DIAKOPH/ESC)A^N
+# wanted: DIAKOPH\                 N1  NSF    DIAKOPH\
+tr -d '\16\33' < original-text/lxxmorph/34.Job.mlxx-orig >original-text/lxxmorph/34.Job.mlxx
+sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
+```
+
+
+
 3) Convert this to imp.
 
 This text is in a format not directly usable. The next step is to transform it in imp format.
@@ -71,16 +83,6 @@ mv lxxm-alternate.imp ../002.alt
 cd ..
 ```
 We now have the main LXX in 002.txt and some alternate version in 002.alt 
-
-There are some error we need to change in the original text:
-```
-cp original-text/lxxmorph/34.Job.mlxx original-text/lxxmorph/34.Job.mlxx-orig
-# job 28:4 
-# orig: DIAKOPH\                 N1  NSF    DIAKOPH/ESC)A^N
-# wanted: DIAKOPH\                 N1  NSF    DIAKOPH\
-tr -d '\16\33' < original-text/lxxmorph/34.Job.mlxx-orig >original-text/lxxmorph/34.Job.mlxx
-sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
-```
 
 
 

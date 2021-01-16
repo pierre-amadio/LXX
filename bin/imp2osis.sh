@@ -75,6 +75,10 @@ sed -ri 's/(<verse osisID="Odes\.13\.29">)/<\/chapter>\n<chapter osisID="Odes\.1
 
 #does not seems to do anything, nor with the java conversion, nor with the python one. 
 #sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">//g' 002.txt
+
+#looks like it would work better with 2 tab instead of three
+sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t<chapter osisID="Sir\.1">//g' 002.txt
+
 sed -ri 's/<chapter osisID="Sir\.0">/<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">/g' 002.txt
 sed -ri ':a;N;$!ba;s/<\/verse>\n\t\t<verse osisID="Sir\.0\.([0-9]+)">/<milestone type="x-alt-v11n" n="\1"\/>/g' 002.txt
 sed -ri 's/<verse osisID="Sir\.0\.1">/<milestone type="x-alt-v11n" n="1"\/>/g' 002.txt

@@ -21,3 +21,9 @@ Now we have:
 
  sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 
+###################
+:set list
+
+</div>
+<div type="book" osisID="Sir">
+<chapter osisID="Sir.1">

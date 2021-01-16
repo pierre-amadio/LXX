@@ -10,6 +10,15 @@ https://pypi.org/project/betacode/
 ~/dev/ankiswordstuff/bin/python3.7  -m pip install pygtrie
 
 ./mlxxtoimp.py ~/dev/lxx/scripts/lxxm-gen/lxxmorph/01.Gen.1.mlxx 
+
+java -jar  ~/dev/lxx-cyrille/scripts/lxxm-gen/lxxm.jar original-text/lxxmorph/01.Gen.1.mlxx > java.plop
+ ./bin/mlxx2imp.py original-text/lxxmorph/01.Gen.1.mlxx > python.plop
+
+uconv -x Any-NFC  java.plop > java.conv
+uconv -x Any-NFC  python.plop > python.conv
+
+vimdiff java.conv python.conv
+
 """
 
 inputFile=sys.argv[1]
@@ -77,7 +86,7 @@ with open(inputFile) as fp:
             parse=line[25:36].strip()
             lemma=line[36:].strip()
             #print("before='%s"%lemma)
-            lemma=re.sub('\s+',',',lemma)
+            lemma=re.sub('\s+',', ',lemma)
             #print("\nparse avant '%s'"%parse,end="\n")
             #parse=re.sub('\s+',' ',parse)
             #print("parse apres '%s'"%parse,end="\n")

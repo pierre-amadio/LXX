@@ -11,8 +11,8 @@ https://pypi.org/project/betacode/
 
 ./mlxxtoimp.py ~/dev/lxx/scripts/lxxm-gen/lxxmorph/01.Gen.1.mlxx 
 
-java -jar  ~/dev/lxx-cyrille/scripts/lxxm-gen/lxxm.jar original-text/lxxmorph/01.Gen.1.mlxx > java.plop
- ./bin/mlxx2imp.py original-text/lxxmorph/01.Gen.1.mlxx > python.plop
+java -jar  ~/dev/lxx-cyrille/scripts/lxxm-gen/lxxm.jar original-text/lxxmorph/07.JoshB.mlxx > java.plop
+ ./bin/mlxx2imp.py original-text/lxxmorph/07.JoshB.mlxx > python.plop
 
 uconv -x Any-NFC  java.plop > java.conv
 uconv -x Any-NFC  python.plop > python.conv
@@ -63,7 +63,7 @@ with open(inputFile) as fp:
                         print("/%s"%line[line.index(":")+1:],end='')
                     else:
                         print("/%s"%line[0:line.index(" ")],end='')
-                print("") 
+                #print("") 
 
                 if(len(headingTxt)):
                     print("<title type=\"section\" subtype=\"x-preverse\">%s</title>"%headingTxt,end='')

@@ -26,16 +26,34 @@ with open(inputFile) as fp:
                 line smaller than 36 char, this is  probably the beginning of a verse or chapter.
                 Let s print  things such as $$$Gen/1/2
             """
-            m=re.match("(\S+)\s+(\d+):(\d+)",line)
+            #m=re.match("(\S+)\s+(\d+):(\d+)",line)
+            #if m:
+            #    book=m.group(1)
+            #    chapter=m.group(2)
+            #    verse=m.group(3)
+            #    print("\n$$$%s/%s/%s"%(book,chapter,verse))
+            #    """
+            #        we still need to add some section stuff if headingTxt is not null
+            #        see by example $$$Od/1/1
+            #    """
+
+            #at least 2 character followed by some digit(s).
+            m=re.search("...*[0-9].*",line)
             if m:
-                book=m.group(1)
-                chapter=m.group(2)
-                verse=m.group(3)
-                print("\n$$$%s/%s/%s"%(book,chapter,verse))
-                """
-                    we still need to add some section stuff if headingTxt is not null
-                    see by example $$$Od/1/1
-                """
+                print("")
+                print("$$$",end='')
+                #book
+                print(line[0:line.index(" ")],end='')
+                # chapter (or verse if no chapter)
+                if ":" in line:
+                    ind=line.index(":")
+                    if ind>0:
+                        print("/%s"%line[line.index(" ")+1:ind],end='')
+                        print("/%s"%line[line.index(":")+1],end='')
+                    else:
+                        print("/%s"%line[0:line.index(" ")],end='')
+                print("") 
+
                 if(len(headingTxt)):
                     print("<title type=\"section\" subtype=\"x-preverse\">%s</title>"%headingTxt)
                     headingTxt=""

@@ -70,8 +70,11 @@ sed -ri 's/(<verse osisID="Odes\.11\.10">)/<\/chapter>\n<chapter osisID="Odes.11
 sed -ri 's/(<verse osisID="Odes\.13\.29">)/<\/chapter>\n<chapter osisID="Odes\.13">\n<verse osisID="Odes\.13\.1">\n\[\]\n<\/verse>\n\1/g' 002.txt
 #sed -ri 's/(<verse osisID="Odes\.14\.5">)/<\/chapter>\n<chapter osisID="Odes\.14">\n<verse osisID="Odes\.14\.1">\n\[\]\n<\/verse>\n\1/g' 002.txt
 
+
 #Traitement de ProlSir (Prologue de Siracide)
-sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">//g' 002.txt
+
+#does not seems to do anything, nor with the java conversion, nor with the python one. 
+#sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">//g' 002.txt
 sed -ri 's/<chapter osisID="Sir\.0">/<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">/g' 002.txt
 sed -ri ':a;N;$!ba;s/<\/verse>\n\t\t<verse osisID="Sir\.0\.([0-9]+)">/<milestone type="x-alt-v11n" n="\1"\/>/g' 002.txt
 sed -ri 's/<verse osisID="Sir\.0\.1">/<milestone type="x-alt-v11n" n="1"\/>/g' 002.txt

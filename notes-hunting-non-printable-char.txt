@@ -1,0 +1,23 @@
+So we have a problem with job28.4 line 9448
+
+vim -b original-text/lxxmorph/34.Job.mlxx
+
+Convert them to xxd-human readable format :%!xxd
+Convert xxd-human readable format back to binary :%!xxd -r
+:as(scii) or ga: print asscii value of the character under cursor
+
+
+ 9448 DIAKOPH\                 N1  NSF    DIAKOPH/^[)A^N                                                                                                                                                           
+the ^[ thingy is ^[>  27,  Hex 1b,  Octal 033
+the ^N thiny is ^N>  14,   Hex 0e,  Octal 016
+
+0058a50: 4e53 4620 2020 2044 4941 4b4f 5048 2f1b  NSF    DIAKOPH/.                                                                                                                                       
+0058a60: 2941 0e0a 5845 494d 412f 5252 4f55 2020  )A..XEIMA/RROU
+
+tr -d '\16\33' < original-text/lxxmorph/34.Job.mlxx-orig >original-text/lxxmorph/34.Job.mlxx
+
+Now we have:
+ DIAKOPH\                 N1  NSF    DIAKOPH/)A 
+
+ sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
+

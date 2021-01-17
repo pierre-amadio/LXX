@@ -25,7 +25,7 @@ ch1["verses"][1]["content"]="blablabla"
 
 ch2={}
 ch2["osisId"]="Gen 2"
-ch2["title"]="The second chapter title"
+#ch2["title"]="The second chapter title"
 ch2["verses"]=[]
 ch2["verses"].append({})
 ch2["verses"][0]["osisId"]="Gen 2:1"

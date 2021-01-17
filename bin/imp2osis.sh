@@ -158,8 +158,19 @@ sed -ri 's/, /,/g' LXX.new.osis
 #It looks like the content of Tob1.5 is being removed.
 sed -i '43327d' lxx.osis.xml #fin de judith début tob
 
-
+# Removing a div book node, why ?
+#17800         <verse osisID="Deut.34.12">
+#17801 <w lemma="strong:G lex: ......
+#17802 </seg>
+#17803 </verse>
+#17804 </chapter>
+#17805     </div>
+#17806         <div type="book" osisID="Josh">
+#17807         <chapter osisID="Josh.1">
+#17808         <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1"> ....
 sed -i '17806d' lxx.osis.xml #fin de Deut début Jos
+
+
 #Inversion de lignes pour validation xmllint
 sed -i "90033{h;s/.*/sed -n 90034p lxx.osis.xml/e};90034g" lxx.osis.xml #Bel.1.2
 sed -i "90996{h;s/.*/sed -n 90997p lxx.osis.xml/e};90997g" lxx.osis.xml #Dan.5.1

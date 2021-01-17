@@ -48,12 +48,19 @@ sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 
 #Obadiah having only one chapter, its numbering is a bit different (compare "Obad 3" with "Gen 1:1"
 #Let s have it look like the other.
-sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' 43.Obadiah.mlxx
+sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/43.Obadiah.mlxx
 #Same for EpJer
 #TODO: we may be loosing the first header here.
-sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' 55.EpJer.mlxx
+sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/55.EpJer.mlxx
 
+#BelOG has 1 chapter only, and the verse 1 is not properly tagged.
+sed -ri 's/^Bel\s*$/Bel 1/' original-text/lxxmorph/59.BelOG.mlxx
+sed -ri 's/Bel ([0-9]+)/Bel 1:\1/' original-text/lxxmorph/59.BelOG.mlxx
 
+#BelTh has only 1 chapter
+sed -ri 's/BelTh ([0-9]+)/BelTh 1:\1/' original-text/lxxmorph/60.BelTh.mlxx
+
+#Sus needs to have chapter 1 and tag only 1 verse per verse. 
 
 #3) Convert this to imp.
 #

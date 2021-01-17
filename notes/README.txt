@@ -46,6 +46,10 @@ cp original-text/lxxmorph/34.Job.mlxx original-text/lxxmorph/34.Job.mlxx-orig
 tr -d '\16\33' < original-text/lxxmorph/34.Job.mlxx-orig >original-text/lxxmorph/34.Job.mlxx
 sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 
+#Obadiah having only one chapter, its numbering is a bit different (compare "Obad 3" with "Gen 1:1"
+#Let s have it look like the other.
+sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' 43.Obadiah.mlxx
+
 #3) Convert this to imp.
 #
 #This text is in a format not directly usable. The next step is to transform it in imp format.
@@ -65,6 +69,7 @@ rm -rf ccat.sas.upenn.edu/
 
 
 
+#################################
 4) Convert from imp to osis.
 ```
 ./bin/imp2osis.sh

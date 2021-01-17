@@ -68,6 +68,7 @@ for curFileName in sys.argv[1:]:
           print(bookName,chapter)
         else:
           print("Cannot parse '%s'"%line.strip())
+          print("in '%s'"%curFileName)
           sys.exit()
         newVerseFlag=False
       else:

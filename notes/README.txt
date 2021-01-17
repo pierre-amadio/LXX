@@ -49,6 +49,11 @@ sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 #Obadiah having only one chapter, its numbering is a bit different (compare "Obad 3" with "Gen 1:1"
 #Let s have it look like the other.
 sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' 43.Obadiah.mlxx
+#Same for EpJer
+#TODO: we may be loosing the first header here.
+sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' 55.EpJer.mlxx
+
+
 
 #3) Convert this to imp.
 #

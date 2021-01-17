@@ -1,3 +1,4 @@
+
 This repository store the information needed to build the septuagin module LXX for the Sword engine.
 
 It is based on the following informations:
@@ -29,6 +30,7 @@ You can return to a "normal" environnment running "deactivate". Dont do it now.
 ~/dev/lxxmodule/bin/python3 -m pip install bs4
 ~/dev/lxxmodule/bin/python3 -m pip install betacode
 ~/dev/lxxmodule/bin/python3 -m pip install pygtrie
+~/dev/lxxmodule/bin/python3 -m pip install jinja2 
 ```
 
 2) Download the text from ccat.sas.upenn.edu

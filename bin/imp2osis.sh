@@ -15,6 +15,8 @@ sed -ri 's/\$\$\$2Esdr 1([1-9])/\$\$\$Neh \1/g' 002.txt
 sed -ri 's/\$\$\$2Esdr 2([0-9])/\$\$\$Neh 1\1/g' 002.txt
 sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
 sed -ri 's/\$\$\$Sir\/Prolog\//\$\$\$Sir 0:/g' 002.txt
+
+
 sed -ri 's/\$\$\$([A-Za-z]+)\//\$\$\$\1 1:/g' 002.txt
 sed -ri 's/(\$\$\$Sus 1:)6$/\11\n\[\]\16/g' 002.txt
 sed -ri 's/JoshB/Josh/g' 002.txt
@@ -33,6 +35,7 @@ sed -ri 's/Cant/Song/g' 002.txt
 sed -ri 's/PsSol/PssSol/g' 002.txt
 sed -ri 's/Od/Odes/g' 002.txt
 
+
 #Ajout de la mention alt pour les variante de versification
 sed -ri 's/\$\$\$1Kgs 6:1([a-d])/<milestone type="x-alt-v11n" n="\1"\/>/g' 002.txt
 sed -ri 's/\$\$\$Esth 5:1([a-d])/<milestone type="x-alt-v11n" n="\1"\/>/g' 002.txt
@@ -48,6 +51,7 @@ sed -ri 's/\$\$\$(Tob|Bel|Sus|Dan|Judg|Josh) ([0-9]+):1$/<\/seg>\n<\/verse>\n<\/
 #Verset avec texte alternatif
 sed -ri 's/\$\$\$(Tob|Bel|Sus|Dan|Judg|Josh) ([0-9]+):([0-9]+)/<\/seg>\n<\/verse>\n<verse osisID="\1\.\2\.\3"><seg type="x-variant" subType="x-1">/g' 002.txt
 sed -ri 's/\$\$\$(Tob|Bel|Sus|Dan|Judg|Josh) ([0-9]+):([0-9]+)-([0-9]+)/<\/seg>\n<\/verse>\n\t\t<verse osisID="\1\.\2\.\3 \1\.\2\.\4"><seg type="x-variant" subType="x-1">/g' 002.txt
+
 
 #Tag chapitre 
 sed -ri 's/\$\$\$([A-Za-z1-4]+) ([0-9]+):1$/<\/verse>\n<\/chapter>\n\t<chapter osisID="\1\.\2">\n\t\t<verse osisID="\1\.\2\.1">/g' 002.txt
@@ -71,17 +75,19 @@ sed -ri 's/(<verse osisID="Odes\.13\.29">)/<\/chapter>\n<chapter osisID="Odes\.1
 #sed -ri 's/(<verse osisID="Odes\.14\.5">)/<\/chapter>\n<chapter osisID="Odes\.14">\n<verse osisID="Odes\.14\.1">\n\[\]\n<\/verse>\n\1/g' 002.txt
 
 
+
 #Traitement de ProlSir (Prologue de Siracide)
 
-#does not seems to do anything, nor with the java conversion, nor with the python one. 
+#This original line does not actually does anything. 
 #sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">//g' 002.txt
-
+#it is supposed to ged rid of extra </verse></chapter> before the first chapter of Sir (after last chapter of Wis).
 #looks like it would work better with 2 tab instead of three
 sed -ri ':a;N;$!ba;s/<\/verse>\n<\/chapter>\n\t<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t<chapter osisID="Sir\.1">//g' 002.txt
 
 sed -ri 's/<chapter osisID="Sir\.0">/<\/div>\n\t\t<div type="book" osisID="Sir">\n\t\t\t<chapter osisID="Sir\.1">/g' 002.txt
 sed -ri ':a;N;$!ba;s/<\/verse>\n\t\t<verse osisID="Sir\.0\.([0-9]+)">/<milestone type="x-alt-v11n" n="\1"\/>/g' 002.txt
 sed -ri 's/<verse osisID="Sir\.0\.1">/<milestone type="x-alt-v11n" n="1"\/>/g' 002.txt
+
 #Correction de certains caractères non conforme et de tags en trop.
 sed -ri 's/̓α//g' 002.txt
 sed -i '1,4d' 002.txt
@@ -105,7 +111,45 @@ sed -ri 's/, /,/g' LXX.new.osis
 ./bin/inversion_lignes.py <LXX.new.osis >lxx.osis.xml
 
 #sed -i '90032d' lxx.osis.xml #A revoir
-sed -i '68582,68586d' lxx.osis.xml #Sir 1.1
+
+#This line get rid of Sir 1.6 and Sir 1.8 (and doing so, generate some extra </verse> tag. 
+#
+#sed -i '68582,68586d' lxx.osis.xml #Sir 1.1
+#
+#When the script was using the java code to handle the betacode transliteration, 
+#it was supposed to get rid of <verse></chapter></div><div type="book" osisID="Sir"><chapter osisID="Sir.1"> here
+#68580 <milestone type="x-alt-v11n" n="36"/>
+#68581 <w lemma="strong:G lex:ἐννόμως" morph="packard:D" xlit="betacode:E)NNO/MWS">ἐννόμως</w> <w lemma="strong:G lex:βιοτεύω" morph="packard:V1+PAN" xlit="betacode:BIOTEU/EIN">βιοτεύειν</w>
+#68582<verse>
+#68583 </chapter>
+#68584     </div>
+#68585         <div type="book" osisID="Sir">
+#68586         <chapter osisID="Sir.1">
+#68587         <verse osisID="Sir.1.1">
+#
+#With the python betacode we have something slighlty different:
+#
+
+#8490         <verse osisID="Wis.19.22">
+#68491 <w lemma="strong:G l........παριστάμενος</w>
+#68492 </verse>
+#68493 </chapter>
+#68494     </div>
+#68495         <div type="book" osisID="Sir">
+#68496             <chapter osisID="Sir.1">
+#68497         <milestone type="x-alt-v11n" n="1"/>
+# ....
+# ....
+#68567 <milestone type="x-alt-v11n" n="36">
+#68568 <w lemma="strong:G lex:ἐννόμως" morph="packard:D" xlit="betacode:E)NNO/MWS">ἐννόμως</w> <w lemma="strong:G lex:βιοτεύω" morph="packard:V1+PAN" xlit="betacode:BIOTEU/EIN">βιοτεύειν</w>
+#68569 
+#68570         <verse osisID="Sir.1.1">
+
+
+
+
+
+
 sed -i '43327d' lxx.osis.xml #fin de judith début tob
 sed -i '17806d' lxx.osis.xml #fin de Deut début Jos
 #Inversion de lignes pour validation xmllint

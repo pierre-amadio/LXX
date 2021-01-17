@@ -130,7 +130,7 @@ sed -ri 's/, /,/g' LXX.new.osis
 #With the python betacode we have something slighlty different:
 #
 
-#8490         <verse osisID="Wis.19.22">
+#68490         <verse osisID="Wis.19.22">
 #68491 <w lemma="strong:G l........παριστάμενος</w>
 #68492 </verse>
 #68493 </chapter>
@@ -145,7 +145,7 @@ sed -ri 's/, /,/g' LXX.new.osis
 #68569 
 #68570         <verse osisID="Sir.1.1">
 
-
+#It looks like there is no nee to "fix" anything, the 
 
 
 

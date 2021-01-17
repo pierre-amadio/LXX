@@ -144,13 +144,21 @@ sed -ri 's/, /,/g' LXX.new.osis
 #68568 <w lemma="strong:G lex:ἐννόμως" morph="packard:D" xlit="betacode:E)NNO/MWS">ἐννόμως</w> <w lemma="strong:G lex:βιοτεύω" morph="packard:V1+PAN" xlit="betacode:BIOTEU/EIN">βιοτεύειν</w>
 #68569 
 #68570         <verse osisID="Sir.1.1">
-
-#It looks like there is no nee to "fix" anything, the 
-
+#It looks like there is no nee to "fix" anything.
 
 
-
+#Next, why is it that we need to remove line 43327 ?
+#Here is what s in the 002.txt file at this stage with the original java betacode decoder:
+#43325 </verse>
+#43326 <verse osisID="Tob.1.5"><seg type="x-variant" subType="x-1">
+#43327 <w lemma="καί" morph="packard:C" xlit="betacode:KAI\">καὶ</w> <w lemma="πᾶς" morph="packard:A1S NPF" xlit="betacode:PA=SAI">πᾶσαι</w> <w lemma="ὁ" morph="packard:RA  NPF" xlit="betacode:AI(">αἱ</w> <w lemm      a="φυλή" morph="packard:N1  NPF" xlit="betacode:FULAI\">φυλαὶ</w> <w lemma="ὁ" morph="packard:RA  NPF" xlit="betacode:AI(">αἱ</w> <w lemma="ἵστημι, ἀπο" morph="packard:VH  AAPNPF" xlit="betacode:SUNAPOSTA=      SAI">συναποστᾶσαι</w> <w lemma="θύω" morph="packard:V1I IAI3P" xlit="betacode:E)/QUON">ἔθυον</w> <w lemma="ὁ" morph="packard:RA  DSF" xlit="betacode:TH=|">τῇ</w> <w lemma="Βααλ" morph="packard:N   DSF" xli      t="betacode:*BAAL">Βααλ</w> <w lemma="ὁ" morph="packard:RA  DSF" xlit="betacode:TH=|">τῇ</w> <w lemma="δάμαλις" morph="packard:N3I DSF" xlit="betacode:DAMA/LEI">δαμάλει</w> <w lemma="καί" morph="packard:C"       xlit="betacode:KAI\">καὶ</w> <w lemma="ὁ" morph="packard:RA  NSM" xlit="betacode:O(">ὁ</w> <w lemma="οἶκος" morph="packard:N2  NSM" xlit="betacode:OI)=KOS">οἶκος</w> <w lemma="Νεφθαλιμ" morph="packard:N         GSM" xlit="betacode:*NEFQALIM">Νεφθαλιμ</w> <w lemma="ὁ" morph="packard:RA  GSM" xlit="betacode:TOU=">τοῦ</w> <w lemma="πατήρ" morph="packard:N3  GSM" xlit="betacode:PATRO/S">πατρός</w> <w lemma="ἐγώ" mor      ph="packard:RP  GS" xlit="betacode:MOU">μου</w> 
+#43328 </seg>
+#43329 </verse>
+#43330 <verse osisID="Tob.1.6"><seg type="x-variant" subType="x-1">
+#It looks like the content of Tob1.5 is being removed.
 sed -i '43327d' lxx.osis.xml #fin de judith début tob
+
+
 sed -i '17806d' lxx.osis.xml #fin de Deut début Jos
 #Inversion de lignes pour validation xmllint
 sed -i "90033{h;s/.*/sed -n 90034p lxx.osis.xml/e};90034g" lxx.osis.xml #Bel.1.2

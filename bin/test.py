@@ -53,7 +53,7 @@ for curFileName in sys.argv[1:]:
     newVerseFlag=True
     curVerseSnt=""
     curVerseNbr=0
-    curChapterNbr=0
+    curChapterNbr=1
     for line in fp:
       #let s ignore blank line.
       if re.search("^\s$",line):
@@ -86,6 +86,8 @@ for curFileName in sys.argv[1:]:
           newChapter={}
           newChapter["osisId"]=""
           newChapter["verses"]=[]
+          newChapter["osisId"]="%s.%s"%(book["name"],1+len(book["chapters"]))
+          #print("line='%s'"%line.strip())
           book["chapters"].append(newChapter)
       else:
         """We are in a text line (not a $$chapter/verse  one)"""
@@ -97,7 +99,10 @@ for curFileName in sys.argv[1:]:
         curVerse["osisId"]="%s %s:%s"%(book["name"],curChapterNbr,curVerseNbr)
         curVerse["content"]=line.strip()
         book["chapters"][curChapterNbr-1]["verses"].append(curVerse)
+        #print(line)
     fp.close()
+    #We still need to destroy the last (empty) chapter created when we hit the actual last chapter.
+    book["chapters"]=book["chapters"][:-1]
 
 #print(book)
 

@@ -61,6 +61,26 @@ sed -ri 's/Bel ([0-9]+)/Bel 1:\1/' original-text/lxxmorph/59.BelOG.mlxx
 sed -ri 's/BelTh ([0-9]+)/BelTh 1:\1/' original-text/lxxmorph/60.BelTh.mlxx
 
 #Sus needs to have chapter 1 and tag only 1 verse per verse. 
+#7/8 10/11 13/14 35a 44/45 60-62
+sed -ri 's|Sus 7/8|Sus 7|' original-text/lxxmorph/63.SusOG.mlxx
+sed -ri 's|Sus 10/11|Sus 10|' original-text/lxxmorph/63.SusOG.mlxx
+sed -ri 's|Sus 13/14|Sus 13|' original-text/lxxmorph/63.SusOG.mlxx
+
+#Well, what to do with the 35a verse ? this is probably not ideal:
+#sed -ri 's|Sus 35a|Sus 35|' original-text/lxxmorph/63.SusOG.mlxx
+#because we will end with 2 verse 35, right ? So, what about just
+#putting both of them in a single verse 35 ?
+#364 LE/GOUSA                 V1  PAPNSF LE/GW
+#365 
+#366 Sus 35a                                                   
+#let s remove line 365 and 366 then...
+sed -i '365,366d' original-text/lxxmorph/63.SusOG.mlxx 
+
+
+sed -ri 's|Sus 44/45|Sus 44|' original-text/lxxmorph/63.SusOG.mlxx
+sed -ri 's|Sus 60-63|Sus 60|' original-text/lxxmorph/63.SusOG.mlxx
+sed -ri 's/Sus ([0-9]+)/Sus 1:\1/' original-text/lxxmorph/63.SusOG.mlxx
+
 
 #3) Convert this to imp.
 #

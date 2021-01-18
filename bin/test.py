@@ -43,40 +43,64 @@ testBook["chapters"].append(ch2)
 
 book={}
 inputFiles=sys.argv[1]
-print( sys.argv)
+
+book={}
+book["name"]=False
+book["chapters"]=[]
 for curFileName in sys.argv[1:]:
   with open(curFileName) as fp:
-    #DO we expect a $$$Name/// header ? 
+    #newVerseFlag is true when we expect the current line to be a $$$Book Chapter:Verse sort of line 
     newVerseFlag=True
+    curVerseSnt=""
+    curVerseNbr=0
+    curChapterNbr=0
     for line in fp:
+      #let s ignore blank line.
       if re.search("^\s$",line):
         continue
       #print("line='%s'"%line.strip())
       if newVerseFlag:
-        print("new")
-        print("line='%s'"%line.strip())
+        """we are in a $$$bookname sort of line"""
+        #print("line='%s'"%line.strip())
         verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+)",line)
         chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
         if verseLineReg:
+          """we are in a book/chapter/verse definition line"""
           bookName=verseLineReg.group(1)
-          chapter=verseLineReg.group(2)
-          verse=verseLineReg.group(3)
-          print(bookName,chapter,verse)
+          curChapterNbr=int(verseLineReg.group(2))
+          curVerseNbr=int(verseLineReg.group(3))
         elif chapterLineReg:
-          bookName=chapterLineReg.group(1)
-          chapter=chapterLineReg.group(2)
-          print(bookName,chapter)
+          """ we are ina book/chapter (no verse) definition line """
+          bookName=int(chapterLineReg.group(1))
+          curChapterNbr=int(chapterLineReg.group(2))
+          curVerseNbr=0
+          #print(bookName,chapter)
         else:
           print("Cannot parse '%s'"%line.strip())
           print("in '%s'"%curFileName)
           sys.exit()
+        if not book["name"]:
+          book["name"]=bookName
         newVerseFlag=False
+        if len(book["chapters"])!=curChapterNbr+1:
+          newChapter={}
+          newChapter["osisId"]=""
+          newChapter["verses"]=[]
+          book["chapters"].append(newChapter)
       else:
+        """We are in a text line (not a $$chapter/verse  one)"""
         newVerseFlag=True
+        curVerseSnt=line
+        #print(book["name"],curChapterNbr,curVerseNbr)
+        #print(line.strip())
+        curVerse={}
+        curVerse["osisId"]="%s %s:%s"%(book["name"],curChapterNbr,curVerseNbr)
+        curVerse["content"]=line.strip()
+        book["chapters"][curChapterNbr-1]["verses"].append(curVerse)
     fp.close()
 
-
+#print(book)
 
 
 output = template.render(book=book)
-#print(output)
+print(output)

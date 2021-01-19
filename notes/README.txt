@@ -102,7 +102,13 @@ rm -rf ccat.sas.upenn.edu/
 
 
 
-#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp
+#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
+#
+# 55 EpJer   1 chapter, title for both book and chapter...
+# 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
+# 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
+# 56 Lam , several chapters, seems to be a book title.
+# 61 DanielOG chapter 5 only
 #It looks like they are all chapter title and comes always in verse1.
 #If that s the case it can be dealt with in mlxx2imp.py.
 #If some are book title, may be it should be done book per book later in a xml modifying script.

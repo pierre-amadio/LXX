@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
 https://zetcode.com/python/jinja/
+
+
+TODO: deal with milestone node for verses like Sus 35:a (63.SusOG.mlxx)
 """
 import sys
 import re

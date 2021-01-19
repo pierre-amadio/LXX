@@ -73,7 +73,8 @@ sed -ri 's|Sus 13/14|Sus 13|' original-text/lxxmorph/63.SusOG.mlxx
 #365 
 #366 Sus 35a                                                   
 #let s remove line 365 and 366 then...
-sed -i '365,366d' original-text/lxxmorph/63.SusOG.mlxx 
+#TODO: probably better to use some <milestone> stuff here.
+#sed -i '365,366d' original-text/lxxmorph/63.SusOG.mlxx 
 sed -ri 's|Sus 44/45|Sus 44|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's|Sus 60-63|Sus 60|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's/Sus ([0-9]+)/Sus 1:\1/' original-text/lxxmorph/63.SusOG.mlxx

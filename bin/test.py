@@ -68,12 +68,12 @@ for curFileName in sys.argv[1:]:
         verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+)",line)
         chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
         if verseLineReg:
-          """we are in a book/chapter/verse definition line"""
+          """we are in a book/chapter/verse definition line TODO: check if the verse is like 35a and store a milestone if it is."""
           bookName=verseLineReg.group(1)
           curChapterNbr=int(verseLineReg.group(2))
           curVerseNbr=int(verseLineReg.group(3))
         elif chapterLineReg:
-          """ we are ina book/chapter (no verse) definition line TODO: check if the verse is like 35a and store a milestone if it is."""
+          """ we are ina book/chapter (no verse) definition line """
           bookName=int(chapterLineReg.group(1))
           curChapterNbr=int(chapterLineReg.group(2))
           curVerseNbr=0

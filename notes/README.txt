@@ -102,6 +102,14 @@ rm -rf ccat.sas.upenn.edu/
 
 
 
+#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp
+#It looks like they are all chapter title and comes always in verse1.
+#If that s the case it can be dealt with in mlxx2imp.py.
+#If some are book title, may be it should be done book per book later in a xml modifying script.
+
+#TODO: how to cope with long verses such as job 42.17 and Sus 35a ?
+
+
 #################################
 4) Convert from imp to osis.
 ```

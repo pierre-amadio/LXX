@@ -73,7 +73,7 @@ for curFileName in sys.argv[1:]:
           curChapterNbr=int(verseLineReg.group(2))
           curVerseNbr=int(verseLineReg.group(3))
         elif chapterLineReg:
-          """ we are ina book/chapter (no verse) definition line """
+          """ we are ina book/chapter (no verse) definition line TODO: check if the verse is like 35a and store a milestone if it is."""
           bookName=int(chapterLineReg.group(1))
           curChapterNbr=int(chapterLineReg.group(2))
           curVerseNbr=0

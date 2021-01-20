@@ -116,11 +116,9 @@ exit
 #If some are book title, may be it should be done book per book later in a xml modifying script.
 #not the same kind of title -> it will be dealt on on per book case later.
 
-#TODO: how to cope with long verses such as job 42.17 and Sus 35a (and maybe Proverbs 24:22(a,b,c) ?
-
 #TODO: deal with 36.Sirach.imp prolog as a milestone
 
-#TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 
+#TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 then 24/ again.
 #Excerpt from "Septuaginta, a reader's edition", p334:
 #some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
 #the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.

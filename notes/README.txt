@@ -90,18 +90,6 @@ rm -rf ccat.sas.upenn.edu/
 echo "more things left TODO"
 exit
 
-#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
-#
-# 55 EpJer   1 chapter, title for both book and chapter...
-# 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
-# 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
-# 56 Lam , several chapters, seems to be a book title.
-# 61 DanielOG chapter 5 only
-#It looks like they are all chapter title and comes always in verse1.
-#If that s the case it can be dealt with in mlxx2imp.py.
-#If some are book title, may be it should be done book per book later in a xml modifying script.
-#not the same kind of title -> it will be dealt on on per book case later.
-
 #TODO: deal with 36.Sirach.imp prolog as a milestone
 
 #TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 then 24/ again.
@@ -116,11 +104,21 @@ exit
 #sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
 #sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
 
-TODO: some bookname have to be changed.
+#TODO: some bookname have to be changed.
 
-TODO: chapter and verses osis id formating.
+#TODO: chapter and verses osis id formating.
 
-TODO: add missing verses in Odes so frontend are not confused.
+#TODO: add missing verses in Odes so frontend are not confused.
+
+#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
+# 55 EpJer   1 chapter, title for both book and chapter...
+# 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
+# 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
+# 56 Lam , several chapters, seems to be a book title.
+# 61 DanielOG chapter 5 only
+#not the same kind of title (sometimes verse, sometime chapter)-> it will be dealt on on per book case later.
+
+
 #################################
 4) Convert from imp to osis.
 ```

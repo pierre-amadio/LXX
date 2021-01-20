@@ -95,6 +95,8 @@ exit
 # <milestone type="x-alt-v11n" n="1"/>
 #right now, those are set as milestones in verses Sir1:0 
 #things should be fixabled later on parsing the whole xml file.
+#https://wiki.crosswire.org/OSIS_Bibles#OSIS_Milestones
+
 
 #TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 then 24/ again.
 #Excerpt from "Septuaginta, a reader's edition", p334:

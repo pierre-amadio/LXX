@@ -59,7 +59,7 @@ for curFileName in sys.argv[1:]:
     milestoneFlag=False
     #curVerseSnt=""
     curVerseNbr=0
-    curChapterNbr=1
+    knownChapterNbr=0
     for line in fp:
       #let s ignore blank line.
       if re.search("^\s$",line):
@@ -94,19 +94,27 @@ for curFileName in sys.argv[1:]:
         if not book["name"]:
           book["name"]=bookName
         newVerseFlag=False
-        if len(book["chapters"])!=curChapterNbr+1:
+
+        #are we suppose to create a new chapter ?
+        needNewChapter=False
+        #if there is no chapter created yes, obviously we need.
+        if len(book["chapters"])==0:
+          needNewChapter=True
+
+        if knownChapterNbr!=curChapterNbr:
+          needNewChapter=True
+
+        if needNewChapter:
           newChapter={}
           newChapter["osisId"]=""
           newChapter["verses"]=[]
-          newChapter["osisId"]="%s.%s"%(book["name"],1+len(book["chapters"]))
+          newChapter["osisId"]="%s.%s"%(book["name"],curChapterNbr)
           #print("line='%s'"%line.strip())
           book["chapters"].append(newChapter)
+          knownChapterNbr=curChapterNbr
       else:
         """We are in a text line (not a $$chapter/verse  one)"""
         newVerseFlag=True
-        #curVerseSnt=line
-        #print(book["name"],curChapterNbr,curVerseNbr)
-        #print(line.strip())
         content=""
         if milestoneFlag:
           #content=milestoneFlag+"\n"
@@ -116,11 +124,11 @@ for curFileName in sys.argv[1:]:
         curVerse={}
         curVerse["osisId"]="%s %s:%s"%(book["name"],curChapterNbr,curVerseNbr)
         curVerse["content"]=content
-        book["chapters"][curChapterNbr-1]["verses"].append(curVerse)
+        book["chapters"][len(book["chapters"])-1]["verses"].append(curVerse)
         #print(line)
     fp.close()
     #We still need to destroy the last (empty) chapter created when we hit the actual last chapter.
-    book["chapters"]=book["chapters"][:-1]
+    #book["chapters"]=book["chapters"][:-1]
 
 #print(book)
 

@@ -49,6 +49,7 @@ for curFileName in sys.argv[1:]:
         #print("line='%s'"%line.strip())
         verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+)",line)
         chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
+        sirPrologReg=re.search("\$\$\$Sir/Prolog/(\d+)",line)
         if verseLineReg:
           """we are in a book/chapter/verse definition line"""
           bookName=verseLineReg.group(1)
@@ -59,8 +60,14 @@ for curFileName in sys.argv[1:]:
             milestoneFlag=ms.group(4)
           else:
             milestoneFlag=False
-
-        elif chapterLineReg:
+        elif sirPrologReg:
+          """ we are in one of those funny Sir Prolog line: $$$Sir/Prolog/4"""
+          #print(line)
+          bookName="Sir"
+          curChapterNbr=1
+          curVerseNbr=0
+          milestoneFlag=sirPrologReg.group(1)
+        elif chapterLineReg and not sirPrologReg:
           """ we are ina book/chapter (no verse) definition line """
           bookName=int(chapterLineReg.group(1))
           curChapterNbr=int(chapterLineReg.group(2))

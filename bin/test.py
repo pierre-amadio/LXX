@@ -10,35 +10,18 @@ env = Environment(loader=file_loader)
 template = env.get_template('book.xml')
 
 """
-testBook={}
-testBook['name']="Genesis"
-testBook['chapters']=[]
-
-ch1={}
-ch1["osisId"]="Gen 1"
-ch1["title"]="The creation"
-ch1["verses"]=[]
-ch1["verses"].append({})
-ch1["verses"][0]["osisId"]="Gen 1:1"
-ch1["verses"][0]["content"]="in the beginning..."
-ch1["verses"].append({})
-ch1["verses"][1]["osisId"]="Gen 1:2"
-ch1["verses"][1]["content"]="blablabla"
-
-ch2={}
-ch2["osisId"]="Gen 2"
-#ch2["title"]="The second chapter title"
-ch2["verses"]=[]
-ch2["verses"].append({})
-ch2["verses"][0]["osisId"]="Gen 2:1"
-ch2["verses"][0]["content"]="blablabla 21"
-ch2["verses"].append({})
-ch2["verses"][1]["osisId"]="Gen 2:2"
-ch2["verses"][1]["content"]="blablabla 22"
-
-
-testBook["chapters"].append(ch1)
-testBook["chapters"].append(ch2)
+Assuming we have a book data structure like this:
+{ 'chapters': [ { 'osisId': 'Gen 1',
+                  'title': 'The creation',
+                  'verses': [ { 'content': 'in the beginning...',
+                                'osisId': 'Gen 1:1'},
+                              {'content': 'blablabla', 'osisId': 'Gen 1:2'}]},
+                { 'osisId': 'Gen 2',
+                  'verses': [ {'content': 'blablabla 21', 'osisId': 'Gen 2:1'},
+                              { 'content': 'blablabla 22',
+                                'osisId': 'Gen 2:2'}]}],
+  'name': 'Genesis'}
+This script will outpout a xml representation of this data based on the templates/book.xml .
 """
 
 book={}

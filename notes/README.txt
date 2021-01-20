@@ -36,7 +36,6 @@ cd original-text
 wget -r -np http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/
 cp -r ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/ .
 
-#Later we will probably have to deal with alternate chapter:  08.JoshA.mlxx 10.JudgesA.mlxx 60.BelTh.mlxx 62.DanielTh.mlxx 64.SusTh.mlxx 23.TobitS.mlxx ../alternate
 #There are some error we need to change in the original text:
 cd ..
 cp original-text/lxxmorph/34.Job.mlxx original-text/lxxmorph/34.Job.mlxx-orig
@@ -50,7 +49,6 @@ sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 #Let s have it look like the other.
 sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/43.Obadiah.mlxx
 #Same for EpJer
-#TODO: we may be loosing the first header here.
 sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/55.EpJer.mlxx
 
 #BelOG has 1 chapter only, and the verse 1 is not properly tagged.
@@ -65,24 +63,12 @@ sed -ri 's/BelTh ([0-9]+)/BelTh 1:\1/' original-text/lxxmorph/60.BelTh.mlxx
 sed -ri 's|Sus 7/8|Sus 7|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's|Sus 10/11|Sus 10|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's|Sus 13/14|Sus 13|' original-text/lxxmorph/63.SusOG.mlxx
-#Well, what to do with the 35a verse ? this is probably not ideal:
-#sed -ri 's|Sus 35a|Sus 35|' original-text/lxxmorph/63.SusOG.mlxx
-#because we will end with 2 verse 35, right ? So, what about just
-#putting both of them in a single verse 35 ?
-#364 LE/GOUSA                 V1  PAPNSF LE/GW
-#365 
-#366 Sus 35a                                                   
-#let s remove line 365 and 366 then...
-#TODO: probably better to use some <milestone> stuff here.
-#sed -i '365,366d' original-text/lxxmorph/63.SusOG.mlxx 
 sed -ri 's|Sus 44/45|Sus 44|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's|Sus 60-63|Sus 60|' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's/Sus ([0-9]+)/Sus 1:\1/' original-text/lxxmorph/63.SusOG.mlxx
 
 #SusTh has only 1 chapter.
 sed -ri 's/SusTh ([0-9]+)/SusTh 1:\1/' original-text/lxxmorph/64.SusTh.mlxx 
-
-
 
 #3) Convert this to imp.
 #

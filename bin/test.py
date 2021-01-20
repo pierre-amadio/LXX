@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 """
 https://zetcode.com/python/jinja/
-
-
-TODO: deal with milestone node for verses like Sus 35:a (63.SusOG.mlxx)
-https://wiki.crosswire.org/List_of_eXtensions_to_OSIS_used_in_SWORD#x-milestone
 """
 import sys
 import re
@@ -71,7 +67,7 @@ for curFileName in sys.argv[1:]:
         verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+)",line)
         chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
         if verseLineReg:
-          """we are in a book/chapter/verse definition line TODO: check if the verse is like 35a and store a milestone if it is."""
+          """we are in a book/chapter/verse definition line"""
           bookName=verseLineReg.group(1)
           curChapterNbr=int(verseLineReg.group(2))
           curVerseNbr=int(verseLineReg.group(3))
@@ -100,7 +96,8 @@ for curFileName in sys.argv[1:]:
         #if there is no chapter created yes, obviously we need.
         if len(book["chapters"])==0:
           needNewChapter=True
-
+        #if the current chapter does not match the last one we dealt with, 
+        #it s a new chapter that needs to be created.
         if knownChapterNbr!=curChapterNbr:
           needNewChapter=True
 

@@ -101,7 +101,8 @@ for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..
 rm -rf ccat.sas.upenn.edu/
 
-
+echo "more things left TODO"
+exit
 
 #TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
 #

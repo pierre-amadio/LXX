@@ -4,6 +4,7 @@ https://zetcode.com/python/jinja/
 
 
 TODO: deal with milestone node for verses like Sus 35:a (63.SusOG.mlxx)
+https://wiki.crosswire.org/List_of_eXtensions_to_OSIS_used_in_SWORD#x-milestone
 """
 import sys
 import re
@@ -54,7 +55,9 @@ for curFileName in sys.argv[1:]:
   with open(curFileName) as fp:
     #newVerseFlag is true when we expect the current line to be a $$$Book Chapter:Verse sort of line 
     newVerseFlag=True
-    curVerseSnt=""
+    #is this an alternate versification verse such as Exod 28:29a that requires a <milestone> node ?
+    milestoneFlag=False
+    #curVerseSnt=""
     curVerseNbr=0
     curChapterNbr=1
     for line in fp:
@@ -72,6 +75,12 @@ for curFileName in sys.argv[1:]:
           bookName=verseLineReg.group(1)
           curChapterNbr=int(verseLineReg.group(2))
           curVerseNbr=int(verseLineReg.group(3))
+          ms=re.search("\$\$\$(\S+)/(\d+)/(\d+)([a-z]+)",line)
+          if ms:
+            milestoneFlag=ms.group(4)
+          else:
+            milestoneFlag=False
+
         elif chapterLineReg:
           """ we are ina book/chapter (no verse) definition line """
           bookName=int(chapterLineReg.group(1))
@@ -95,12 +104,18 @@ for curFileName in sys.argv[1:]:
       else:
         """We are in a text line (not a $$chapter/verse  one)"""
         newVerseFlag=True
-        curVerseSnt=line
+        #curVerseSnt=line
         #print(book["name"],curChapterNbr,curVerseNbr)
         #print(line.strip())
+        content=""
+        if milestoneFlag:
+          #content=milestoneFlag+"\n"
+          content='<milestone type="x-alt-v11n" n="%s"/>'%milestoneFlag
+          milestoneFlag=False
+        content+=line.strip()
         curVerse={}
         curVerse["osisId"]="%s %s:%s"%(book["name"],curChapterNbr,curVerseNbr)
-        curVerse["content"]=line.strip()
+        curVerse["content"]=content
         book["chapters"][curChapterNbr-1]["verses"].append(curVerse)
         #print(line)
     fp.close()

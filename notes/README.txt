@@ -130,8 +130,11 @@ exit
 #sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
 #sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
 
+TODO: some bookname have to be changed.
 
+TODO: chapter and verses osis id formating.
 
+TODO: add missing verses in Odes so frontend are not confused.
 #################################
 4) Convert from imp to osis.
 ```

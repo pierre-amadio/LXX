@@ -118,6 +118,8 @@ exit
 
 #TODO: how to cope with long verses such as job 42.17 and Sus 35a (and maybe Proverbs 24:22(a,b,c) ?
 
+#TODO: deal with 36.Sirach.imp prolog as a milestone
+
 #TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 
 #Excerpt from "Septuaginta, a reader's edition", p334:
 #some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.

@@ -109,7 +109,7 @@ for curFileName in sys.argv[1:]:
           milestoneFlag=False
         content+=line.strip()
         curVerse={}
-        curVerse["osisId"]="%s %s:%s"%(book["name"],curChapterNbr,curVerseNbr)
+        curVerse["osisId"]="%s.%s.%s"%(book["name"],curChapterNbr,curVerseNbr)
         curVerse["content"]=content
         book["chapters"][len(book["chapters"])-1]["verses"].append(curVerse)
         #print(line)

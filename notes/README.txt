@@ -143,9 +143,6 @@ sed -ri 's/Od/Odes/g' imp/30.Odes.imp
 echo "more things left TODO"
 exit
 
-
-#TODO: chapter and verses osis id formating.
-
 #TODO: add missing verses in Odes so frontend are not confused.
 
 #TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp

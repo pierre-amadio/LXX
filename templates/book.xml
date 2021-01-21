@@ -5,9 +5,10 @@
   <title type="chapter">{{chapter.title}}</title>
   {% endif %}
   {% for verse in chapter.verses -%}
-  <verse osisId="{{verse.osisId}}">
+  <verse osisID="{{verse.osisId}}">
    {{verse.content}}
   </verse>
-  {% endfor -%}</chapter>
+  {% endfor -%}
+</chapter>
 {% endfor -%}
 </div>

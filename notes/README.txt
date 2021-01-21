@@ -87,9 +87,6 @@ for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..
 rm -rf ccat.sas.upenn.edu/
 
-echo "more things left TODO"
-exit
-
 #TODO: deal with 36.Sirach.imp prolog as a milestone
 #those 36 verses are supposed to be milestone _before_ verse1.
 # <milestone type="x-alt-v11n" n="1"/>
@@ -110,7 +107,42 @@ exit
 #sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
 #sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
 
-#TODO: some bookname have to be changed.
+
+#TODO:unsure how to deal with this yet 
+#All 18.1Esdras.imp should be kept as 1Esdr
+#However, 19.2Esdras.imp should be split in 2:
+# from 2Esdr1/1 to Esdr ??? Esdr 1.11 ? -> Neh 1
+# from 2Esdr to Esdr ? -> Neh ?
+# from 2Esdr to ?? the end: Ezra
+#sed -ri 's/\$\$\$2Esdr 1([1-9])/\$\$\$Neh \1/g' 002.txt
+#sed -ri 's/\$\$\$2Esdr 2([0-9])/\$\$\$Neh 1\1/g' 002.txt
+#sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
+#sed -ri 's/1Esdr/1Esd/g' 002.txt
+#sed -ri 's/2Esdr/Ezra/g' 002.txt
+
+
+#sed -ri 's/\$\$\$Sir\/Prolog\//\$\$\$Sir 0:/g' 002.txt
+#sed -ri 's/\$\$\$([A-Za-z]+)\//\$\$\$\1 1:/g' 002.txt
+#sed -ri 's/(\$\$\$Sus 1:)6$/\11\n\[\]\16/g' 002.txt
+
+sed -ri 's/JoshB/Josh/g' imp/07.JoshB.imp
+sed -ri 's/JudgB/Judg/g' imp/09.JudgesB.imp
+sed -ri 's/2Sam\/K/2Sam/g' imp/13.2Sam.imp
+sed -ri 's/1Sam\/K/1Sam/g' imp/12.1Sam.imp
+sed -ri 's/1\/3Kgs/1Kgs/g' imp/14.1Kings.imp
+sed -ri 's/2\/4Kgs/2Kgs/g' imp/15.2Kings.imp
+sed -ri 's/Mac/Macc/g' imp/27.4Macc.imp
+sed -ri 's/TobBA/Tob/g' imp/22.TobitBA.imp
+#sed -ri 's/Proverbs/Prov/g' 002.txt
+sed -ri 's/Qoh/Eccl/g' imp/32.Qoheleth.imp
+sed -ri 's/Cant/Song/g' imp/33.Canticles.imp 
+sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp 
+sed -ri 's/Od/Odes/g' imp/30.Odes.imp 
+
+
+echo "more things left TODO"
+exit
+
 
 #TODO: chapter and verses osis id formating.
 

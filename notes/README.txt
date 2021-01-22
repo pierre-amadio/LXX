@@ -16,6 +16,7 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 ~/dev/lxxmodule/bin/python3 -m pip install betacode
 ~/dev/lxxmodule/bin/python3 -m pip install pygtrie
 ~/dev/lxxmodule/bin/python3 -m pip install jinja2 
+~/dev/lxxmodule/bin/python3 -m pip install lxml
 
 #2) Download the text from ccat.sas.upenn.edu
 ./bin/2-downloadRawText.sh

@@ -95,7 +95,8 @@ def parseLXX(fileName):
           sys.exit()
 
     with open(fileName) as fp:
-        soup = BeautifulSoup(fp, 'html.parser')
+        soup = BeautifulSoup(fp, features='xml')
+        #soup = BeautifulSoup(fp, 'html.parser')
         for link in soup.find_all('w'):
             lemma=link["lemma"]
             #print(link)
@@ -107,7 +108,7 @@ def parseLXX(fileName):
                 print("no parent verse")
                 continue
             try:
-                osisId=parentVerse["osisid"]
+                osisId=parentVerse["osisID"]
             except:
                 print( "Problem with ")
                 print(link)

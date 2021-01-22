@@ -109,7 +109,7 @@ with open(inputFile) as fp:
             #print("before='%s"%lemma)
             lemma=re.sub('\s+',', ',lemma)
             #print("\nparse avant '%s'"%parse,end="\n")
-            #parse=re.sub('\s+',' ',parse)
+            parse=re.sub('\s+',' ',parse)
             #print("parse apres '%s'"%parse,end="\n")
             #print("word '%s'"%word)
             #print("parse '%s'"%parse)

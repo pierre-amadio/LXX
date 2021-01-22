@@ -38,7 +38,11 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 
 ./bin/5-strongStuff.sh
 
-5) Validate the file.
+#6) Apply specific modification.
+
+./bin/6-specificStuff.sh
+
+#7) Validate the file.
 
 Download the osis schema
 

@@ -28,13 +28,13 @@ print(shortName)
 def missingVersesFromFile(fileName):
   print("parsing",fileName)
   with open(fileName) as fp:
-    soup = BeautifulSoup(fp, 'html.parser')
+    soup = BeautifulSoup(fp, 'xml')
 
     curChapter=0
     for chapter in soup.find_all('chapter'):
-      print("chapter=%s"%chapter["osisid"])
+      print("chapter=%s"%chapter["osisID"])
       curVerse=0
-      rc=re.search("Od\.(\d+)",chapter["osisid"])
+      rc=re.search("Od\.(\d+)",chapter["osisID"])
       for verse in chapter.find_all("verse"):
         print("verse=%s"%verse)
       #for c in link.children:

@@ -4,6 +4,8 @@
 Odes miss some verses that confuses reader.
 Lets fill in empty verses where there are one.
 
+Then some title should be moved from a verse node to the parent chapter node.
+
 arg1:  input file
 arg2:  output directory
 """
@@ -23,19 +25,31 @@ else:
 
 print(shortName)
 
-def parseFile(fileName):
+def missingVersesFromFile(fileName):
   print("parsing",fileName)
   with open(fileName) as fp:
     soup = BeautifulSoup(fp, 'html.parser')
-    for link in soup.find_all('w'):
-      print(link)
+
+    curChapter=0
+    for chapter in soup.find_all('chapter'):
+      print("chapter=%s"%chapter["osisid"])
+      curVerse=0
+      rc=re.search("Od\.(\d+)",chapter["osisID"]
+      for verse in chapter.find_all("verse"):
+        print("verse=%s"%verse)
+      #for c in link.children:
+      #  print('c="%s"'%c)
+
+        print("######################### ")
   out="plop"
   return out
 
 newFile="%s/%s"%(outputDir,shortName)
-new=parseFile(inputFile)
+allVersesXml=missingVersesFromFile(inputFile)
+newXml=allVersesXml
+
 with open(newFile, "w", encoding='utf-8') as file:
-  file.write(new)
+  file.write(newXml)
   print(newFile)
 
 

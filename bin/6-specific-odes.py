@@ -33,7 +33,7 @@ def missingVersesFromFile(fileName):
     curChapter=0
     for chapter in soup.find_all('chapter'):
       curVerseNbr=0
-      rc=re.search("Od\.(\d+)",chapter["osisID"])
+      rc=re.search("Odes\.(\d+)",chapter["osisID"])
       if rc:
         curChapter=int(rc.group(1))
       else:
@@ -42,7 +42,7 @@ def missingVersesFromFile(fileName):
 
       for verse in chapter.find_all("verse"):
         expectedVerseNbr=curVerseNbr+1
-        snt="Od.%s.(\d+)"%curChapter
+        snt="Odes.%s.(\d+)"%curChapter
         rv=re.search(snt,verse["osisID"])
         if rv:
           curVerseNbr=int(rv.group(1))

@@ -83,10 +83,11 @@ def parseLXX(fileName):
     strongDic={}
     with open("codesStrong.strong") as fp:
       for line in fp:
-        print(line)
+        #print(line)
         m=re.search("(\d+)#(.+)",line)
         if m:
-          print("%s -> %s"%(m.group(1),m.group(2)))
+          #print("%s -> %s"%(m.group(1),m.group(2)))
+          strongDic[m.group(2)]=m.group(1)
         else:
           print("Cannot parse strongDic : '%s'"%line)
           sys.exit()
@@ -96,8 +97,6 @@ def parseLXX(fileName):
         for link in soup.find_all('w'):
             lemma=link["lemma"]
             fullWord=link.contents[0]
-            print(fullWord)
-            print(link)
             parentVerse=link.find_parent("verse")
             if not parentVerse:
                 #Some chapter title have w node but no actual verse id.
@@ -114,13 +113,31 @@ def parseLXX(fileName):
                 print("_____________ PARENT:)")
                 print(link.parent)
                 sys.exit()
-            strongId=findStrongIdFor(osisId,fullWord) 
-            if not strongId:
+            lxxStrongId=findStrongIdFor(osisId,fullWord) 
+            dicStrongId=0
+
+            if fullWord in strongDic:
+              dicStrongId=strongDic[fullWord]
+              if dicStrongId!=lxxStrongId:
+                print("Strong entry differ for %s in %s"%(fullWord,parentVerse["osisid"]))
+                print("Old module:%s"%lxxStrongId)
+                print("codesStrong.strong: %s"%dicStrongId)
+                sys.exit()
+
+            finalNbr=0
+            if dicStrongId:
+              finalNbr=dicStrongId
+            if lxxStrongId:
+              finalNbr=lxxStrongId
+
+            print(fullWord,finalNbr)
+
+            if not lxxStrongId:
               print("no strong for %s"%fullWord)
-              sys.exit()
-            print("%s : number for %s changed to %s"%(parentVerse["osisid"],fullWord,strongId))
+            #print("%s : number for %s changed to %s"%(parentVerse["osisid"],fullWord,strongId))
             #newLemma=lemma.replace(r.group(1),"strong:G%s"%strongId)
             #link["lemma"]=newLemma
+            #print("lemma")
         #out=soup.prettify()
         out=str(soup)
         return out

@@ -22,14 +22,18 @@ import Sword
 markup=Sword.MarkupFilterMgr(Sword.FMT_OSIS)
 markup.thisown=False
 mgr = Sword.SWMgr(markup)
-
+mod=mgr.getModule("LXX")
+if not mod:
+    print("No module")
+    sys.exit()
+versification=mod.getConfigEntry("Versification")
+mgr.setGlobalOption("Greek Accents", "Off")
+mgr.setGlobalOption("Strong's Numbers", "On")
 
 def get_verse(bookStr,chapterInt,verseNbr,moduleName,outputType=Sword.FMT_PLAIN):
     """
         Return a verse from the Sword engine.
     """
-    mod=mgr.getModule(moduleName)
-    versification=mod.getConfigEntry("Versification")
     vk=Sword.VerseKey()
     vk.setVersificationSystem(versification)
     #vk.setTestament() ??
@@ -37,13 +41,6 @@ def get_verse(bookStr,chapterInt,verseNbr,moduleName,outputType=Sword.FMT_PLAIN)
     vk.setChapter(chapterInt)
     vk.setVerse(verseNbr)
     mod.setKey(vk)
-    #mgr.setGlobalOption("Hebrew Vowel Points", "On")
-    mgr.setGlobalOption("Greek Accents", "Off")
-    mgr.setGlobalOption("Strong's Numbers", "On")
-    #mgr.setGlobalOption("Hebrew Cantillation", "Off")
-    if not mod:
-        print("No module")
-        sys.exit()
     return mod.renderText()
 
 #From https://stackoverflow.com/questions/517923/what-is-the-best-way-to-remove-accents-normalize-in-a-python-unicode-string
@@ -135,9 +132,7 @@ def parseLXX(fileName):
                   codesStrong.strong: 5120
                   by default, let s use the old module value, but still print a warning.
                 """
-                print("Strong entry differ for %s in %s"%(fullWord,parentVerse["osisid"]))
-                print("Old module:%s"%lxxStrongId)
-                print("codesStrong.strong: %s\n"%dicStrongId)
+                print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisid"]))
                 dicStrongId=lxxStrongId
 
             finalNbr=0

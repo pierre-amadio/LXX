@@ -19,14 +19,15 @@ import sys
 from bs4 import BeautifulSoup
 import Sword
 
+markup=Sword.MarkupFilterMgr(Sword.FMT_OSIS)
+markup.thisown=False
+mgr = Sword.SWMgr(markup)
+
+
 def get_verse(bookStr,chapterInt,verseNbr,moduleName,outputType=Sword.FMT_PLAIN):
     """
         Return a verse from the Sword engine.
     """
-    markup=Sword.MarkupFilterMgr(outputType)
-    markup.thisown=False
-    mgr = Sword.SWMgr(markup)
-
     mod=mgr.getModule(moduleName)
     versification=mod.getConfigEntry("Versification")
     vk=Sword.VerseKey()

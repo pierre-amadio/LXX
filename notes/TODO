@@ -29,7 +29,7 @@ sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
 sed -ri 's/1Esdr/1Esd/g' 002.txt
 sed -ri 's/2Esdr/Ezra/g' 002.txt
 
-* add missing verses in Odes so frontend are not confused.
+* add missing verses in Odes so frontend are not confused. (5.1 6.1 7.1 8.1 9.1 11.1 13.1 14.1)
 
 *  how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
 # 55 EpJer   1 chapter, title for both book and chapter...

@@ -71,7 +71,7 @@ with open(inputFile) as fp:
             convertWord=betacode.conv.beta_to_uni(word)
             convertLemma=betacode.conv.beta_to_uni(lemma)
             out+="<w lemma=\"%s\" morph=\"packard:%s\" xlit=\"betacode:%s\">%s</w>"%(convertLemma,parse,word,convertWord)
-            if heading:
+            if heading and len(word):
                 headingTxt+=out
             else:
                 if(len(word)):

@@ -9,6 +9,7 @@ mkdir xml1
 ./bin/imp2xml.py imp/07.JoshB.imp > xml1/07.JoshB.xml
 ./bin/imp2xml.py imp/08.JoshA.imp > xml1/08.JoshA.xml
 
+./bin/imp2xml.py imp/30.Odes.imp > xml1/30.Odes.xml
 exit
 
 ./bin/imp2xml.py imp/ > xml1/

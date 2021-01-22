@@ -2,11 +2,13 @@
 
 cd original-text/lxxmorph/
 
+rm -rf rawimp
 mkdir rawimp
 for i in `ls *mlxx` ; do echo $i ; ../../bin/mlxx2imp.py $i >rawimp/${i/.mlxx/} ;done
 cd rawimp
 #Lets have normalisation
 #https://unix.stackexchange.com/questions/90100/convert-between-unicode-normalization-forms-on-the-unix-command-line
+rm -rf ../../../imp
 mkdir ../../../imp
 for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..

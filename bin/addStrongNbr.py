@@ -79,6 +79,18 @@ def findStrongIdFor(osisId,fullWord):
 
 def parseLXX(fileName):
     print("Let s parse some xml")
+
+    strongDic={}
+    with open("codesStrong.strong") as fp:
+      for line in fp:
+        print(line)
+        m=re.search("(\d+)#(.+)",line)
+        if m:
+          print("%s -> %s"%(m.group(1),m.group(2)))
+        else:
+          print("Cannot parse strongDic : '%s'"%line)
+          sys.exit()
+
     with open(fileName) as fp:
         soup = BeautifulSoup(fp, 'html.parser')
         for link in soup.find_all('w'):
@@ -103,6 +115,9 @@ def parseLXX(fileName):
                 print(link.parent)
                 sys.exit()
             strongId=findStrongIdFor(osisId,fullWord) 
+            if not strongId:
+              print("no strong for %s"%fullWord)
+              sys.exit()
             print("%s : number for %s changed to %s"%(parentVerse["osisid"],fullWord,strongId))
             #newLemma=lemma.replace(r.group(1),"strong:G%s"%strongId)
             #link["lemma"]=newLemma

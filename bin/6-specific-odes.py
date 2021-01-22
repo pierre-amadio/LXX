@@ -34,7 +34,7 @@ def missingVersesFromFile(fileName):
     for chapter in soup.find_all('chapter'):
       print("chapter=%s"%chapter["osisid"])
       curVerse=0
-      rc=re.search("Od\.(\d+)",chapter["osisID"]
+      rc=re.search("Od\.(\d+)",chapter["osisid"])
       for verse in chapter.find_all("verse"):
         print("verse=%s"%verse)
       #for c in link.children:

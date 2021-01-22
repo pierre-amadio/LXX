@@ -8,8 +8,6 @@ reimplementation of https://crosswire.org/svn/sword-tools/trunk/modules/lxxm/src
 
 inputFile=sys.argv[1]
 
-#print(inputFile)
-
 with open(inputFile) as fp:
     first=True
     heading=False

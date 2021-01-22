@@ -36,6 +36,7 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 #5) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
 
+./bin/5-strongStuff.sh
 
 5) Validate the file.
 

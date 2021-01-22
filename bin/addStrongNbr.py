@@ -2,7 +2,16 @@
 # -*- coding: utf-8 -*-
 # Trying to fill the gap in the LXX strong entry.
 """
-This script takes an LXX osis xml file, and try to replace the missing strong id based on the content of the old Sword LXX module.
+This script takes an LXX osis xml file, and try to replace the missing strong id based on the 
+content of the old Sword LXX module and on a flat file dictionnary.
+
+TODO: gen 1.7 
+<w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
+should there be lex entry ? if so, one or two ?
+in previous osis:
+<w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
+
+
 """
 import unicodedata
 import re
@@ -119,10 +128,16 @@ def parseLXX(fileName):
             if fullWord in strongDic:
               dicStrongId=strongDic[fullWord]
               if dicStrongId!=lxxStrongId:
+                """
+                  This may happen for entry such as Gen1.2 τοῦ
+                  Old module:3588
+                  codesStrong.strong: 5120
+                  by default, let s use the old module value, but still print a warning.
+                """
                 print("Strong entry differ for %s in %s"%(fullWord,parentVerse["osisid"]))
                 print("Old module:%s"%lxxStrongId)
-                print("codesStrong.strong: %s"%dicStrongId)
-                sys.exit()
+                print("codesStrong.strong: %s\n"%dicStrongId)
+                dicStrongId=lxxStrongId
 
             finalNbr=0
             if dicStrongId:
@@ -130,14 +145,16 @@ def parseLXX(fileName):
             if lxxStrongId:
               finalNbr=lxxStrongId
 
-            print(fullWord,finalNbr)
-
-            if not lxxStrongId:
-              print("no strong for %s"%fullWord)
-            #print("%s : number for %s changed to %s"%(parentVerse["osisid"],fullWord,strongId))
             #newLemma=lemma.replace(r.group(1),"strong:G%s"%strongId)
             #link["lemma"]=newLemma
-            #print("lemma")
+            #print(link)
+            #print(lemma)
+            if finalNbr:
+              newLemma='strong:G%s lex:%s'%(finalNbr,lemma)
+              #print(lemma)
+              #print(newLemma)
+              link["lemma"]=newLemma
+              #print(link)
         #out=soup.prettify()
         out=str(soup)
         return out

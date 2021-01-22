@@ -140,7 +140,7 @@ sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp
 sed -ri 's/Od/Odes/g' imp/30.Odes.imp 
 
 
-4) Transform imp in xml.
+#4) Transform imp in xml.
 
 rm -rf xml1
 mkdir xml1
@@ -163,6 +163,11 @@ mkdir xml1
 ./bin/imp2xml.py imp/ > xml1/
 ./bin/imp2xml.py imp/ > xml1/
 ./bin/imp2xml.py imp/ > xml1/
+
+
+#5) Add stong numbers.
+# Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
+
 
 
 echo "more things left TODO"

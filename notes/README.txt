@@ -87,6 +87,8 @@ for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..
 rm -rf ccat.sas.upenn.edu/
 
+#TODO: format morph code to get rid of multiple space ("N    NS"->"N NS")
+
 #TODO: deal with 36.Sirach.imp prolog as a milestone
 #those 36 verses are supposed to be milestone _before_ verse1.
 # <milestone type="x-alt-v11n" n="1"/>

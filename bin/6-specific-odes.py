@@ -52,7 +52,7 @@ def missingVersesFromFile(fileName):
 
         if curVerseNbr!=expectedVerseNbr:
             for missing in range (expectedVerseNbr,curVerseNbr):
-              newVerseTag=soup.new_tag("verse", osisID="Od.%s.%s"%(curChapter,missing))
+              newVerseTag=soup.new_tag("verse", osisID="Odes.%s.%s"%(curChapter,missing))
               newVerseTag.string=" "
               verse.insert_before(newVerseTag)
   return str(soup)

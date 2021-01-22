@@ -1,5 +1,6 @@
 #!/bin/bash
 
+rm -rf origina-text
 mkdir original-text
 cd original-text
 wget -r -np http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/

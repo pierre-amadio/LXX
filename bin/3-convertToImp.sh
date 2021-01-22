@@ -1,6 +1,6 @@
 #!/bin/bash
 
-riginal-text/lxxmorph/
+cd original-text/lxxmorph/
 
 mkdir rawimp
 for i in `ls *mlxx` ; do echo $i ; ../../bin/mlxx2imp.py $i >rawimp/${i/.mlxx/} ;done

@@ -18,40 +18,35 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 ~/dev/lxxmodule/bin/python3 -m pip install jinja2 
 
 #2) Download the text from ccat.sas.upenn.edu
-
 ./bin/2-downloadRawText.sh
 
 #3) Convert this to imp.
-#
-#This text is in a format not directly usable. The next step is to transform it in imp format.
 #https://wiki.crosswire.org/DevTools:IMP_Format
-
 ./bin/3-convertToImp.sh
 
 #4) Transform imp in xml.
-
 ./bin/4-convertToXml.sh
 
 
 #5) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
-
 ./bin/5-strongStuff.sh
 
 #6) Apply specific modification.
-
 ./bin/6-specificStuff.sh
 
-#7) Validate the file.
+#7) Concatenate stuff
 
-Download the osis schema
+#8) Validate the file.
+
+#Download the osis schema
 
 wget http://www.crosswire.org/osis/osisCore.2.1.1.xsd
 
-Validate the files:
+#Validate the files:
 
-xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
-xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
+#xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
+#xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
 
-6) Create the mod module.
+#8) Create the mod module.
 

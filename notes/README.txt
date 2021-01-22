@@ -19,7 +19,7 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 
 #2) Download the text from ccat.sas.upenn.edu
 
-./bin/2-downloadRawText.txt
+./bin/2-downloadRawText.sh
 
 #3) Convert this to imp.
 #

@@ -57,9 +57,20 @@ def missingVersesFromFile(fileName):
               verse.insert_before(newVerseTag)
   return str(soup)
 
+def moveTitle(origXml):
+  soup = BeautifulSoup(origXml, 'xml')
+  curChapter=0
+  for title in soup.find_all('title'):
+    verse=title.parent
+    chapter=verse.parent
+    cur=title.extract()
+    chapter.insert(0,title)
+
+  return str(soup)
+
 newFile="%s/%s"%(outputDir,shortName)
 allVersesXml=missingVersesFromFile(inputFile)
-newXml=allVersesXml
+newXml=moveTitle(allVersesXml)
 
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(newXml)

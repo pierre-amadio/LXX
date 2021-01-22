@@ -98,7 +98,7 @@ def parseLXX(fileName):
         soup = BeautifulSoup(fp, 'html.parser')
         for link in soup.find_all('w'):
             lemma=link["lemma"]
-            print(link)
+            #print(link)
             fullWord=link.contents[0]
             parentVerse=link.find_parent("verse")
             if not parentVerse:

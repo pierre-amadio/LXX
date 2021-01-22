@@ -4,14 +4,6 @@
 """
 This script takes an LXX osis xml file, and try to replace the missing strong id based on the 
 content of the old Sword LXX module and on a flat file dictionnary.
-
-TODO: gen 1.7 
-<w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
-should there be lex entry ? if so, one or two ?
-in previous osis:
-<w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
-
-
 """
 import unicodedata
 import re
@@ -132,7 +124,7 @@ def parseLXX(fileName):
                   codesStrong.strong: 5120
                   by default, let s use the old module value, but still print a warning.
                 """
-                print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisid"]))
+                #print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisid"]))
                 dicStrongId=lxxStrongId
 
             finalNbr=0
@@ -145,6 +137,11 @@ def parseLXX(fileName):
             #link["lemma"]=newLemma
             #print(link)
             #print(lemma)
+            #print("lemma",lemma)
+            #TODO here lemma may be two or more stuff: "χωρίζω, δια" or "ἵστημι, ἐκ, ἀνα" as in  Gen.4.25
+            #if re.search(",",lemma):
+            #  print(lemma,parentVerse["osisid"])
+
             if finalNbr:
               newLemma='strong:G%s lex:%s'%(finalNbr,lemma)
               #print(lemma)

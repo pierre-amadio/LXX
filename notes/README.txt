@@ -87,45 +87,6 @@ for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..
 rm -rf ccat.sas.upenn.edu/
 
-#TODO: format morph code to get rid of multiple space ("N    NS"->"N NS")
-
-#TODO: deal with 36.Sirach.imp prolog as a milestone
-#those 36 verses are supposed to be milestone _before_ verse1.
-# <milestone type="x-alt-v11n" n="1"/>
-#right now, those are set as milestones in verses Sir1:0 
-#things should be fixabled later on parsing the whole xml file.
-#https://wiki.crosswire.org/OSIS_Bibles#OSIS_Milestones
-
-
-#TODO: what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 then 24/ again.
-#Excerpt from "Septuaginta, a reader's edition", p334:
-#some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
-#the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.
-#I think this is what cyrille's script is doing too when it change chp 32-36 to 25-29 here:
-#Correction du chapitrage dans Prov
-#sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
-
-
-#TODO:unsure how to deal with this yet 
-#All 18.1Esdras.imp should be kept as 1Esdr
-#However, 19.2Esdras.imp should be split in 2:
-# from 2Esdr1/1 to Esdr ??? Esdr 1.11 ? -> Neh 1
-# from 2Esdr to Esdr ? -> Neh ?
-# from 2Esdr to ?? the end: Ezra
-#sed -ri 's/\$\$\$2Esdr 1([1-9])/\$\$\$Neh \1/g' 002.txt
-#sed -ri 's/\$\$\$2Esdr 2([0-9])/\$\$\$Neh 1\1/g' 002.txt
-#sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
-#sed -ri 's/1Esdr/1Esd/g' 002.txt
-#sed -ri 's/2Esdr/Ezra/g' 002.txt
-
-
-#sed -ri 's/\$\$\$Sir\/Prolog\//\$\$\$Sir 0:/g' 002.txt
-#sed -ri 's/\$\$\$([A-Za-z]+)\//\$\$\$\1 1:/g' 002.txt
-#sed -ri 's/(\$\$\$Sus 1:)6$/\11\n\[\]\16/g' 002.txt
 
 sed -ri 's/JoshB/Josh/g' imp/07.JoshB.imp
 sed -ri 's/JudgB/Judg/g' imp/09.JudgesB.imp
@@ -135,7 +96,6 @@ sed -ri 's/1\/3Kgs/1Kgs/g' imp/14.1Kings.imp
 sed -ri 's/2\/4Kgs/2Kgs/g' imp/15.2Kings.imp
 sed -ri 's/Mac/Macc/g' imp/27.4Macc.imp
 sed -ri 's/TobBA/Tob/g' imp/22.TobitBA.imp
-#sed -ri 's/Proverbs/Prov/g' 002.txt
 sed -ri 's/Qoh/Eccl/g' imp/32.Qoheleth.imp
 sed -ri 's/Cant/Song/g' imp/33.Canticles.imp 
 sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp 
@@ -174,31 +134,6 @@ mkdir xml1
 
 echo "more things left TODO"
 exit
-
-#TODO: add missing verses in Odes so frontend are not confused.
-
-#TODO: how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
-# 55 EpJer   1 chapter, title for both book and chapter...
-# 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
-# 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
-# 56 Lam , several chapters, seems to be a book title.
-# 61 DanielOG chapter 5 only
-#not the same kind of title (sometimes verse, sometime chapter)-> it will be dealt on on per book case later.
-
-
-#################################
-4) Convert from imp to osis.
-```
-./bin/imp2osis.sh
-./bin/imp2osis-alt.sh
-```
-
-Let s clean a bit: 
-rm LXX.alt.osis lxx.alt.osis.xml_old LXX.new.osis lxx.osis.xml_old
-
-
-The resulting file are: 
-lxx.osis.xml and lxx.alt.osis.xml
 
 
 5) Validate the file.

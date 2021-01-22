@@ -1,0 +1,53 @@
+* format morph code to get rid of multiple space ("N    NS"->"N NS")
+
+* deal with 36.Sirach.imp prolog as a milestone                                                                                                                                                               
+those 36 verses are supposed to be milestone _before_ verse1.
+ <milestone type="x-alt-v11n" n="1"/>
+right now, those are set as milestones in verses Sir1:0
+should they be under the chapter directly ?
+https://wiki.crosswire.org/OSIS_Bibles#OSIS_Milestones
+
+* what to do with Proverbs funny chapter numbering (ok up to 24, then 24/22a 24/22b 24/22c 24/22d 24/22e and 30/1 then 24/ again.
+#Excerpt from "Septuaginta, a reader's edition", p334:
+#some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
+#the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.
+#I think this is what cyrille's script is doing too when it change chp 32-36 to 25-29 here:
+#Correction du chapitrage dans Prov
+#sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' 002.txt
+#sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' 002.txt
+#sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' 002.txt
+#sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
+#sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
+
+* 2Esdr splitting in several books ?
+All 18.1Esdras.imp should be kept as 1Esdr
+However, 19.2Esdras.imp should be split in 2:
+ from 2Esdr1/1 to Esdr ??? Esdr 1.11 ? -> Neh 1
+ from 2Esdr to Esdr ? -> Neh ?
+ from 2Esdr to ?? the end: Ezra
+sed -ri 's/\$\$\$2Esdr 1([1-9])/\$\$\$Neh \1/g' 002.txt
+sed -ri 's/\$\$\$2Esdr 2([0-9])/\$\$\$Neh 1\1/g' 002.txt
+sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
+sed -ri 's/1Esdr/1Esd/g' 002.txt
+sed -ri 's/2Esdr/Ezra/g' 002.txt
+
+* add missing verses in Odes so frontend are not confused.
+
+*  how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
+# 55 EpJer   1 chapter, title for both book and chapter...
+# 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
+# 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
+# 56 Lam , several chapters, seems to be a book title.
+# 61 DanielOG chapter 5 only
+not the same kind of title (sometimes verse, sometime chapter)-> it will be dealt on on per book case later.
+
+* what is actually valid in a lemma as far as lex is concerned ?
+TODO: gen 1.7 
+<w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
+should there be lex entry ? if so, one or two ?
+in previous osis:
+<w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
+
+
+
+

@@ -1,4 +1,7 @@
 #!/bin/bash
 
-./bin/addStrongNbr.py xml1/04.Lev.xml 
+rm -rf strong
+mkdir strong
+
+./bin/addStrongNbr.py xml1/08.JoshA.xml ./strong
 

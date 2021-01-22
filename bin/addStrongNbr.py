@@ -4,6 +4,9 @@
 """
 This script takes an LXX osis xml file, and try to replace the missing strong id based on the 
 content of the old Sword LXX module and on a flat file dictionnary.
+
+first argument: input (single) file
+second argument: output directory
 """
 import unicodedata
 import re
@@ -153,11 +156,22 @@ def parseLXX(fileName):
         return out
 
 
-#Where to write the modified output:
-newFile="./test.xml"
 
 inputFile=sys.argv[1]
+outputDir=sys.argv[2]
 
+
+m=re.search(".*\/(\S+)$",inputFile)
+if m:
+  shortName=m.group(1)
+else:
+  shortName=inputFile
+
+print(shortName)
+
+newFile="%s/%s"%(outputDir,shortName)
 new=parseLXX(inputFile)
 with open(newFile, "w", encoding='utf-8') as file:
     file.write(new)
+
+print(newFile)

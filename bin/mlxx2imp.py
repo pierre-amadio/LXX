@@ -4,6 +4,8 @@ import re
 import betacode.conv
 """
 reimplementation of https://crosswire.org/svn/sword-tools/trunk/modules/lxxm/src/lxxm/LXXMConv.java
+
+arguments: (multiples) input files
 """
 
 inputFile=sys.argv[1]

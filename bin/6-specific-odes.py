@@ -32,17 +32,30 @@ def missingVersesFromFile(fileName):
 
     curChapter=0
     for chapter in soup.find_all('chapter'):
-      print("chapter=%s"%chapter["osisID"])
-      curVerse=0
+      curVerseNbr=0
       rc=re.search("Od\.(\d+)",chapter["osisID"])
-      for verse in chapter.find_all("verse"):
-        print("verse=%s"%verse)
-      #for c in link.children:
-      #  print('c="%s"'%c)
+      if rc:
+        curChapter=int(rc.group(1))
+      else:
+        print("Cannot parse chapter %s"%chapter["osisID"])
+        sys.exit()
 
-        print("######################### ")
-  out="plop"
-  return out
+      for verse in chapter.find_all("verse"):
+        expectedVerseNbr=curVerseNbr+1
+        snt="Od.%s.(\d+)"%curChapter
+        rv=re.search(snt,verse["osisID"])
+        if rv:
+          curVerseNbr=int(rv.group(1))
+        else:
+          print("Cannot parse verse %s"%verse)
+          sys.exit()
+
+        if curVerseNbr!=expectedVerseNbr:
+            for missing in range (expectedVerseNbr,curVerseNbr):
+              newVerseTag=soup.new_tag("verse", osisID="Od.%s.%s"%(curChapter,missing))
+              newVerseTag.string=" "
+              verse.insert_before(newVerseTag)
+  return str(soup)
 
 newFile="%s/%s"%(outputDir,shortName)
 allVersesXml=missingVersesFromFile(inputFile)

@@ -30,6 +30,7 @@ sed -ri 's/Cant/Song/g' imp/33.Canticles.imp
 sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp
 sed -ri 's/Od/Odes/g' imp/30.Odes.imp
 sed -ri 's/1Esdr/1Esd/g' imp/18.1Esdras.imp
+sed -ri 's/DanTh/Dan/g' imp/62.DanielTh.imp 
 sed -ri 's/SusTh/Sus/g' imp/64.SusTh.imp
 #2Esdr has to be splited in 2 book.
 #2Esdr 1 to 9   -> Ezra

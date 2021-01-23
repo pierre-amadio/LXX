@@ -16,6 +16,7 @@ bookInd["Josh"]="06"
 bookInd["Judg"]="07"
 bookInd["Tob"]="20"
 bookInd["Sus"]="53"
+bookInd["Dan"]="54"
 
 BFile=sys.argv[1]
 AFile=sys.argv[2]

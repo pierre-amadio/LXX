@@ -53,7 +53,7 @@ mkdir xml1
 ./bin/imp2xml.py imp/54.Baruch.imp > xml1/54.Baruch.xml
 ./bin/imp2xml.py imp/55.EpJer.imp > xml1/55.EpJer.xml
 ./bin/imp2xml.py imp/56.Lam.imp > xml1/56.Lam.xml
-./bin/imp2xml.py imp/57.Ezek1.imp imp/58.Ezek2.imp > xml1/57.Ezek1.xml
+./bin/imp2xml.py imp/57.Ezek1.imp imp/58.Ezek2.imp > xml1/57.Ezek.xml
 ./bin/imp2xml.py imp/59.BelOG.imp > xml1/59.BelOG.xml
 ./bin/imp2xml.py imp/60.BelTh.imp > xml1/60.BelTh.xml
 ./bin/imp2xml.py imp/61.DanielOG.imp > xml1/61.DanielOG.xml

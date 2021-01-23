@@ -28,7 +28,7 @@ cp xml1/17.2Chron.xml specific/14-2Chr.xml
 cp xml1/18.1Esdras.xml specific/15-1Esd.xml
 #TODO 19.2Esdras.xml
 cp xml1/20.Esther.xml specific/18-Esth.xml
-cp xml1/21.Judith.xml specific/18-Jdt.xml
+cp xml1/21.Judith.xml specific/19-Jdt.xml
 #TODO: 22.TobitBA.xml 23.TobitS.xml
 cp xml1/24.1Macc.xml specific/21-1Macc.xml
 cp xml1/25.2Macc.xml specific/22-2Macc.xml

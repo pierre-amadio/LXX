@@ -13,6 +13,7 @@ arg3: destination folder
 import sys
 import re
 from bs4 import BeautifulSoup
+import copy
 
 joshBFile=sys.argv[1]
 joshAFile=sys.argv[2]
@@ -27,18 +28,22 @@ outputDir=sys.argv[3]
 #
 #print(shortName)
 
-def Josh():
-  soupA=False
-  soupB=False
+def addVariant(xml,subType):
+  """
+  <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">
+  """
+  out=""
+  s= BeautifulSoup(xml,'xml')
+  for verse in s.find_all("verse"):
+    print("##\n",verse)
+    seg=s.new_tag("seg", type="x-variant", subtype="%s"%subType)
+    print(seg)
+    verse.insert_before(seg)
+    newV=verse.extract()
+    seg.append(newV)
+  return str(s)
 
-  with open(joshAFile) as joshA:
-    soupA= BeautifulSoup(joshA,'xml')
-    joshA.close()
-
-  with open(joshBFile) as joshB:
-    soupB= BeautifulSoup(joshB,'xml')
-    joshB.close()
-
+def Josh(xmlB,xmlA):
   for chapter in soupA.find_all('chapter'):
     print(chapter["osisID"])
     m=re.search("JoshA\.(\d+)",chapter["osisID"])
@@ -60,11 +65,21 @@ def Josh():
 newFile="%s/%s"%(outputDir,"06-Josh.xml")
 #allVersesXml=missingVersesFromFile(inputFile)
 #newXml=moveTitle(allVersesXml)
+soupA=False
+soupB=False
 
-newXml=Josh()
+with open(joshAFile) as joshA:
+  soupA= BeautifulSoup(joshA,'xml')
+  joshA.close()
 
-with open(newFile, "w", encoding='utf-8') as file:
-  file.write(newXml)
-  print(newFile)
+with open(joshBFile) as joshB:
+  soupB= BeautifulSoup(joshB,'xml')
+  joshB.close()
+
+xmlB=addVariant(str(soupB),"x-1")
+print(xmlB)
+#with open(newFile, "w", encoding='utf-8') as file:
+#  file.write(newXml)
+#  print(newFile)
 
 

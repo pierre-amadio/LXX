@@ -14,6 +14,7 @@ for i in `ls *` ; do echo $i; uconv -x Any-NFC $i> ../../../imp/$i.imp ;done
 cd ../../..
 rm -rf ccat.sas.upenn.edu/
 
+sed -ri 's/JoshA/Josh/g' imp/08.JoshA.imp
 sed -ri 's/JoshB/Josh/g' imp/07.JoshB.imp
 sed -ri 's/JudgB/Judg/g' imp/09.JudgesB.imp
 sed -ri 's/2Sam\/K/2Sam/g' imp/13.2Sam.imp

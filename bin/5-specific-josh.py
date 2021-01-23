@@ -30,21 +30,18 @@ outputDir=sys.argv[3]
 
 def addVariant(xml,subType):
   """
-  <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">
+  wrap the verses in xml in some <seg> nodes:
+  <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">blabla</verse></seg>
   """
-  out=""
-  s= BeautifulSoup(xml,'xml')
-  for verse in s.find_all("verse"):
-    print("##\n",verse)
-    seg=s.new_tag("seg", type="x-variant", subtype="%s"%subType)
-    print(seg)
+  for verse in xml.find_all("verse"):
+    seg=xml.new_tag("seg", type="x-variant", subtype="%s"%subType)
     verse.insert_before(seg)
     newV=verse.extract()
     seg.append(newV)
-  return str(s)
+  return xml
 
-def Josh(xmlB,xmlA):
-  for chapter in soupA.find_all('chapter'):
+def josh(xmlB,xmlA):
+  for chapter in xmlA.find_all('chapter'):
     print(chapter["osisID"])
     m=re.search("JoshA\.(\d+)",chapter["osisID"])
     curChapter=0
@@ -52,8 +49,10 @@ def Josh(xmlB,xmlA):
       curChapter=m.group(1)
     else:
       print("Cannot parse chatper %s"%joshB["osisID"])
-      sys.exiit()
+      sys.exit()
     print(curChapter)
+    for seg in chapter.find_all("seg"):
+      print("seg=",seg)
 
 
 
@@ -76,8 +75,9 @@ with open(joshBFile) as joshB:
   soupB= BeautifulSoup(joshB,'xml')
   joshB.close()
 
-xmlB=addVariant(str(soupB),"x-1")
-print(xmlB)
+xmlB=addVariant(soupB,"x-1")
+xmlA=addVariant(soupA,"x-1")
+result=josh(xmlB,xmlA)
 #with open(newFile, "w", encoding='utf-8') as file:
 #  file.write(newXml)
 #  print(newFile)

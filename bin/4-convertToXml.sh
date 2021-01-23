@@ -24,7 +24,7 @@ mkdir xml1
 ./bin/imp2xml.py imp/22.TobitBA.imp > xml1/22.TobitBA.xml
 ./bin/imp2xml.py imp/23.TobitS.imp > xml1/23.TobitS.xml
 ./bin/imp2xml.py imp/24.1Macc.imp > xml1/24.1Macc.xml
-./bin/imp2xml.py imp/25.2Macc.imp > xml1/5.2Macc.xml
+./bin/imp2xml.py imp/25.2Macc.imp > xml1/25.2Macc.xml
 ./bin/imp2xml.py imp/26.3Macc.imp > xml1/26.3Macc.xml
 ./bin/imp2xml.py imp/27.4Macc.imp > xml1/27.4Macc.xml
 ./bin/imp2xml.py imp/28.Psalms1.imp imp/29.Psalms2.imp > xml1/28.Psalms.xml

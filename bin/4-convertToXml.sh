@@ -17,8 +17,8 @@ mkdir xml1
 ./bin/imp2xml.py imp/15.2Kings.imp > xml1/15.2Kings.xml
 ./bin/imp2xml.py imp/16.1Chron.imp > xml1/16.1Chron.xml
 ./bin/imp2xml.py imp/17.2Chron.imp > xml1/17.2Chron.xml
-./bin/imp2xml.py imp/ > xml1/
-./bin/imp2xml.py imp/ > xml1/
+./bin/imp2xml.py imp/18.1Esdras.imp > xml1/18.1Esdras.xml
+./bin/imp2xml.py imp/19.2Esdras.imp > xml1/19.2Esdras.imp
 ./bin/imp2xml.py imp/ > xml1/
 ./bin/imp2xml.py imp/ > xml1/
 ./bin/imp2xml.py imp/30.Odes.imp > xml1/30.Odes.xml

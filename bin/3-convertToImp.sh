@@ -17,6 +17,7 @@ rm -rf ccat.sas.upenn.edu/
 sed -ri 's/JoshA/Josh/g' imp/08.JoshA.imp
 sed -ri 's/JoshB/Josh/g' imp/07.JoshB.imp
 sed -ri 's/JudgB/Judg/g' imp/09.JudgesB.imp
+sed -ri 's/JudgA/Judg/g' imp/10.JudgesA.imp
 sed -ri 's/2Sam\/K/2Sam/g' imp/13.2Sam.imp
 sed -ri 's/1Sam\/K/1Sam/g' imp/12.1Sam.imp
 sed -ri 's/1\/3Kgs/1Kgs/g' imp/14.1Kings.imp

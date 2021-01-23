@@ -16,8 +16,9 @@ cp xml1/03.Exod.xml  specific/02-Exod.xml
 cp xml1/04.Lev.xml specific/03-Lev.xml
 cp xml1/05.Num.xml specific/04-Num.xml
 cp xml1/06.Deut.xml specific/05-Deut.xml
-./bin/5-specific-josh.py xml1/07.JoshB.xml xml1/08.JoshA.xml  specific/
+./bin/5-specific-combine-subtype.py xml1/07.JoshB.xml xml1/08.JoshA.xml  specific/
 #TODO: 09.JudgesB.xml 10.JudgesA.xml
+./bin/5-specific-combine-subtype.py xml1/09.JudgesB.xml  xml1/10.JudgesA.xml  specific/
 cp xml1/11.Ruth.xml specific/08-Ruth.xml
 cp xml1/12.1Sam.xml specific/09-1Sam.xml
 cp xml1/13.2Sam.xml specific/10-2Sam.xml

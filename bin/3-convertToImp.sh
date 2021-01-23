@@ -26,4 +26,5 @@ sed -ri 's/Qoh/Eccl/g' imp/32.Qoheleth.imp
 sed -ri 's/Cant/Song/g' imp/33.Canticles.imp
 sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp
 sed -ri 's/Od/Odes/g' imp/30.Odes.imp
+sed -ri 's/1Esdr/1Esd/g' imp/18.1Esdras.imp
 

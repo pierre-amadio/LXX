@@ -17,18 +17,25 @@ https://wiki.crosswire.org/OSIS_Bibles#OSIS_Milestones
 #sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
 #sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
 
-* 2Esdr splitting in several books ?
-All 18.1Esdras.imp should be kept as 1Esdr
-However, 19.2Esdras.imp should be split in 2:
- from 2Esdr1/1 to Esdr ??? Esdr 1.11 ? -> Neh 1
- from 2Esdr to Esdr ? -> Neh ?
- from 2Esdr to ?? the end: Ezra
-sed -ri 's/\$\$\$2Esdr 1([1-9])/\$\$\$Neh \1/g' 002.txt
-sed -ri 's/\$\$\$2Esdr 2([0-9])/\$\$\$Neh 1\1/g' 002.txt
-sed -ri 's/\$\$\$2Esdr /\$\$\$Ezra /g' 002.txt
-sed -ri 's/1Esdr/1Esd/g' 002.txt
-sed -ri 's/2Esdr/Ezra/g' 002.txt
+#################
+Splitting Esdr so it match include/canon_lxx.h
 
+book order:1Esd Ezra Neh 
+
+{"I Esdras", "1Esd", "1Esd", 9},
+{"Ezra", "Ezra", "Ezra", 10},
+{"Nehemiah", "Neh", "Neh", 13},
+
+
+
+* 2Esdr splitting in several books ?
+https://en.wikipedia.org/wiki/1_Esdras
+https://en.wikipedia.org/wiki/1_Esdras
+
+1Esdr         -> 1Esd
+2Esdr-> 1-9   -> Ezra
+2Esdr-> 10-23 -> Neh
+######################
 
 *  how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
 # 55 EpJer   1 chapter, title for both book and chapter...

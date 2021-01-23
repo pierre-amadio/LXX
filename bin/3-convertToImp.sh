@@ -24,6 +24,7 @@ sed -ri 's/1\/3Kgs/1Kgs/g' imp/14.1Kings.imp
 sed -ri 's/2\/4Kgs/2Kgs/g' imp/15.2Kings.imp
 sed -ri 's/Mac/Macc/g' imp/27.4Macc.imp
 sed -ri 's/TobBA/Tob/g' imp/22.TobitBA.imp
+sed -ri 's/TobS/Tob/g' imp/23.TobitS.imp 
 sed -ri 's/Qoh/Eccl/g' imp/32.Qoheleth.imp
 sed -ri 's/Cant/Song/g' imp/33.Canticles.imp
 sed -ri 's/PsSol/PssSol/g' imp/37.PsSol.imp

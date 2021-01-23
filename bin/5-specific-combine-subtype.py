@@ -14,6 +14,7 @@ import copy
 bookInd={}
 bookInd["Josh"]="06"
 bookInd["Judg"]="07"
+bookInd["Tob"]="20"
 
 BFile=sys.argv[1]
 AFile=sys.argv[2]

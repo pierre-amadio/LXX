@@ -17,7 +17,6 @@ cp xml1/04.Lev.xml specific/03-Lev.xml
 cp xml1/05.Num.xml specific/04-Num.xml
 cp xml1/06.Deut.xml specific/05-Deut.xml
 ./bin/5-specific-combine-subtype.py xml1/07.JoshB.xml xml1/08.JoshA.xml  specific/
-#TODO: 09.JudgesB.xml 10.JudgesA.xml
 ./bin/5-specific-combine-subtype.py xml1/09.JudgesB.xml  xml1/10.JudgesA.xml  specific/
 cp xml1/11.Ruth.xml specific/08-Ruth.xml
 cp xml1/12.1Sam.xml specific/09-1Sam.xml
@@ -31,6 +30,7 @@ cp xml1/18.1Esdras.xml specific/15-1Esd.xml
 cp xml1/20.Esther.xml specific/18-Esth.xml
 cp xml1/21.Judith.xml specific/19-Jdt.xml
 #TODO: 22.TobitBA.xml 23.TobitS.xml
+./bin/5-specific-combine-subtype.py xml1/22.TobitBA.xml  xml1/23.TobitS.xml  specific/
 cp xml1/24.1Macc.xml specific/21-1Macc.xml
 cp xml1/25.2Macc.xml specific/22-2Macc.xml
 cp xml1/26.3Macc.xml specific/23-3Macc.xml

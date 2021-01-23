@@ -17,13 +17,13 @@ inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
 
-m=re.search(".*\/(\S+)$",inputFile)
-if m:
-  shortName=m.group(1)
-else:
-  shortName=inputFile
-
-print(shortName)
+#m=re.search(".*\/(\S+)$",inputFile)
+#if m:
+#  shortName=m.group(1)
+#else:
+#  shortName=inputFile
+#
+#print(shortName)
 
 def missingVersesFromFile(fileName):
   print("parsing",fileName)
@@ -68,7 +68,7 @@ def moveTitle(origXml):
 
   return str(soup)
 
-newFile="%s/%s"%(outputDir,shortName)
+newFile="%s/%s"%(outputDir,"57-Odes.xml")
 allVersesXml=missingVersesFromFile(inputFile)
 newXml=moveTitle(allVersesXml)
 

@@ -105,7 +105,7 @@ def parseLXX(fileName):
             if not parentVerse:
                 #Some chapter title have w node but no actual verse id.
                 #We ignore those.
-                print("no parent verse")
+                #print("no parent verse")
                 continue
             try:
                 osisId=parentVerse["osisID"]

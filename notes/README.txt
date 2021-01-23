@@ -28,13 +28,12 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 #4) Transform imp in xml.
 ./bin/4-convertToXml.sh
 
+#5) Apply specific modification.
+./bin/5-specificStuff.sh
 
-#5) Add stong numbers.
+#6) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
-./bin/5-strongStuff.sh
-
-#6) Apply specific modification.
-./bin/6-specificStuff.sh
+./bin/6-strongStuff.sh
 
 #7) Concatenate stuff
 

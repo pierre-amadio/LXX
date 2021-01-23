@@ -32,8 +32,8 @@ cp xml1/21.Judith.xml specific/19-Jdt.xml
 #TODO: 22.TobitBA.xml 23.TobitS.xml
 cp xml1/24.1Macc.xml specific/21-1Macc.xml
 cp xml1/25.2Macc.xml specific/22-2Macc.xml
-cp xml1/26.3Macc.xml specific/23-Macc.xml
-cp xml1/27.4Macc.xml specific/24-Macc.xml
+cp xml1/26.3Macc.xml specific/23-3Macc.xml
+cp xml1/27.4Macc.xml specific/24-4Macc.xml
 cp xml1/28.Psalms.xml specific/25-Ps.xml
 #prayer of manashe is already in odes.
 cp xml1/31.Proverbs.xml specific/27-Prov.xml

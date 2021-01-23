@@ -15,6 +15,7 @@ bookInd={}
 bookInd["Josh"]="06"
 bookInd["Judg"]="07"
 bookInd["Tob"]="20"
+bookInd["Sus"]="53"
 
 BFile=sys.argv[1]
 AFile=sys.argv[2]
@@ -48,7 +49,7 @@ def addVariant(xml,subType):
 
 def combine(xmlB,xmlA,bookName):
   for chapter in xmlA.find_all('chapter'):
-    #print(chapter["osisID"])
+    print(chapter["osisID"])
     m=re.search("%s\.(\d+)"%bookName,chapter["osisID"])
     curChapter=0
     if m:

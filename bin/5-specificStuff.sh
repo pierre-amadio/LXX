@@ -29,7 +29,6 @@ cp xml1/18.1Esdras.xml specific/15-1Esd.xml
 #TODO 19.2Esdras.xml
 cp xml1/20.Esther.xml specific/18-Esth.xml
 cp xml1/21.Judith.xml specific/19-Jdt.xml
-#TODO: 22.TobitBA.xml 23.TobitS.xml
 ./bin/5-specific-combine-subtype.py xml1/22.TobitBA.xml  xml1/23.TobitS.xml  specific/
 cp xml1/24.1Macc.xml specific/21-1Macc.xml
 cp xml1/25.2Macc.xml specific/22-2Macc.xml
@@ -64,6 +63,7 @@ cp xml1/55.EpJer.xml specific/50-EpJer.xml
 cp xml1/57.Ezek.xml specific/51-Ezek.xml
 #TODO: what about 52 PrAzar the prayer of azariah in the book of daniel ()
 #TODO 63.SusOG.xml 64.SusTh.xml
+./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/xml1/64.SusTh.xml  specific/
 #TODO: 61.DanielOG.xml 62.DanielTh.xml
 #TODO: 59.BelOG.xml 60.BelTh.xml
 #missing 1Enoch 

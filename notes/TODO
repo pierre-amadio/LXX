@@ -52,7 +52,9 @@ should there be lex entry ? if so, one or two ?
 in previous osis:
 <w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
 
-
+* I m not sure the bin/5-specific-combine-subtype.py script works on all case.
+What if the order of the book is wrong, some final chapter may be missing.
+Double check that !
 
 ##################
 DONE:

@@ -51,6 +51,17 @@ xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
 #https://www.crosswire.org/sword/develop/swordmodule/
 rmdir mod
 mdkdir mod
-/usr/local/sword/bin/osis2mod mod lxx.osis.xml -v LXX
+# 1 text so far
+# 8 book and chapter introduction are determined
+# 32 milestone
+# 64 extra canonical issues
+# 513 : general 
+/usr/local/sword/bin/osis2mod mod lxx.osis.xml -v LXX -d 618
+
+this seems stuck at:
+DEBUG(V11N)[linkToEntry]: Proverbs 32:712704 normalizes to Revelation of John 22:21
+-> dealing with correct proverb chapter is not done yet !
+
+
 
 

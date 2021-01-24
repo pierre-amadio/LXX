@@ -47,4 +47,10 @@ wget http://www.crosswire.org/osis/osisCore.2.1.1.xsd
 xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
 
 #8) Create the mod module.
+# https://wiki.crosswire.org/Osis2mod
+#https://www.crosswire.org/sword/develop/swordmodule/
+rmdir mod
+mdkdir mod
+/usr/local/sword/bin/osis2mod mod lxx.osis.xml -v LXX
+
 

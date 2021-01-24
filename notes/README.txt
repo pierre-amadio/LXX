@@ -37,6 +37,8 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 
 #7) Concatenate stuff
 
+./bin/7-concatenate.sh
+
 #8) Validate the file.
 
 #Download the osis schema

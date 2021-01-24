@@ -30,9 +30,7 @@ https://en.wikipedia.org/wiki/1_Esdras
 # 37 PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
 # DONE 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
 # 56 Lam , several chapters, seems to be a book title.
-# 61 DanielOG chapter 5 only. 
-Dan 5.1 x-1 subtype: 5.1 title is at an invald place: Βαλτασαρ βασιλεὺς ἡμέρᾳ ἐγκαινισμοῦ 
-not the same kind of title (sometimes verse, sometime chapter)-> it will be dealt on on per book case later.
+# DONE 61 DanielOG chapter 5 only. 
 
 * what is actually valid in a lemma as far as lex is concerned ?
 TODO: gen 1.7 

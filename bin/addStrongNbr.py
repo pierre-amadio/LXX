@@ -148,7 +148,9 @@ def parseLXX(fileName):
             #  print(lemma,parentVerse["osisid"])
 
             if finalNbr:
-              newLemma='strong:G%s lex:%s'%(finalNbr,lemma)
+              #newLemma='strong:G%s lex:%s'%(finalNbr,lemma)
+              #Let s ignore the whole lex thingy for now.
+              newLemma='strong:G%s '%(finalNbr)
               #print(lemma)
               #print(newLemma)
               link["lemma"]=newLemma

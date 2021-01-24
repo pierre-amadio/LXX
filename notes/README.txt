@@ -62,6 +62,11 @@ this seems stuck at:
 DEBUG(V11N)[linkToEntry]: Proverbs 32:712704 normalizes to Revelation of John 22:21
 -> dealing with correct proverb chapter is not done yet !
 
+same issue with Bel:
+DEBUG(V11N)[linkToEntry]: Bel and the Dragon 31:84370 normalizes to Revelation of John 22:21
+no idea what could be wrong...
+
+
 
 
 

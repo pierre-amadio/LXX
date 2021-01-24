@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#rm -rf strong
-#mkdir strong
+rm -rf strong
+mkdir strong
 
 for i in `ls specific`; do
   #echo $i;

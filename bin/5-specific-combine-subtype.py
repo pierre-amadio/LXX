@@ -43,7 +43,7 @@ def addVariant(xml,subType):
   <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">blabla</verse></seg>
   """
   for verse in xml.find_all("verse"):
-    seg=xml.new_tag("seg", type="x-variant", subtype="%s"%subType)
+    seg=xml.new_tag("seg", type="x-variant", subType="%s"%subType)
     verse.insert_before(seg)
     newV=verse.extract()
     seg.append(newV)

@@ -39,7 +39,7 @@ with open(inputFile) as fp:
                         print("/%s"%line[0:line.index(" ")],end='')
 
                 if(len(headingTxt)):
-                    print("<title type=\"section\" subtype=\"x-preverse\">%s</title>"%headingTxt,end='')
+                    print("<title type=\"section\" subType=\"x-preverse\">%s</title>"%headingTxt,end='')
                     headingTxt=""
                     heading=False
             else:

@@ -46,9 +46,11 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 wget http://www.crosswire.org/osis/osisCore.2.1.1.xsd
 
 #Validate the files:
+xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
+
 
 #xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
-#xmllint --noout --schema osisCore.2.1.1.xsd lxx.alt.osis.xml
+#xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
 
 #8) Create the mod module.
 

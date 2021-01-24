@@ -101,7 +101,9 @@ for curFileName in sys.argv[1:]:
         if milestoneFlag:
           content='<milestone type="x-alt-v11n" n="%s"/>'%milestoneFlag
           milestoneFlag=False
-        content+=line.strip()
+
+        rawContent=line.strip()
+        content=rawContent.replace('<title type="section" subType="x-preverse">','<title type="chapter">')
         curVerse={}
         curVerse["osisId"]="%s.%s.%s"%(book["name"],curChapterNbr,curVerseNbr)
         curVerse["content"]=content

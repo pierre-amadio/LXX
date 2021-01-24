@@ -39,14 +39,20 @@ def getBookName(xml):
 
 def addVariant(xml,subType):
   """
-  wrap the verses in xml in some <seg> nodes:
+  wrap the contnt of verses in some <seg> nodes:
   <verse osisID="Josh.1.1"><seg type="x-variant" subType="x-1">blabla</verse></seg>
   """
   for verse in xml.find_all("verse"):
+    # for l in verse.children:
+    #   print("c='%s'"%l)
+    copyVerse=copy.copy(verse)
+    origContent=copyVerse.children
+    verse.clear()
+    #print("clear->",verse)
     seg=xml.new_tag("seg", type="x-variant", subType="%s"%subType)
-    verse.insert_before(seg)
-    newV=verse.extract()
-    seg.append(newV)
+    verse.append(seg)
+    for c in copyVerse.children:
+      seg.append(copy.copy(c))
   return xml
 
 def combine(xmlB,xmlA,bookName):

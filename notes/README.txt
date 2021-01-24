@@ -56,7 +56,7 @@ mdkdir mod
 # 32 milestone
 # 64 extra canonical issues
 # 513 : general 
-/usr/local/sword/bin/osis2mod mod lxx.osis.xml -v LXX -d 618
+/usr/local/sword/bin/osis2mod mod lxx.osis.xml -z z -v LXX -d 618
 
 this seems stuck at:
 DEBUG(V11N)[linkToEntry]: Proverbs 32:712704 normalizes to Revelation of John 22:21
@@ -66,7 +66,7 @@ same issue with Bel:
 DEBUG(V11N)[linkToEntry]: Bel and the Dragon 31:84370 normalizes to Revelation of John 22:21
 no idea what could be wrong...
 
-
-
+cp lxx.conf ~/localsword/mods.d/ 
+mv mod ~/localsword/modules/texts/ztext/lxx/
 
 

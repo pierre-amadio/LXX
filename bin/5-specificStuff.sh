@@ -62,7 +62,7 @@ cp xml1/56.Lam.xml specific/49-Lam-Lam.xml
 cp xml1/55.EpJer.xml specific/50-EpJer.xml
 cp xml1/57.Ezek.xml specific/51-Ezek.xml
 #TODO: what about 52 PrAzar the prayer of azariah in the book of daniel ()
-./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/xml1/64.SusTh.xml  specific/
+./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/64.SusTh.xml  specific/
 ./bin/5-specific-combine-subtype.py xml1/61.DanielOG.xml  xml1/62.DanielTh.xml  specific/
 ./bin/5-specific-combine-subtype.py xml1/59.BelOG.xml  xml1/60.BelTh.xml  specific/
 #missing 1Enoch 

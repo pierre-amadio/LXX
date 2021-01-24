@@ -1,5 +1,11 @@
 #This repository store the information needed to build the septuagin module LXX for the Sword engine.
 
+# You will need the following installed before starting:
+# sword 
+# the 2.5 version of the LXX module for sword (used as a reference for the strong number)
+# python 3.6 with the maching sword module
+# virtualenv
+
 #1) Prepare your environnement.
 
 #You will need several python module that may not be packaged in your distro.

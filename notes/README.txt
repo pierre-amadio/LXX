@@ -56,7 +56,7 @@ xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
 # https://wiki.crosswire.org/Osis2mod
 #https://www.crosswire.org/sword/develop/swordmodule/
 rmdir mod
-mdkdir mod
+mkdir mod
 # 1 text so far
 # 8 book and chapter introduction are determined
 # 32 milestone

@@ -23,6 +23,9 @@ sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/55.EpJer.mlxx
 #BelOG has 1 chapter only, and the verse 1 is not properly tagged.
 sed -ri 's/^Bel\s*$/Bel 1/' original-text/lxxmorph/59.BelOG.mlxx
 sed -ri 's/Bel ([0-9]+)/Bel 1:\1/' original-text/lxxmorph/59.BelOG.mlxx
+#Verse 1:31 and 1:32 are mixed together, let s call it 1:31
+sed -ri 's|Bel 1:31/32|Bel 1:31|g' original-text/lxxmorph/59.BelOG.mlxx
+
 
 #BelTh has only 1 chapter
 sed -ri 's/BelTh ([0-9]+)/BelTh 1:\1/' original-text/lxxmorph/60.BelTh.mlxx

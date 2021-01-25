@@ -10,7 +10,7 @@ if [ $1 = "devel" ]
 then
  echo "devel";
  cp lxx.conf $SWORD_PATH/mods.d
- mv mod/ $SWORD_PATH/modules/texts/ztext/lxx
+ cp -r mod/ $SWORD_PATH/modules/texts/ztext/lxx
 else
  echo "standard";
  cp $oldzip ./tmp

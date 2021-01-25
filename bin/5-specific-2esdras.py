@@ -7,8 +7,8 @@ Splitting 2Esdr so it match include/canon_lxx.h
 {"Nehemiah", "Neh", "Neh", 13},
 
 1Esdr         -> 15-1Esd
-2Esdr-> 1-9   -> 16-Ezra
-2Esdr-> 10-23 -> 17-Neh
+2Esdr-> 1-10  -> 16-Ezra
+2Esdr-> 11-23 -> 17-Neh
 """
 import sys
 import re
@@ -32,7 +32,7 @@ with open(inputFile) as fp:
   fp.close()
 
 
-#2Esdr-> 1-9   -> 16-Ezra
+#2Esdr-> 1-10  -> 16-Ezra
 ezra.div["osisID"]="Ezra"
 for chapter in ezra.find_all("chapter"):
   m=re.search("2Esdr\.(\d+)",chapter["osisID"])
@@ -41,7 +41,7 @@ for chapter in ezra.find_all("chapter"):
     sys.exit()
   chapterNbr=m.group(1)
   chapter["osisID"]="Ezra.%s"%chapterNbr
-  if int(chapterNbr)>9:
+  if int(chapterNbr)>10:
     chapter.decompose()
   else:
     for verse in chapter.find_all("verse"):
@@ -53,6 +53,7 @@ for chapter in ezra.find_all("chapter"):
         sys.exit()
 
 
+#2Esdr-> 11-23 -> 17-Neh
 neh.div["osisID"]="Neh"
 for chapter in neh.find_all("chapter"): 
   m=re.search("2Esdr\.(\d+)",chapter["osisID"])
@@ -60,10 +61,10 @@ for chapter in neh.find_all("chapter"):
     print("Cannot parse %s"%chapter["osisID"])
     sys.exit()
   origChapterNbr=int(m.group(1))
-  if origChapterNbr<=9:
+  if origChapterNbr<=10:
     chapter.decompose()
     continue
-  chapterNbr=origChapterNbr-9
+  chapterNbr=origChapterNbr-10
   chapter["osisID"]="Neh.%s"%chapterNbr
   for verse in chapter.find_all("verse"):
     v=re.search("2Esdr\.%s\.(\d+)"%origChapterNbr,verse["osisID"])

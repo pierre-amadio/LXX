@@ -18,30 +18,12 @@ import copy
 inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
-
-def splitEsdr(myFile):
-  with open(myFile) as fp:
-    soup = BeautifulSoup(fp, 'xml')
-    #for title in soup.find_all('title'):
-    #  """
-    #    there is supposed to be only 1 title:
-    #    <chapter osisID="Dan.5"><verse osisID="Dan.5.1"><seg subType="x-1" type="x-variant"><title type="chapter">
-    #  """
-    #  chapter=title.parent.parent.parent
-    #  newTitle=title.extract()
-    #  chapter.insert(0,newTitle)
-    #return str(soup)
-    
-
-
-  return ("a","b")
-
-
 print("Dealing with 2Esdr")
-
-#newFile="%s/%s"%(outputDir,"54-Dan.xml")
 ezra=False
+ezraF="%s/16-Ezra.xml"%outputDir
+
 neh=False
+nehF="%s/17-Neh.xml"%outputDir
 
 with open(inputFile) as fp:
   soup = BeautifulSoup(fp, 'xml')
@@ -53,11 +35,8 @@ with open(inputFile) as fp:
 #2Esdr-> 1-9   -> 16-Ezra
 ezra.div["osisID"]="Ezra"
 for chapter in ezra.find_all("chapter"):
-  print("chapter",chapter["osisID"])
   m=re.search("2Esdr\.(\d+)",chapter["osisID"])
-  if m:
-    print(m.group(1))
-  else:
+  if not m:
     print("Cannot parse %s"%chapter["osisID"])
     sys.exit()
   chapterNbr=m.group(1)
@@ -66,19 +45,40 @@ for chapter in ezra.find_all("chapter"):
     chapter.decompose()
   else:
     for verse in chapter.find_all("verse"):
-      print("verse",verse["osisID"])
       v=re.search("2Esdr\.%s\.(\d+)"%chapterNbr,verse["osisID"])
       if v:
         verse["osisID"]="Ezra.%s.%s"%(chapterNbr,v.group(1))
-        print("become",verse["osisID"])
       else:
         print("Cannot parse %s"%verse["osisID"])
         sys.exit()
 
-print(ezra)
 
-#with open(newFile, "w", encoding='utf-8') as file:
-#  file.write(newXml)
-#  print(newFile)
+neh.div["osisID"]="Neh"
+for chapter in neh.find_all("chapter"): 
+  m=re.search("2Esdr\.(\d+)",chapter["osisID"])
+  if not m:
+    print("Cannot parse %s"%chapter["osisID"])
+    sys.exit()
+  origChapterNbr=int(m.group(1))
+  if origChapterNbr<=9:
+    chapter.decompose()
+    continue
+  chapterNbr=origChapterNbr-9
+  chapter["osisID"]="Neh.%s"%chapterNbr
+  for verse in chapter.find_all("verse"):
+    v=re.search("2Esdr\.%s\.(\d+)"%origChapterNbr,verse["osisID"])
+    if v:
+      verse["osisID"]="Neh.%s.%s"%(chapterNbr,v.group(1))
+    else:
+      print("Cannot parse %s"%verse["osisID"])
+      sys.exit()
+
+with open(nehF,"w",encoding='utf-8') as file:
+  file.write(str(neh))
+  file.close()
+
+with open(ezraF,"w",encoding='utf-8') as file:
+  file.write(str(ezra))
+  file.close()
 
 

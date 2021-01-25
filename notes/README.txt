@@ -26,24 +26,29 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
 
 #2) Download the text from ccat.sas.upenn.edu
 ./bin/2-downloadRawText.sh
+#Result stored in ./original-text/lxxmorph/
 
 #3) Convert this to imp.
 #https://wiki.crosswire.org/DevTools:IMP_Format
 ./bin/3-convertToImp.sh
+#Result stored in ./imp/
 
 #4) Transform imp in xml.
 ./bin/4-convertToXml.sh
+#Result stored in ./xml1
 
 #5) Apply specific modification.
 ./bin/5-specificStuff.sh
+#Result stored in ./specific
 
 #6) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
 ./bin/6-strongStuff.sh
+#Result stored in ./strong
 
 #7) Concatenate stuff
-
 ./bin/7-concatenate.sh
+#Result stored in ./lxx.osis.xml
 
 #8) Validate the file.
 

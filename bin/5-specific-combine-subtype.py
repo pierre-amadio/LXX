@@ -66,11 +66,9 @@ def combine(xmlB,xmlA,bookName):
       print("Cannot parse chatper %s"%josh["osisID"])
       sys.exit()
     #print(curChapter)
-    for seg in chapter.find_all("seg"):
-      #print("seg=",seg)
+    for verse in chapter.find_all("verse"):
       chapterB=xmlB.find('chapter',attrs={"osisID":chapter["osisID"]})
-      #print("chapterB",chapterB["osisID"] )
-      chapterB.append(seg)
+      chapterB.append(verse)
   
   out=str(soupB)
   return out

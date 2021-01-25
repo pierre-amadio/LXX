@@ -29,7 +29,7 @@ cp xml1/15.2Kings.xml specific/12-2Kgs.xml
 cp xml1/16.1Chron.xml specific/13-1Chr.xml
 cp xml1/17.2Chron.xml specific/14-2Chr.xml
 cp xml1/18.1Esdras.xml specific/15-1Esd.xml
-#TODO 19.2Esdras.xml
+./bin/5-specific-2esdras.py 1/19.2Esdras.xml  specific/
 cp xml1/20.Esther.xml specific/18-Esth.xml
 cp xml1/21.Judith.xml specific/19-Jdt.xml
 ./bin/5-specific-combine-subtype.py xml1/22.TobitBA.xml  xml1/23.TobitS.xml  specific/

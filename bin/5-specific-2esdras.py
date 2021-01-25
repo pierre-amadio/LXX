@@ -13,6 +13,7 @@ Splitting 2Esdr so it match include/canon_lxx.h
 import sys
 import re
 from bs4 import BeautifulSoup
+import copy
 
 inputFile=sys.argv[1]
 outputDir=sys.argv[2]
@@ -30,17 +31,51 @@ def splitEsdr(myFile):
     #  newTitle=title.extract()
     #  chapter.insert(0,newTitle)
     #return str(soup)
+    
+
+
   return ("a","b")
 
 
 print("Dealing with 2Esdr")
 
 #newFile="%s/%s"%(outputDir,"54-Dan.xml")
+ezra=False
+neh=False
 
-(a,b)=splitEsdr(inputFile)
-print(a)
-print(b)
+with open(inputFile) as fp:
+  soup = BeautifulSoup(fp, 'xml')
+  ezra=copy.copy(soup)
+  neh=copy.copy(soup)
+  fp.close()
 
+
+#2Esdr-> 1-9   -> 16-Ezra
+ezra.div["osisID"]="Ezra"
+for chapter in ezra.find_all("chapter"):
+  print("chapter",chapter["osisID"])
+  m=re.search("2Esdr\.(\d+)",chapter["osisID"])
+  if m:
+    print(m.group(1))
+  else:
+    print("Cannot parse %s"%chapter["osisID"])
+    sys.exit()
+  chapterNbr=m.group(1)
+  chapter["osisID"]="Ezra.%s"%chapterNbr
+  if int(chapterNbr)>9:
+    chapter.decompose()
+  else:
+    for verse in chapter.find_all("verse"):
+      print("verse",verse["osisID"])
+      v=re.search("2Esdr\.%s\.(\d+)"%chapterNbr,verse["osisID"])
+      if v:
+        verse["osisID"]="Ezra.%s.%s"%(chapterNbr,v.group(1))
+        print("become",verse["osisID"])
+      else:
+        print("Cannot parse %s"%verse["osisID"])
+        sys.exit()
+
+print(ezra)
 
 #with open(newFile, "w", encoding='utf-8') as file:
 #  file.write(newXml)

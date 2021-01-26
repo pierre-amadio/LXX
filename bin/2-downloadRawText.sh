@@ -18,7 +18,7 @@ sed -ri 's|DIAKOPH/\)A|DIAKOPH\\|' original-text/lxxmorph/34.Job.mlxx
 #Let s have it look like the other.
 sed -ri 's/Obad ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/43.Obadiah.mlxx
 #Same for EpJer
-sed -ri 's/EpJer ([0-9]+)/Obad 1:\1/' original-text/lxxmorph/55.EpJer.mlxx
+sed -ri 's/EpJer ([0-9]+)/EpJer 1:\1/' original-text/lxxmorph/55.EpJer.mlxx
 
 #BelOG has 1 chapter only, and the verse 1 is not properly tagged.
 sed -ri 's/^Bel\s*$/Bel 1/' original-text/lxxmorph/59.BelOG.mlxx

@@ -44,7 +44,6 @@ cp xml1/32.Qoheleth.xml specific/28-Eccl.xml
 cp xml1/33.Canticles.xml specific/29-Song.xml
 cp xml1/34.Job.xml specific/30-Job.xml
 cp xml1/35.Wisdom.xml specific/31-Wis.xml
-#cp xml1/36.Sirach.xml specific/32-Sir.xml
 ./bin/5-specific-sirach.py xml1/36.Sirach.xml  specific/
 cp xml1/37.PsSol.xml specific/33-PssSol.xml
 cp xml1/38.Hosea.xml specific/34-Hos.xml
@@ -64,6 +63,8 @@ cp xml1/52.Jer.xml specific/47-Jer.xml
 cp xml1/54.Baruch.xml specific/48-Bar.xml
 cp xml1/56.Lam.xml specific/49-Lam-Lam.xml
 cp xml1/55.EpJer.xml specific/50-EpJer.xml
+#not needed actually...
+#./bin/5-specific-epjer.py xml1/55.EpJer.xml specific
 cp xml1/57.Ezek.xml specific/51-Ezek.xml
 #TODO: what about 52 PrAzar the prayer of azariah in the book of daniel ()
 ./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/64.SusTh.xml  specific/

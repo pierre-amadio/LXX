@@ -1,11 +1,3 @@
-######################
-
-*  how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
-# 55 DONE EpJer   1 chapter, title for both book and chapter...
-# 37 DONE PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
-# DONE 30 Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
-# 56 Lam , several chapters, seems to be a book title.
-# DONE 61 DanielOG chapter 5 only. 
 
 * what is actually valid in a lemma as far as lex is concerned ?
 TODO: gen 1.7 
@@ -13,10 +5,6 @@ TODO: gen 1.7
 should there be lex entry ? if so, one or two ?
 in previous osis:
 <w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
-
-* I m not sure the bin/5-specific-combine-subtype.py script works on all case.
-What if the order of the book is wrong, some final chapter may be missing.
-Double check that !
 
 ##################
 DONE:
@@ -66,5 +54,13 @@ those 36 verses are supposed to be milestone _before_ verse1.
 right now, those are set as milestones in verses Sir1:0
 should they be under the chapter directly ?
 https://wiki.crosswire.org/OSIS_Bibles#OSIS_Milestones
+
+####################""
+*  how to deal with title such as 55.EpJer.imp 37.PsSol.imp 30.Odes.imp 56.Lam.imp 61.DanielOG.imp
+# 55 DONE EpJer   1 chapter, title for both book and chapter...
+# 37 DONE PsSol  psalm title... i wonder if they are supposed to be considered are belonging to verse 1
+# 30 DONE Odes http://www.textexcavation.com/lxxodes.html seems to be also chapter titles.
+# 56 DONE Lam , several chapters, seems to be a book title.
+# DONE 61 DanielOG chapter 5 only. 
 
 

@@ -22,7 +22,7 @@ def dealWith(myFile):
       """
         there should be only 1 title.
       """
-      chapter=title.parent.parent.parent
+      chapter=title.parent.parent
       newTitle=title.extract()
       chapter.insert(0,newTitle)
   return str(soup)

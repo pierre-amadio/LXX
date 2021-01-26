@@ -62,9 +62,8 @@ cp xml1/50.Isaiah.xml specific/46-Isa.xml
 cp xml1/52.Jer.xml specific/47-Jer.xml
 cp xml1/54.Baruch.xml specific/48-Bar.xml
 cp xml1/56.Lam.xml specific/49-Lam-Lam.xml
-cp xml1/55.EpJer.xml specific/50-EpJer.xml
-#not needed actually...
-#./bin/5-specific-epjer.py xml1/55.EpJer.xml specific
+#cp xml1/55.EpJer.xml specific/50-EpJer.xml
+./bin/5-specific-epjer.py xml1/55.EpJer.xml specific
 cp xml1/57.Ezek.xml specific/51-Ezek.xml
 #TODO: what about 52 PrAzar the prayer of azariah in the book of daniel ()
 ./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/64.SusTh.xml  specific/

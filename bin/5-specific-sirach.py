@@ -53,6 +53,5 @@ newXml=dealWith(inputFile)
 
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(newXml)
-  print(newFile)
 
 

@@ -80,8 +80,6 @@ def findStrongIdFor(osisId,fullWord):
     return(0)
 
 def parseLXX(fileName):
-    print("Let s parse some xml")
-
     strongDic={}
     with open("codesStrong.strong") as fp:
       for line in fp:
@@ -176,7 +174,6 @@ def parseLXX(fileName):
             #  print(fullWord)
             #  print(newLemma)
             #  print(finalNbr)
-              
 
 
         #out=soup.prettify()
@@ -195,11 +192,10 @@ if m:
 else:
   shortName=inputFile
 
-print(shortName)
+print("Dealing with strong number in '%s'"%shortName)
 
 newFile="%s/%s"%(outputDir,shortName)
 new=parseLXX(inputFile)
 with open(newFile, "w", encoding='utf-8') as file:
     file.write(new)
 
-print(newFile)

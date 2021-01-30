@@ -19,9 +19,6 @@ def dealWith(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp, 'xml')
     for title in soup.find_all('title'):
-      """
-        there should be only 1 title.
-      """
       chapter=title.parent.parent
       newTitle=title.extract()
       chapter.insert(0,newTitle)
@@ -36,6 +33,5 @@ newXml=dealWith(inputFile)
 
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(newXml)
-  print(newFile)
 
 

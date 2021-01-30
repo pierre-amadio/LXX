@@ -24,7 +24,7 @@ def dealWith(myFile):
       chapter.insert(0,newTitle)
   return str(soup)
 
-print("Dealing with of Ps Sol")
+print("Dealing with Ps Sol")
 
 newFile="%s/%s"%(outputDir,"33-PssSol.xml")
 

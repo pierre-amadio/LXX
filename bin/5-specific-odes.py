@@ -17,16 +17,7 @@ inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
 
-#m=re.search(".*\/(\S+)$",inputFile)
-#if m:
-#  shortName=m.group(1)
-#else:
-#  shortName=inputFile
-#
-#print(shortName)
-
 def missingVersesFromFile(fileName):
-  print("parsing",fileName)
   with open(fileName) as fp:
     soup = BeautifulSoup(fp, 'xml')
 
@@ -72,8 +63,8 @@ newFile="%s/%s"%(outputDir,"57-Odes.xml")
 allVersesXml=missingVersesFromFile(inputFile)
 newXml=moveTitle(allVersesXml)
 
+print("Dealing with Odes")
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(newXml)
-  print(newFile)
 
 

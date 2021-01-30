@@ -76,6 +76,7 @@ def combine(xmlB,xmlA,bookName):
 soupA=False
 soupB=False
 
+print("Mixing '%s' and '%s')"%(BFile,AFile))
 
 with open(AFile) as A:
   soupA= BeautifulSoup(A,'xml')
@@ -94,6 +95,5 @@ xmlA=addVariant(soupA,"x-2")
 result=combine(xmlB,xmlA,bookName)
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(result)
-print(newFile)
 
 

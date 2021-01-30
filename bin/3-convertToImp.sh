@@ -39,14 +39,6 @@ sed -ri 's/BelTh/Bel/g' imp/60.BelTh.imp
 #Excerpt from "Septuaginta, a reader's edition", p334:
 #some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
 #the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.
-#I think this is what cyrille's script is doing too when it change chp 32-36 to 25-29 here:
-#Correction du chapitrage dans Prov
-#sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' 002.txt
-#sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' 002.txt
-
 sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' imp/31.Proverbs.imp
 sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' imp/31.Proverbs.imp 
 sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' imp/31.Proverbs.imp

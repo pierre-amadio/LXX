@@ -153,7 +153,7 @@ def parseLXX(fileName):
             #  print(finalNbr)
 
 
-            if finalNbr:
+            if int(finalNbr):
               #newLemma="strong:G%s lex:'%s'"%(finalNbr,lemma)
               #newLemma="lemma.Strong:'%s' strong:%s"%(lemma,finalNbr)
               """
@@ -168,6 +168,8 @@ def parseLXX(fileName):
               #del(link["lemma"])
               #link["lemma"]=newLemma
               #print(link)
+            else:
+              del(link["lemma"])
 
             #if finalNbr and re.search(",",lemma):
             #  print(osisId)

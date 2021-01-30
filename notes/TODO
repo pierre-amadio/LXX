@@ -6,6 +6,52 @@ should there be lex entry ? if so, one or two ?
 in previous osis:
 <w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
 
+diatheke -b LXX -o va -f plain -k Genesis 1:7
+
+/usr/local/sword/bin/diatheke -b LXX -o mvalgexM -f FMT_OSIS -k Genesis 1:7
+
+
+
+
+2.5
+(ankiswordstuff) [melmoth@pamadio LXX]$ /usr/local/sword/bin/diatheke -b LXX -o mvalgexM -f FMT_OSIS -k Genesis 1:7
+Genesis 1:7: <w morph="packard:CONJ" savlm="strong:G2532">και</w> <w morph="packard:V-AAI-3S" savlm="strong:G4160">εποιησεν</w> <w morph="packard:T-NSM" savlm="strong:G3588">ο</w> <w morph="packard:N-NSM" savlm="strong:G2316">θεος</w> <w morph="packard:T-ASN" savlm="strong:G3588">το</w> <w morph="packard:N-ASN" savlm="strong:G4733">στερεωμα</w> <w morph="packard:CONJ" savlm="strong:G2532">και</w> <w morph="packard:V-AAI-3S" savlm="strong:GV-AAI-3S">διεχωρισεν</w> <w morph="packard:T-NSM" savlm="strong:G3588">ο</w> <w morph="packard:N-NSM" savlm="strong:G2316">θεος</w> <w morph="packard:PREP" savlm="strong:G303">ανα</w> <w morph="packard:A-ASM" savlm="strong:G3319">μεσον</w> <w morph="packard:T-GSN" savlm="strong:G3588">του</w> <w morph="packard:N-GSN" savlm="strong:G5204">υδατος</w> <w morph="packard:R-NSN" savlm="strong:G3588">ο</w> <w morph="packard:V-IAI-3S" savlm="strong:G2258">ην</w> <w morph="packard:PREP" savlm="strong:G5270">υποκατω</w> <w morph="packard:T-GSN" savlm="strong:G3588">του</w> <w morph="packard:N-GSN" savlm="strong:G4733">στερεωματος</w> <w morph="packard:CONJ" savlm="strong:G2532">και</w> <w morph="packard:PREP" savlm="strong:G303">ανα</w> <w morph="packard:A-ASM" savlm="strong:G3319">μεσον</w> <w morph="packard:T-GSN" savlm="strong:G3588">του</w> <w morph="packard:N-GSN" savlm="strong:G5204">υδατος</w> <w morph="packard:T-GSN" savlm="strong:G3588">του</w> <w morph="packard:PREP" savlm="strong:G1883">επανω</w> <w morph="packard:T-GSN" savlm="strong:G3588">του</w> <w morph="packard:N-GSN" savlm="strong:G4733">στερεωματος</w>
+(LXX)
+
+<w morph="packard:V-AAI-3S" savlm="strong:GV-AAI-3S">διεχωρισεν</w> 
+
+
+2.7
+
+(ankiswordstuff) [melmoth@pamadio LXX]$ /usr/local/sword/bin/diatheke -b LXX -o mvalgexM -f FMT_OSIS -k Genesis 1:7
+Genesis 1:7: <milestone osisID="Gen.1.7" resp="v" sID="gen10"/> <w lemma="lex:καί" morph="packard:C" savlm="strong:G2532 lex:καί" xlit="betacode:KAI\">καὶ</w> <w lemma="lex:ποιέω" morph="packard:VAI AAI3S" savlm="strong:G4160 lex:ποιέω" xlit="betacode:E)POI/HSEN">ἐποίησεν</w> <w lemma="lex:ὁ" morph="packard:RA NSM" savlm="strong:G3588 lex:ὁ" xlit="betacode:O(">ὁ</w> <w lemma="lex:θεός" morph="packard:N2 NSM" savlm="strong:G2316 lex:θεός" xlit="betacode:QEO\S">θεὸς</w> <w lemma="lex:ὁ" morph="packard:RA ASN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TO\">τὸ</w> <w lemma="lex:στερέωμα" morph="packard:N3M ASN" savlm="strong:G4733 lex:στερέωμα" xlit="betacode:STERE/WMA">στερέωμα</w> <w lemma="lex:καί" morph="packard:C" savlm="strong:G2532 lex:καί" xlit="betacode:KAI\">καὶ</w> <w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" savlm="χωρίζω, δια" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w> <w lemma="lex:ὁ" morph="packard:RA NSM" savlm="strong:G3588 lex:ὁ" xlit="betacode:O(">ὁ</w> <w lemma="lex:θεός" morph="packard:N2 NSM" savlm="strong:G2316 lex:θεός" xlit="betacode:QEO\S">θεὸς</w> <w lemma="lex:ἀνά" morph="packard:P" savlm="strong:G303 lex:ἀνά" xlit="betacode:A)NA\">ἀνὰ</w> <w lemma="lex:μέσος" morph="packard:A1 ASM" savlm="strong:G3319 lex:μέσος" xlit="betacode:ME/SON">μέσον</w> <w lemma="lex:ὁ" morph="packard:RA GSN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TOU=">τοῦ</w> <w lemma="lex:ὕδωρ" morph="packard:N3T GSN" savlm="strong:G5204 lex:ὕδωρ" xlit="betacode:U(/DATOS">ὕδατος</w> <w lemma="lex:ὅς" morph="packard:RR NSN" savlm="strong:G3588 lex:ὅς" xlit="betacode:O(\">ὃ</w> <w lemma="lex:εἰμί" morph="packard:V9 IAI3S" savlm="strong:G2258 lex:εἰμί" xlit="betacode:H)=N">ἦν</w> <w lemma="lex:ὑποκάτω" morph="packard:P" savlm="strong:G5270 lex:ὑποκάτω" xlit="betacode:U(POKA/TW">ὑποκάτω</w> <w lemma="lex:ὁ" morph="packard:RA GSN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TOU=">τοῦ</w> <w lemma="lex:στερέωμα" morph="packard:N3M GSN" savlm="strong:G4733 lex:στερέωμα" xlit="betacode:STEREW/MATOS">στερεώματος</w> <w lemma="lex:καί" morph="packard:C" savlm="strong:G2532 lex:καί" xlit="betacode:KAI\">καὶ</w> <w lemma="lex:ἀνά" morph="packard:P" savlm="strong:G303 lex:ἀνά" xlit="betacode:A)NA\">ἀνὰ</w> <w lemma="lex:μέσος" morph="packard:A1 ASM" savlm="strong:G3319 lex:μέσος" xlit="betacode:ME/SON">μέσον</w> <w lemma="lex:ὁ" morph="packard:RA GSN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TOU=">τοῦ</w> <w lemma="lex:ὕδωρ" morph="packard:N3T GSN" savlm="strong:G5204 lex:ὕδωρ" xlit="betacode:U(/DATOS">ὕδατος</w> <w lemma="lex:ὁ" morph="packard:RA GSN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TOU=">τοῦ</w> <w lemma="lex:ἐπάνω" morph="packard:P" savlm="strong:G1883 lex:ἐπάνω" xlit="betacode:E)PA/NW">ἐπάνω</w> <w lemma="lex:ὁ" morph="packard:RA GSN" savlm="strong:G3588 lex:ὁ" xlit="betacode:TOU=">τοῦ</w> <w lemma="lex:στερέωμα" morph="packard:N3M GSN" savlm="strong:G4733 lex:στερέωμα" xlit="betacode:STEREW/MATOS">στερεώματος</w> <milestone eID="gen10" osisID="Gen.1.7" resp="v"/>
+(LXX)
+
+<w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" savlm="χωρίζω, δια" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w> 
+
+* 
+ /usr/local/sword/bin/diatheke -b 2TGreek -o mvalgexM -f FMT_OSIS -k Genesis 1:7
+
+ Genesis 1:7: και <sync type="morph" class="Packard" value="C" /> εποιησεν <sync type="morph" class="Packard" value="VAI AAI3S" /> ο <sync type="morph" class="Packard" value="RA NSM" /> θεος <sync type="morph" class="Packard" value="N2 NSM" /> το <sync type="morph" class="Packard" value="RA ASN" /> στερεωμα <sync type="morph" class="Packard" value="N3M ASN" /> και <sync type="morph" class="Packard" value="C" /> διεχωρισεν ο <sync type="morph" class="Packard" value="RA NSM" /> θεος <sync type="morph" class="Packard" value="N2 NSM" /> ανα <sync type="morph" class="Packard" value="P" /> μεσον <sync type="morph" class="Packard" value="A1 ASM" /> του <sync type="morph" class="Packard" value="RA GSN" /> υδατος <sync type="morph" class="Packard" value="N3T GSN" /> ο <sync type="morph" class="Packard" value="RR NSN" /> ην <sync type="morph" class="Packard" value="V9 IAI3S" /> υποκατω <sync type="morph" class="Packard" value="P" /> του <sync type="morph" class="Packard" value="RA GSN" /> στερεωματος <sync type="morph" class="Packard" value="N3M GSN" /> και <sync type="morph" class="Packard" value="C" /> ανα <sync type="morph" class="Packard" value="P" /> μεσον <sync type="morph" class="Packard" value="A1 ASM" /> του <sync type="morph" class="Packard" value="RA GSN" /> υδατος <sync type="morph" class="Packard" value="N3T GSN" /> του <sync type="morph" class="Packard" value="RA GSN" /> επανω <sync type="morph" class="Packard" value="P" /> του <sync type="morph" class="Packard" value="RA GSN" /> στερεωματος <sync type="morph" class="Packard" value="N3M GSN" />
+ (2TGreek)
+
+διεχωρισεν ο <sync type="morph" class="Packard" value="RA NSM" /> 
+
+###############
+imp:
+<w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" x     lit="betacode:DIEXW/RISEN">διεχώρισεν</w> 
+
+################
+cyrille:          <w lemma="strong:G0,G0 lex:χωρίζω,δια" morph="packard:VAI+AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>
+
+####
+MorphGNT:
+
+<w lemma="lemma.Strong:κηρύσσω" morph="robinson:V-PAP-NSM" savlm="lemma.Strong:κηρύσσω strong:G2784">κηρύσσων</w> 
+compare with 
+<w lemma="καί" morph="packard:C" xlit="betacode:KAI\">καὶ</w>
+
+
 ##################
 DONE:
 

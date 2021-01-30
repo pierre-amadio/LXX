@@ -147,14 +147,38 @@ def parseLXX(fileName):
             #if re.search(",",lemma):
             #  print(lemma,parentVerse["osisid"])
 
+            #print(osisId)
+            #if osisId=="Gen.1.7":
+            #  print(link)
+            #  print(fullWord)
+            #  print("lemma",lemma)
+            #  print(finalNbr)
+
+
             if finalNbr:
-              #newLemma='strong:G%s lex:%s'%(finalNbr,lemma)
-              #Let s ignore the whole lex thingy for now.
-              newLemma='strong:G%s '%(finalNbr)
-              #print(lemma)
-              #print(newLemma)
+              #newLemma="strong:G%s lex:'%s'"%(finalNbr,lemma)
+              #newLemma="lemma.Strong:'%s' strong:%s"%(lemma,finalNbr)
+              """
+                here we have several information i do not know what to do with:
+                consider this word 
+                <w lemma="φέρω, ἐπι" morph="packard:V1I IMI3S" savlm="lemma.Strong:'φέρω, ἐπι' strong:2018" xlit="betacode:E)PEFE/RETO">ἐπεφέρετο</w>
+                what to do with "φέρω, ἐπι" ?
+                right now, let s keep only morph, strong and xlit.
+              """
+              newLemma='strong:G%s'%(finalNbr)
               link["lemma"]=newLemma
+              #del(link["lemma"])
+              #link["lemma"]=newLemma
               #print(link)
+
+            #if finalNbr and re.search(",",lemma):
+            #  print(osisId)
+            #  print(fullWord)
+            #  print(newLemma)
+            #  print(finalNbr)
+              
+
+
         #out=soup.prettify()
         out=str(soup)
         return out

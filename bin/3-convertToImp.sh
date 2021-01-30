@@ -22,6 +22,9 @@ sed -ri 's/2Sam\/K/2Sam/g' imp/13.2Sam.imp
 sed -ri 's/1Sam\/K/1Sam/g' imp/12.1Sam.imp
 sed -ri 's/1\/3Kgs/1Kgs/g' imp/14.1Kings.imp
 sed -ri 's/2\/4Kgs/2Kgs/g' imp/15.2Kings.imp
+sed -ri 's/Mac/Macc/g' imp/24.1Macc.imp
+sed -ri 's/Mac/Macc/g' imp/25.2Macc.imp
+sed -ri 's/Mac/Macc/g' imp/26.3Macc.imp
 sed -ri 's/Mac/Macc/g' imp/27.4Macc.imp
 sed -ri 's/TobBA/Tob/g' imp/22.TobitBA.imp
 sed -ri 's/TobS/Tob/g' imp/23.TobitS.imp 

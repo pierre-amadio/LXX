@@ -48,5 +48,11 @@ sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' imp/31.Proverbs.imp
 sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' imp/31.Proverbs.imp
 sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' imp/31.Proverbs.imp
 
+#Let's use dash instead of space as a separator in packard morphcode
+# http://crosswire.org/pipermail/sword-devel/2021-February/048659.html
+for i in `ls imp`;
+	do sed -ri 's/(packard:[A-Z1-5]+) +([A-Z])/\1\-\2/g' imp/$i ;
+done
+
 
 

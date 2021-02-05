@@ -12,7 +12,7 @@
 #It s relatively easy to install them without breaking all your system with virtual env
 
 mkdir ~/dev/lxxmodule
-virtualenv -p /usr/bin/python3 ~/dev/lxxmodule
+virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 . ~/dev/lxxmodule/bin/activate
 
 #From now on, we are using a specific version of python where we can install whatever we want without messing with the actual set of python package coming from the distribution.

@@ -13,6 +13,7 @@ import re
 import sys
 from bs4 import BeautifulSoup
 import Sword
+import copy
 
 markup=Sword.MarkupFilterMgr(Sword.FMT_OSIS)
 markup.thisown=False
@@ -131,12 +132,12 @@ def parseLXX(fileName):
             finalNbr=lxxStrongId
             if dicStrongId!=lxxStrongId:
               """
-                This may happen for entry such as Gen1.8 
-                Strong entry differ for εἶδεν (old:1492 flatfile:3708) 
+                This may happen for entry such as Gen1.8
+                Strong entry differ for εἶδεν (old:1492 flatfile:3708)
                 1492: οἶδα
                 3708: ὁράω (The aorist form (eidon), is discussed at 1492 /eídō, "see.)
 
-                If the old value is not equal to zeron let s use it. 
+                If the old value is not equal to zeron let s use it.
                 (because the lex does not contain any information about the thense, wich is used in some strong entry such as this one 1492/3708)
               """
               #print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisID"]))
@@ -144,59 +145,18 @@ def parseLXX(fileName):
                 finalNbr=dicStrongId
               else:
                 finalNbr=lxxStrongId
-          
-            #print(finalNbr)
-            #finalNbr=0
-            #if dicStrongId:
-            #  finalNbr=dicStrongId
-            #if lxxStrongId:
-            #  finalNbr=lxxStrongId
 
-            #newLemma=lemma.replace(r.group(1),"strong:G%s"%strongId)
-            #link["lemma"]=newLemma
-            #print(link)
-            #print(lemma)
-            #print("lemma",lemma)
-            #TODO here lemma may be two or more stuff: "χωρίζω, δια" or "ἵστημι, ἐκ, ἀνα" as in  Gen.4.25
-            #if re.search(",",lemma):
-            #  print(lemma,parentVerse["osisid"])
 
-            #print(osisId)
-            #if osisId=="Gen.1.7":
-            #  print(link)
-            #  print(fullWord)
-            #  print("lemma",lemma)
-            #  print(finalNbr)
-
+            lex=copy.copy(link["lemma"])
 
             if int(finalNbr):
-              #newLemma="strong:G%s lex:'%s'"%(finalNbr,lemma)
-              #newLemma="lemma.Strong:'%s' strong:%s"%(lemma,finalNbr)
-              """
-                here we have several information i do not know what to do with:
-                consider this word 
-                <w lemma="φέρω, ἐπι" morph="packard:V1I IMI3S" savlm="lemma.Strong:'φέρω, ἐπι' strong:2018" xlit="betacode:E)PEFE/RETO">ἐπεφέρετο</w>
-                what to do with "φέρω, ἐπι" ?
-                right now, let s keep only morph, strong and xlit.
-              """
               newLemma='strong:G%s'%(finalNbr)
               link["lemma"]=newLemma
-              #del(link["lemma"])
-              #link["lemma"]=newLemma
-              #print(link)
             else:
-              #print(link["lemma"])
-              #print(link)
               del(link["lemma"])
 
-            #if finalNbr and re.search(",",lemma):
-            #  print(osisId)
-            #  print(fullWord)
-            #  print(newLemma)
-            #  print(finalNbr)
+            link["lex"]=lex
 
-
-        #out=soup.prettify()
         out=str(soup)
         return out
 

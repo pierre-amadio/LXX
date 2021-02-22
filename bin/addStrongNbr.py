@@ -118,23 +118,39 @@ def parseLXX(fileName):
             lxxStrongId=findStrongIdFor(osisId,fullWord) 
             dicStrongId=0
 
-            if fullWord in strongDic:
-              dicStrongId=strongDic[fullWord]
-              if dicStrongId!=lxxStrongId:
-                """
-                  This may happen for entry such as Gen1.2 τοῦ
-                  Old module:3588
-                  codesStrong.strong: 5120
-                  by default, let s use the old module value, but still print a warning.
-                """
-                #print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisid"]))
-                dicStrongId=lxxStrongId
 
-            finalNbr=0
-            if dicStrongId:
-              finalNbr=dicStrongId
-            if lxxStrongId:
-              finalNbr=lxxStrongId
+            targetLex=False
+            if not "," in link["lemma"]:
+              targetLex=link["lemma"]
+
+            if targetLex in strongDic:
+              dicStrongId=strongDic[targetLex]
+
+
+            #print(link)
+            finalNbr=lxxStrongId
+            if dicStrongId!=lxxStrongId:
+              """
+                This may happen for entry such as Gen1.8 
+                Strong entry differ for εἶδεν (old:1492 flatfile:3708) 
+                1492: οἶδα
+                3708: ὁράω (The aorist form (eidon), is discussed at 1492 /eídō, "see.)
+
+                If the old value is not equal to zeron let s use it. 
+                (because the lex does not contain any information about the thense, wich is used in some strong entry such as this one 1492/3708)
+              """
+              #print("Strong entry differ for %s (old:%s flatfile:%s) in %s"%(fullWord,lxxStrongId,dicStrongId,parentVerse["osisID"]))
+              if lxxStrongId==0:
+                finalNbr=dicStrongId
+              else:
+                finalNbr=lxxStrongId
+          
+            #print(finalNbr)
+            #finalNbr=0
+            #if dicStrongId:
+            #  finalNbr=dicStrongId
+            #if lxxStrongId:
+            #  finalNbr=lxxStrongId
 
             #newLemma=lemma.replace(r.group(1),"strong:G%s"%strongId)
             #link["lemma"]=newLemma
@@ -169,6 +185,8 @@ def parseLXX(fileName):
               #link["lemma"]=newLemma
               #print(link)
             else:
+              #print(link["lemma"])
+              #print(link)
               del(link["lemma"])
 
             #if finalNbr and re.search(",",lemma):

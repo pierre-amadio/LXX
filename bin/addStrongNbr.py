@@ -147,15 +147,15 @@ def parseLXX(fileName):
                 finalNbr=lxxStrongId
 
 
-            lex=copy.copy(link["lemma"])
+            lex=copy.copy(link["lemma"]).replace(" ","")
+    
 
             if int(finalNbr):
-              newLemma='strong:G%s'%(finalNbr)
-              link["lemma"]=newLemma
+              newLemma='strong:G%s lex=%s'%(finalNbr,lex)
             else:
-              del(link["lemma"])
+              newLemma='lex=%s'%lex
 
-            link["lex"]=lex
+            link["lemma"]=newLemma
 
         out=str(soup)
         return out

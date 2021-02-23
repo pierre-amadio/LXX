@@ -151,9 +151,9 @@ def parseLXX(fileName):
     
 
             if int(finalNbr):
-              newLemma='strong:G%s lex=%s'%(finalNbr,lex)
+              newLemma='strong:G%s lex:%s'%(finalNbr,lex)
             else:
-              newLemma='lex=%s'%lex
+              newLemma='lex:%s'%lex
 
             link["lemma"]=newLemma
 

@@ -60,7 +60,7 @@ xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
 #8) Create the mod module.
 # https://wiki.crosswire.org/Osis2mod
 #https://www.crosswire.org/sword/develop/swordmodule/
-rmdir mod
+rm -rf mod
 mkdir mod
 # 1 text so far
 # 8 book and chapter introduction are determined

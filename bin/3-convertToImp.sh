@@ -52,9 +52,9 @@ sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' imp/31.Proverbs.imp
 # http://crosswire.org/pipermail/sword-devel/2021-February/048659.html
 for i in `ls imp`;
 	do 
-   sed -ri 's/(packard:[A-Z1-5]+) +([A-Z])/\1\-\2/g' imp/$i ;
-   #this is missing all the V\d+ entry such as V9  IAI3S
-   sed -ri 's/(packard:[V1-9]+) +([A-Z])/\1\-\2/g' imp/$i;
+   #sed -ri 's/(packard:[A-Z1-5]+) +([A-Z])/\1\-\2/g' imp/$i ;
+   #sed -ri 's/(packard:[V1-9]+) +([A-Z])/\1\-\2/g' imp/$i;
+   sed -ri 's/(packard:\S+) +([A-Z])/\1\-\2/g' imp/$i;
 done
 
 

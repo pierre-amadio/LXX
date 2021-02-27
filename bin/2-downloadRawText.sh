@@ -43,3 +43,9 @@ sed -ri 's/Sus ([0-9]+)/Sus 1:\1/' original-text/lxxmorph/63.SusOG.mlxx
 sed -ri 's/SusTh ([0-9]+)/SusTh 1:\1/' original-text/lxxmorph/64.SusTh.mlxx
 
 
+#In Gen10:6 and Gen10:13, the morph code has a space in the right part: 
+# N   N M    *MESRAIM
+#This end up as a non valid key entry for the Teil packard module.
+#let s change it to 
+# N   NDM    *MESRAIM
+sed -ri 's/N   N M    \*MESRAIM/N   NDM    \*MESRAIM/g' original-text/lxxmorph/01.Gen.1.mlxx                                                                                                                                           

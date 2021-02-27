@@ -57,5 +57,3 @@ for i in `ls imp`;
    sed -ri 's/(packard:\S+) +([A-Z])/\1\-\2/g' imp/$i;
 done
 
-
-

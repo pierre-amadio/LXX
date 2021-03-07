@@ -1,6 +1,6 @@
 #!/bin/bash
-installmgr -u LXX
-echo yes |installmgr -ri CrossWire LXX
+#installmgr -u LXX
+#echo yes |installmgr -ri CrossWire LXX
 ./bin/2-downloadRawText.sh
 ./bin/3-convertToImp.sh
 ./bin/4-convertToXml.sh

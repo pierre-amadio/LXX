@@ -65,6 +65,9 @@ def findStrongIdFor(osisId,fullWord):
     soup=BeautifulSoup(swordVerse,features="html.parser")
     for w in soup.find_all("w"):
         candidateWord=w.contents[0]
+        if not w.get("lemma"):
+          #print("no lemma for %s"%w)
+          return 0
         candidateLemma=w["lemma"]
         m=re.match("strong:G(\d+)",candidateLemma)
         candidateStrong=0

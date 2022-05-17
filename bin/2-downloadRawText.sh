@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf origina-text
+rm -rf original-text
 mkdir original-text
 cd original-text
 wget -r -np http://ccat.sas.upenn.edu/gopher/text/religion/biblical/lxxmorph/
@@ -49,3 +49,6 @@ sed -ri 's/SusTh ([0-9]+)/SusTh 1:\1/' original-text/lxxmorph/64.SusTh.mlxx
 #let s change it to 
 # N   NDM    *MESRAIM
 sed -ri 's/N   N M    \*MESRAIM/N   NDM    \*MESRAIM/g' original-text/lxxmorph/01.Gen.1.mlxx                                                                                                                                           
+#Jeremy has two verse merged : Jer 7:27/28
+sed -ri 's|Jer 7:27/28|Jer 7:27|' original-text/lxxmorph/52.Jer1.mlxx
+

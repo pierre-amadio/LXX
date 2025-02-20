@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Tob.9.3-4 -> Tob.9.4 (subType x-2)
-Tob.14.8-9 -> Tob.14.8 (subType x-2)
+Sus.1.60-62 -> Sus.1.60 (subType x-1)
 arg1:  input file
 arg2:  output directory
 """
@@ -18,16 +17,14 @@ def fixIt(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp, 'xml')
     for verse in soup.find_all('verse'):
-        if(verse["osisID"]=="Tob.9.3-4"):
-            verse["osisID"]="Tob.9.4"
-        if(verse["osisID"]=="Tob.14.8-9"):
-            verse["osisID"]="Tob.14.8"
+        if(verse["osisID"]=="Sus.1.60-62"):
+            verse["osisID"]="Sus.1.60"
     return str(soup)
 
 
-print("Dealing with Tobit's verses")
+print("Dealing with Susanna's verses")
 
-newFile="%s/%s"%(outputDir,"20-Tob.xml")
+newFile="%s/%s"%(outputDir,"53-Sus.xml")
 
 newXml=fixIt(inputFile)
 

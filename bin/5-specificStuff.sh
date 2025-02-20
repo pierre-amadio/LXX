@@ -71,7 +71,8 @@ cp xml1/54.Baruch.xml specific/48-Bar.xml
 ./bin/5-specific-epjer.py xml1/55.EpJer.xml specific
 cp xml1/57.Ezek.xml specific/51-Ezek.xml
 #TODO: what about 52 PrAzar the prayer of azariah in the book of daniel ()
-./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/64.SusTh.xml  specific/
+./bin/5-specific-combine-subtype.py xml1/63.SusOG.xml  xml1/64.SusTh.xml  tmp/
+./bin/5-specific-sus.py tmp/53-Sus.xml specific 
 
 ./bin/5-specific-combine-subtype.py xml1/61.DanielOG.xml  xml1/62.DanielTh.xml  tmp/
 ./bin/5-specific-dan.py tmp/54-Dan.xml specific

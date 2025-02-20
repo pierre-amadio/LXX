@@ -1,4 +1,14 @@
+Index issues:
+Tob.9.3-4
+Tob.14.8-9
+Sus.1.60-62
+Dan.5.26-28
+Bel.1.15-17
 
+
+
+
+################
 * what is actually valid in a lemma as far as lex is concerned ?
 TODO: gen 1.7 
 <w lemma="χωρίζω, δια" morph="packard:VAI AAI3S" xlit="betacode:DIEXW/RISEN">διεχώρισεν</w>

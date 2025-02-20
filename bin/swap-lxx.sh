@@ -1,7 +1,7 @@
 #/bin/bash
 
 installmgr -u LXX
-oldzip=/home/melmoth/dev/LXX/LXX.zip
+oldzip=~/dev/LXX/LXX.zip
 
 rm -rf ./tmp
 mkdir ./tmp

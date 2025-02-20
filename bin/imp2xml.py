@@ -45,14 +45,23 @@ for curFileName in sys.argv[1:]:
         continue
       if newVerseFlag:
         """we are in a $$$bookname sort of line"""
-        verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+)",line)
+        verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+\S*)",line)
         chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
         sirPrologReg=re.search("\$\$\$Sir/Prolog/(\d+)",line)
         if verseLineReg:
           """we are in a book/chapter/verse definition line"""
           bookName=verseLineReg.group(1)
           curChapterNbr=int(verseLineReg.group(2))
-          curVerseNbr=int(verseLineReg.group(3))
+          """
+          Some verses, such as 1Kings 2:46a use some alphanumeric index suffix.
+          Lets store the suffixed verse index in curVerseNbrFull and the numerical in curVerseNbr
+          """
+          curVerseNbrFull=verseLineReg.group(3)
+          suffixre=re.search("(\d+)\D+",curVerseNbrFull)
+          if suffixre:
+              curVerseNbr=int(suffixre.group(1))
+          else:
+              curVerseNbr=int(curVerseNbrFull)
           ms=re.search("\$\$\$(\S+)/(\d+)/(\d+)([a-z]+)",line)
           if ms:
             milestoneFlag=ms.group(4)
@@ -63,6 +72,7 @@ for curFileName in sys.argv[1:]:
           bookName="Sir"
           curChapterNbr=1
           curVerseNbr=0
+          curVerseNbrFull="0"
           milestoneFlag=sirPrologReg.group(1)
         elif chapterLineReg and not sirPrologReg:
           """ we are ina book/chapter (no verse) definition line """
@@ -105,7 +115,7 @@ for curFileName in sys.argv[1:]:
         rawContent=line.strip()
         content=rawContent.replace('<title type="section" subType="x-preverse">','<title type="chapter">')
         curVerse={}
-        curVerse["osisId"]="%s.%s.%s"%(book["name"],curChapterNbr,curVerseNbr)
+        curVerse["osisId"]="%s.%s.%s"%(book["name"],curChapterNbr,curVerseNbrFull)
         curVerse["content"]=content
         book["chapters"][len(book["chapters"])-1]["verses"].append(curVerse)
     fp.close()

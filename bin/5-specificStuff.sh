@@ -77,6 +77,8 @@ cp xml1/57.Ezek.xml specific/51-Ezek.xml
 ./bin/5-specific-combine-subtype.py xml1/61.DanielOG.xml  xml1/62.DanielTh.xml  tmp/
 ./bin/5-specific-dan.py tmp/54-Dan.xml specific
 
-./bin/5-specific-combine-subtype.py xml1/59.BelOG.xml  xml1/60.BelTh.xml  specific/
+./bin/5-specific-combine-subtype.py xml1/59.BelOG.xml  xml1/60.BelTh.xml  tmp/
+./bin/5-specific-bel.py tmp/55-Bel.xml specific
+
 #missing 1Enoch 
 ./bin/5-specific-odes.py xml1/30.Odes.xml specific/

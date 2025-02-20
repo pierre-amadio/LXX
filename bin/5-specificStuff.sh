@@ -32,7 +32,10 @@ cp xml1/18.1Esdras.xml specific/15-1Esd.xml
 ./bin/5-specific-2esdras.py xml1/19.2Esdras.xml  specific/
 cp xml1/20.Esther.xml specific/18-Esth.xml
 cp xml1/21.Judith.xml specific/19-Jdt.xml
-./bin/5-specific-combine-subtype.py xml1/22.TobitBA.xml  xml1/23.TobitS.xml  specific/
+
+./bin/5-specific-combine-subtype.py xml1/22.TobitBA.xml  xml1/23.TobitS.xml  tmp/
+./bin/5-specific-tobit.py tmp/20-Tob.xml specific
+
 cp xml1/24.1Macc.xml specific/21-1Macc.xml
 cp xml1/25.2Macc.xml specific/22-2Macc.xml
 cp xml1/26.3Macc.xml specific/23-3Macc.xml

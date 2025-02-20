@@ -18,10 +18,10 @@ def fixIt(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp, 'xml')
     for verse in soup.find_all('verse'):
-        if(verse["osisID"]=="Tob.9.3-4"):
-            verse["osisID"]="Tob.9.4"
-        if(verse["osisID"]=="Tob.14.8-9"):
-            verse["osisID"]="Tob.14.8"
+      if(verse["osisID"]=="Tob.9.3-4"):
+        verse["osisID"]="Tob.9.4"
+      if(verse["osisID"]=="Tob.14.8-9"):
+        verse["osisID"]="Tob.14.8"
     return str(soup)
 
 

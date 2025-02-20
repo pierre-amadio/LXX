@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Odes miss some verses that confuses reader.
+Some books miss some verses that confuses reader.
 Lets fill in empty verses where there are one.
 
 Then some title should be moved from a verse node to the parent chapter node.

@@ -17,8 +17,8 @@ def fixIt(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp, 'xml')
     for verse in soup.find_all('verse'):
-        if(verse["osisID"]=="Sus.1.60-62"):
-            verse["osisID"]="Sus.1.60"
+      if(verse["osisID"]=="Sus.1.60-62"):
+        verse["osisID"]="Sus.1.60"
     return str(soup)
 
 

@@ -6,7 +6,7 @@ cat <<EOF > lxx.osis.xml
 <osisText osisIDWork="LXX" osisRefWork="OT" xml:lang="grc">
 	<header>
 	      <revisionDesc resp="cyrille">
-        <date>2020.08.14T22.15.53</date>
+        <date>2025.02.20T22.15.53</date>
         <p>Converted from lxxm.imp</p>
        </revisionDesc>
 		<work osisWork="LXX">

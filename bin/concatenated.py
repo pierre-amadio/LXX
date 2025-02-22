@@ -25,7 +25,7 @@ def deconc(myFile):
         numericalVerseIndex="%s.%s"%(concFlag.group(1),concFlag.group(2))
         verseNbr=concFlag.group(2)
         verseSuffix=concFlag.group(3)
-        pilcrows=soup.new_tag("milestone",marker="(%s.%s)"%(verseNbr,verseSuffix))
+        pilcrows=soup.new_tag("milestone",type="x-p",marker="(%s.%s)"%(verseNbr,verseSuffix))
         verse.insert(0,pilcrows)
         """
         Also, let rename the verse without the alphabetical suffix as it generate

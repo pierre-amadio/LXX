@@ -2,7 +2,7 @@
 
 cat <<EOF > lxx.osis.xml 
 <?xml version="1.0" encoding="UTF-8" ?>
-<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace http://www.bibletechnologies.net/osisCore.2.1.1.xsd">
+<osis xmlns="http://www.bibletechnologies.net/2003/OSIS/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.bibletechnologies.net/2003/OSIS/namespace http://www.crosswire.org/~dmsmith/osis/osisCore.2.1.1-cw-latest.xsd">
 <osisText osisIDWork="LXX" osisRefWork="OT" xml:lang="grc">
 	<header>
 	      <revisionDesc resp="cyrille">

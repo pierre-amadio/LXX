@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 This script will transfrom a set of imp files into a single book in xml format.
+TODO: looks like the whole about milestone and type="x-alt-v11n" has actually no use.
 """
 import sys
 import re
@@ -9,7 +10,6 @@ file_loader = FileSystemLoader('templates')
 env = Environment(loader=file_loader)
 template = env.get_template('book.xml')
 
-TODO: looks like the whole about milestone and type="x-alt-v11n" has actually no use.
 
 """
 Assuming we have a book data structure like this:

@@ -53,9 +53,10 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 #8) Validate the file.
 
 #Download the osis schema
-wget http://www.crosswire.org/osis/osisCore.2.1.1.xsd
+wget http://www.crosswire.org/~dmsmith/osis/osisCore.2.1.1-cw-latest.xsd
+
 #Validate the files:
-xmllint --noout --schema osisCore.2.1.1.xsd lxx.osis.xml
+xmllint --noout --schema osisCore.2.1.1-cw-latest.xsd lxx.osis.xml
 
 #8) Create the mod module.
 # https://wiki.crosswire.org/Osis2mod

@@ -38,7 +38,7 @@ for curFileName in sys.argv[1:]:
     #newVerseFlag is true when we expect the current line to be a $$$Book Chapter:Verse sort of line 
     newVerseFlag=True
     #is this an alternate versification verse such as Exod 28:29a that requires a <milestone> node ?
-    milestoneFlag=False
+    #milestoneFlag=False
     curVerseNbr=0
     knownChapterNbr=0
     for line in fp:
@@ -64,18 +64,20 @@ for curFileName in sys.argv[1:]:
               curVerseNbr=int(suffixre.group(1))
           else:
               curVerseNbr=int(curVerseNbrFull)
-          ms=re.search("\$\$\$(\S+)/(\d+)/(\d+)([a-z]+)",line)
-          if ms:
-            milestoneFlag=ms.group(4)
-          else:
-            milestoneFlag=False
+          #ms=re.search("\$\$\$(\S+)/(\d+)/(\d+)([a-z]+)",line)
+          #if ms and None:
+          #  milestoneFlag=ms.group(4)
+          #  print("plop")
+          #else:
+          #  milestoneFlag=False
+
         elif sirPrologReg:
           """ we are in one of those funny Sir Prolog line: $$$Sir/Prolog/4"""
           bookName="Sir"
           curChapterNbr=1
           curVerseNbr=0
           curVerseNbrFull="0"
-          milestoneFlag=sirPrologReg.group(1)
+          #sirPrologFlag=sirPrologReg.group(1)
         elif chapterLineReg and not sirPrologReg:
           """ we are ina book/chapter (no verse) definition line """
           bookName=int(chapterLineReg.group(1))
@@ -110,9 +112,9 @@ for curFileName in sys.argv[1:]:
         """We are in a text line (not a $$chapter/verse  one)"""
         newVerseFlag=True
         content=""
-        if milestoneFlag:
-          content='<milestone type="x-alt-v11n" n="%s"/>'%milestoneFlag
-          milestoneFlag=False
+        #if milestoneFlag:
+        #  content='<milestone type="x-alt-v11n" n="%s"/>'%milestoneFlag
+        #  milestoneFlag=False
 
         rawContent=line.strip()
         content=rawContent.replace('<title type="section" subType="x-preverse">','<title type="chapter">')

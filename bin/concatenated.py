@@ -20,15 +20,18 @@ def deconc(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp,'xml')
     for verse in soup.find_all('verse'):
-      concFlag=re.match("(.*\d+)\D+$",verse["osisID"])
+      concFlag=re.match("(.*)\.(\d+)(\D+)$",verse["osisID"])
       if concFlag:
-        pilcrows=soup.new_tag("milestone",type="x-p",marker="¶")
+        numericalVerseIndex="%s.%s"%(concFlag.group(1),concFlag.group(2))
+        verseNbr=concFlag.group(2)
+        verseSuffix=concFlag.group(3)
+        pilcrows=soup.new_tag("milestone",marker="(%s.%s)"%(verseNbr,verseSuffix))
         verse.insert(0,pilcrows)
         """
         Also, let rename the verse without the alphabetical suffix as it generate
         funny behaviour in Sword: the last verse is doubled.
         """
-        verse["osisID"]=concFlag.group(1)
+        verse["osisID"]=numericalVerseIndex
 
     return str(soup)
 

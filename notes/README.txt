@@ -46,8 +46,12 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/6-strongStuff.sh
 #Result stored in ./strong
 
-#7) Concatenate stuff
-./bin/7-concatenate.sh
+#7) Mark concatenated verses with a pilcrow mark.
+./bin/7-marking-concatenated-verses.sh
+#Result stored in ./pilcrow
+
+#8) Concatenate stuff
+./bin/8-concatenate.sh
 #Result stored in ./lxx.osis.xml
 
 #8) Validate the file.

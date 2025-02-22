@@ -54,7 +54,7 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/8-concatenate.sh
 #Result stored in ./lxx.osis.xml
 
-#8) Validate the file.
+#9) Validate the file.
 
 #Download the osis schema
 wget http://www.crosswire.org/~dmsmith/osis/osisCore.2.1.1-cw-latest.xsd
@@ -62,7 +62,7 @@ wget http://www.crosswire.org/~dmsmith/osis/osisCore.2.1.1-cw-latest.xsd
 #Validate the files:
 xmllint --noout --schema osisCore.2.1.1-cw-latest.xsd lxx.osis.xml
 
-#8) Create the mod module.
+#10) Create the mod module.
 # https://wiki.crosswire.org/Osis2mod
 #https://www.crosswire.org/sword/develop/swordmodule/
 rm -rf mod

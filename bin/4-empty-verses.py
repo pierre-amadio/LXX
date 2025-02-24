@@ -2,9 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Some books miss some verses that confuses reader.
-Lets fill in empty verses where there are one.
+Just putting an empty verse nodes is not enough for some frontends
+which require some content in order for the verse to be selectable.
+Let's fill those missing verse with square brackets enclose a horizontal ellipsis U+2026:
 
-Then some title should be moved from a verse node to the parent chapter node.
+[…]
+
 
 arg1:  input file
 arg2:  output directory
@@ -51,7 +54,7 @@ def missingVersesFromFile(fileName):
         if curVerseNbr!=expectedVerseNbr:
             for missing in range (expectedVerseNbr,curVerseNbr):
               newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-              newVerseTag.string=" "
+              newVerseTag.string="[…]"
               verse.insert_before(newVerseTag)
   return str(soup)
 

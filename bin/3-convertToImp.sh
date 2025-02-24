@@ -42,6 +42,8 @@ sed -ri 's/BelTh/Bel/g' imp/60.BelTh.imp
 #Excerpt from "Septuaginta, a reader's edition", p334:
 #some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
 #the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.
+# ch32->ch25 ch33->ch26 ch34->ch27 ch35->ch28 ch36->ch29 
+
 sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' imp/31.Proverbs.imp
 sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' imp/31.Proverbs.imp 
 sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' imp/31.Proverbs.imp

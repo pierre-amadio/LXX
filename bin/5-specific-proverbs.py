@@ -13,14 +13,18 @@ the reason for this textual divergence remains unclear and we have
 retained the versifications of the masoretic text for simplicity.
 
 As canon_lxx has 31 chapters for proverbs,before the chapter 32-36 have been
-renamed as 24,25,26,27,28,29 by changing the number directly in the
+renamed as 25,26,27,28,29 by changing the number directly in the
 generated imp file. But this had side effect when dealing with empyt verses later on.
 Let's deal with it at this stage instead.
 
 First of all, getting read of the empty verses added in phase 4:
 
-second chapter 24 node verses 1-22
-second chapter 30 node verses 1-14
+second occurence of chapter 24 node verses 1-22
+second occurence of chapter 30 node verses 1-14
+second occurence of chapter 31 node verses 1-9
+
+Then let's rename chapter 32 to 36 as 25 to 29
+
 
 arg1:  input file
 arg2:  output directory
@@ -62,15 +66,44 @@ def removeEmpty(fileName):
       if(verseNbr>=0 and verseNbr<=14):
         verse.decompose()
 
+    """
+    Removing all verses 1-9 in the second occurence of chapter 31:
+    """
+    chapter=soup.find_all('chapter',osisID="Prov.31")[1]
+    for verse in chapter.find_all("verse"):
+      target=re.match("Prov\.31\.(\d+)",verse['osisID'])
+      if not target:
+        print("Problem parsing '%s'"%verse['osisID'])
+        sys.exit()
+      verseNbr=int(target.group(1))
+      if(verseNbr>=0 and verseNbr<=9):
+        verse.decompose()
 
+    return soup
 
-    return str(soup)
+def moveChapter(xml,fro,to):
+  #print("Moving chapter %s to %s"%(fro,to))
+  for chapter in xml.find_all("chapter",osisID="Prov.%s"%fro):
+    chapter["osisID"]="Prov.%s"%to
+    for verse in chapter.find_all("verse"):
+      tregsnt="Prov.%s.(\w+)"%fro
+      treg=re.search(tregsnt,verse["osisID"])
+      if not treg:
+        print("Cannot parse '%s' with '%s'"%(verse["osisID"],tregsnt))
+        sys.exit()
+      curVerseNbr=treg.group(1)
+      verse["osisID"]="Prov.%s.%s"%(to,curVerseNbr)
 
 newFile="%s/%s"%(outputDir,"27-Prov.xml")
 newXml=removeEmpty(inputFile)
 
+for chNbr in range(1,6):
+  moveChapter(newXml,31+chNbr,24+chNbr)
+ 
+output=str(newXml)
+
 print("Dealing with Proverbs")
 with open(newFile, "w", encoding='utf-8') as file:
-  file.write(newXml)
+  file.write(output)
 
 

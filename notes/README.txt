@@ -72,6 +72,6 @@ mkdir mod
 # 32 milestone
 # 64 extra canonical issues
 # 513 : general 
-/usr/local/sword/bin/osis2mod mod lxx.osis.xml -z z -v LXX -d 618
+osis2mod mod lxx.osis.xml -z z -v LXX -d 618
 
 

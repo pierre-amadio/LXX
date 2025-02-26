@@ -52,3 +52,6 @@ sed -ri 's/N   N M    \*MESRAIM/N   NDM    \*MESRAIM/g' original-text/lxxmorph/0
 #Jeremy has two verse merged : Jer 7:27/28
 sed -ri 's|Jer 7:27/28|Jer 7:27|' original-text/lxxmorph/52.Jer1.mlxx
 
+#Psalm 118:41 should have a Ϝ instead of a V. 
+#Looks like the betacode module does not know about it.
+sed -ri 's/V#                       M          V#/Ϝ#                       M          V#/g' original-text/lxxmorph/29.Psalms2.mlxx

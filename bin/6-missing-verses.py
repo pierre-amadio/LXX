@@ -8,6 +8,8 @@ Let's fill those missing verse with square brackets enclose a horizontal ellipsi
 
 […]
 
+TODO: if there is more verses in sword's canon_lxx.h than what s in the current book, mark 
+the missing verses as empty as well.
 
 arg1:  input file
 arg2:  output directory

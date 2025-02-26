@@ -17,10 +17,28 @@ arg2:  output directory
 import sys
 import re
 from bs4 import BeautifulSoup
+import Sword
 
 inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
+filling="[…]"
+
+markup=Sword.MarkupFilterMgr(Sword.FMT_OSIS)
+markup.thisown=False
+mgr = Sword.SWMgr(markup)
+mod=mgr.getModule("LXX")
+if not mod:
+    print("No sword LXX module found.")
+    sys.exit()
+versification=mod.getConfigEntry("Versification")
+
+def getVerseMax(moduleName,bookName,chapterNbr):
+    vk=Sword.VerseKey()
+    vk.setVersificationSystem(versification)
+    vk.setBookName(bookName)
+    vk.setChapter(chapterNbr)
+    return vk.getVerseMax()
 
 def missingVersesFromFile(fileName):
   with open(fileName) as fp:
@@ -33,7 +51,6 @@ def missingVersesFromFile(fileName):
 
     if bookName==None:
       sys.exit("Cannot find book name")
-
     for chapter in soup.find_all('chapter'):
       curVerseNbr=0
       rc=re.search("%s\.(\d+)"%bookName,chapter["osisID"])
@@ -53,13 +70,26 @@ def missingVersesFromFile(fileName):
           print("Cannot parse verse %s"%verse)
           sys.exit()
 
+
         if curVerseNbr!=expectedVerseNbr:
             for missing in range (expectedVerseNbr,curVerseNbr):
               newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-              newVerseTag.string="[…]"
+              newVerseTag.string=filling
               verse.insert_before(newVerseTag)
-  return str(soup)
+      
+      swordMaxVn=getVerseMax("LXX",bookName,curChapter)
 
+      if curVerseNbr!=swordMaxVn:
+        """
+        print("ending %s chapter %s with verse %s"%(bookName,curChapter,curVerseNbr))
+        print("should be %s"%swordMaxVn)
+        """
+        for missing in range (curVerseNbr+1,swordMaxVn+1):
+          newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
+          newVerseTag.string=filling
+          chapter.append(newVerseTag)
+      
+  return str(soup)
 
 print("Dealing with missing verses in %s"%inputFile)
 newFile="%s/%s"%(outputDir,inputFile)
@@ -67,4 +97,5 @@ allVersesXml=missingVersesFromFile("xml-sorted/%s"%inputFile)
 
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(allVersesXml)
+
 

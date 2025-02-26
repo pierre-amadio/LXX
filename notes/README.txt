@@ -45,21 +45,21 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/6-missing-verses.sh
 #Result stored in ./xml-missingv
 
-#5) Apply specific modification.
+#7) Apply specific modification.
 ./bin/7-specificStuff.sh
 #Result stored in ./specific
 
-#6) Add stong numbers.
+#8) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
-./bin/6-strongStuff.sh
+./bin/8-strongStuff.sh
 #Result stored in ./strong
 
-#7) Mark concatenated verses with a pilcrow mark.
-./bin/7-marking-concatenated-verses.sh
+#9) Mark concatenated verses with a pilcrow mark.
+./bin/9-marking-concatenated-verses.sh
 #Result stored in ./pilcrow
 
 #8) Concatenate stuff
-./bin/8-concatenate.sh
+./bin/10-concatenate.sh
 #Result stored in ./lxx.osis.xml
 
 #9) Validate the file.
@@ -70,7 +70,7 @@ wget http://www.crosswire.org/~dmsmith/osis/osisCore.2.1.1-cw-latest.xsd
 #Validate the files:
 xmllint --noout --schema osisCore.2.1.1-cw-latest.xsd lxx.osis.xml
 
-#10) Create the mod module.
+#11) Create the mod module.
 # https://wiki.crosswire.org/Osis2mod
 #https://www.crosswire.org/sword/develop/swordmodule/
 rm -rf mod

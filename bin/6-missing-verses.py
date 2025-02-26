@@ -59,9 +59,9 @@ def missingVersesFromFile(fileName):
   return str(soup)
 
 
-print("Dealing with %s"%inputFile)
+print("Dealing with missing verses in %s"%inputFile)
 newFile="%s/%s"%(outputDir,inputFile)
-allVersesXml=missingVersesFromFile("xml0/%s"%inputFile)
+allVersesXml=missingVersesFromFile("xml-sorted/%s"%inputFile)
 
 with open(newFile, "w", encoding='utf-8') as file:
   file.write(allVersesXml)

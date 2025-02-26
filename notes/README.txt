@@ -42,13 +42,11 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 #Result stored in ./xml-sorted
 
 #6) Fill missing verses.
-
-
-
-
+./bin/6-missing-verses.sh
+#Result stored in ./xml-missingv
 
 #5) Apply specific modification.
-./bin/5-specificStuff.sh
+./bin/7-specificStuff.sh
 #Result stored in ./specific
 
 #6) Add stong numbers.

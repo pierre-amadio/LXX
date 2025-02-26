@@ -1,9 +1,5 @@
 #!/bin/bash
 #Let's turn the imp file into xml 
-#Then, let s create empty verses even when there actually no existing verses
-#Missing verses may confuse some applications.
-#https://github.com/crosswire/xiphos/issues/1172
-
 
 rm -rf xml0
 mkdir xml0
@@ -67,9 +63,4 @@ mkdir xml0
 ./bin/imp2xml.py imp/63.SusOG.imp > xml0/63.SusOG.xml
 ./bin/imp2xml.py imp/64.SusTh.imp > xml0/64.SusTh.xml
 
-rm -rf xml1
-mkdir xml1
 
-for f in $(ls xml0); do
- ./bin/4-empty-verses.py $f xml1/ ;
-done

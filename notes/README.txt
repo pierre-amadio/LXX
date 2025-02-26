@@ -37,6 +37,16 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/4-convertToXml.sh
 #Result stored in ./xml1
 
+#5) Sort verses and chapters.
+./bin/5-sort-verses.sh
+#Result stored in ./xml-sorted
+
+#6) Fill missing verses.
+
+
+
+
+
 #5) Apply specific modification.
 ./bin/5-specificStuff.sh
 #Result stored in ./specific

@@ -38,20 +38,6 @@ sed -ri 's/SusTh/Sus/g' imp/64.SusTh.imp
 sed -ri 's/BelTh/Bel/g' imp/60.BelTh.imp
 
 
-# what to do with Proverbs chapter numbering. 
-#Excerpt from "Septuaginta, a reader's edition", p334:
-#some witnesses to the greek version of proverbs contain portion of chs 30-31 inserted within ch24 as reflected in rahlfs-hannhart.
-#the reason for this textual divergence remains unclear and we have retained teh versifications of the masoretic text for simplicity.
-# ch32->ch25 ch33->ch26 ch34->ch27 ch35->ch28 ch36->ch29 
-#
-# Now, this should be dealt with in the specific phase of the process
-# in order to avoid problem when dealing with 4-empty-verses.py
-#sed -ri 's/(\$\$\$Prov\/)32(\/)/\125\2/g' imp/31.Proverbs.imp
-#sed -ri 's/(\$\$\$Prov\/)33(\/)/\126\2/g' imp/31.Proverbs.imp 
-#sed -ri 's/(\$\$\$Prov\/)34(\/)/\127\2/g' imp/31.Proverbs.imp
-#sed -ri 's/(\$\$\$Prov\/)35(\/)/\128\2/g' imp/31.Proverbs.imp
-#sed -ri 's/(\$\$\$Prov\/)36(\/)/\129\2/g' imp/31.Proverbs.imp
-
 #Let's use dash instead of space as a separator in packard morphcode
 # http://crosswire.org/pipermail/sword-devel/2021-February/048659.html
 for i in `ls imp`;

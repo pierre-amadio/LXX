@@ -4,12 +4,7 @@
 Some books miss some verses that confuses reader.
 Just putting an empty verse nodes is not enough for some frontends
 which require some content in order for the verse to be selectable.
-Let's fill those missing verse with square brackets enclose a horizontal ellipsis U+2026:
-
-[…]
-
-TODO: if there is more verses in sword's canon_lxx.h than what s in the current book, mark 
-the missing verses as empty as well.
+Let's fill those missing verse with an empty <seg> node.
 
 arg1:  input file
 arg2:  output directory
@@ -42,7 +37,6 @@ def getVerseMax(moduleName,bookName,chapterNbr):
 def missingVersesFromFile(fileName):
   with open(fileName) as fp:
     soup = BeautifulSoup(fp, 'xml')
-    #filling="[…]"
     filling=soup.new_tag('seg')
 
     curChapter=0
@@ -75,7 +69,6 @@ def missingVersesFromFile(fileName):
         if curVerseNbr!=expectedVerseNbr:
             for missing in range (expectedVerseNbr,curVerseNbr):
               newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-              #newVerseTag.string="pika"
               newVerseTag.append(copy.copy(filling))
               verse.insert_before(newVerseTag)
       
@@ -88,7 +81,6 @@ def missingVersesFromFile(fileName):
         """
         for missing in range (curVerseNbr+1,swordMaxVn+1):
           newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-          #newVerseTag.string=filling
           newVerseTag.append(copy.copy(filling))
           chapter.append(newVerseTag)
       

@@ -57,7 +57,6 @@ def addVariant(xml,subType):
 
 def combine(xmlB,xmlA,bookName):
   for chapter in xmlA.find_all('chapter'):
-    #print(chapter["osisID"])
     m=re.search("%s\.(\d+)"%bookName,chapter["osisID"])
     curChapter=0
     if m:
@@ -65,7 +64,6 @@ def combine(xmlB,xmlA,bookName):
     else:
       print("Cannot parse chapter %s"%chapter["osisID"])
       sys.exit()
-    #print(curChapter)
     for verse in chapter.find_all("verse"):
       chapterB=xmlB.find('chapter',attrs={"osisID":chapter["osisID"]})
       chapterB.append(verse)

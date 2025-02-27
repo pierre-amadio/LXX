@@ -12,10 +12,6 @@ To workaround this, non existing verses are creating containing just […].
 Having chapter or verses not sorted correctly makes this process complicated.
 This script takes a xml book and turn it into a well sorted book.
 
-https://stackoverflow.com/questions/30158116/how-do-i-sort-an-unordered-list-using-beautifulsoup-4-by-a-child-element
-
-TODO: sed -i '/^$/d' xml1/52.Jer.xml 
-
 
 arg1:  input file
 arg2:  output directory

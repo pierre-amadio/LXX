@@ -64,13 +64,6 @@ for curFileName in sys.argv[1:]:
               curVerseNbr=int(suffixre.group(1))
           else:
               curVerseNbr=int(curVerseNbrFull)
-          #ms=re.search("\$\$\$(\S+)/(\d+)/(\d+)([a-z]+)",line)
-          #if ms and None:
-          #  milestoneFlag=ms.group(4)
-          #  print("plop")
-          #else:
-          #  milestoneFlag=False
-
         elif sirPrologReg:
           """ we are in one of those funny Sir Prolog line: $$$Sir/Prolog/4"""
           bookName="Sir"
@@ -112,10 +105,6 @@ for curFileName in sys.argv[1:]:
         """We are in a text line (not a $$chapter/verse  one)"""
         newVerseFlag=True
         content=""
-        #if milestoneFlag:
-        #  content='<milestone type="x-alt-v11n" n="%s"/>'%milestoneFlag
-        #  milestoneFlag=False
-
         rawContent=line.strip()
         content=rawContent.replace('<title type="section" subType="x-preverse">','<title type="chapter">')
         curVerse={}

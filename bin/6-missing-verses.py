@@ -16,13 +16,12 @@ arg2:  output directory
 """
 import sys
 import re
+import copy
 from bs4 import BeautifulSoup
 import Sword
 
 inputFile=sys.argv[1]
 outputDir=sys.argv[2]
-
-filling="[…]"
 
 markup=Sword.MarkupFilterMgr(Sword.FMT_OSIS)
 markup.thisown=False
@@ -43,6 +42,8 @@ def getVerseMax(moduleName,bookName,chapterNbr):
 def missingVersesFromFile(fileName):
   with open(fileName) as fp:
     soup = BeautifulSoup(fp, 'xml')
+    #filling="[…]"
+    filling=soup.new_tag('seg')
 
     curChapter=0
     bookName=None
@@ -74,7 +75,8 @@ def missingVersesFromFile(fileName):
         if curVerseNbr!=expectedVerseNbr:
             for missing in range (expectedVerseNbr,curVerseNbr):
               newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-              newVerseTag.string=filling
+              #newVerseTag.string="pika"
+              newVerseTag.append(copy.copy(filling))
               verse.insert_before(newVerseTag)
       
       swordMaxVn=getVerseMax("LXX",bookName,curChapter)
@@ -86,7 +88,8 @@ def missingVersesFromFile(fileName):
         """
         for missing in range (curVerseNbr+1,swordMaxVn+1):
           newVerseTag=soup.new_tag("verse", osisID="%s.%s.%s"%(bookName,curChapter,missing))
-          newVerseTag.string=filling
+          #newVerseTag.string=filling
+          newVerseTag.append(copy.copy(filling))
           chapter.append(newVerseTag)
       
   return str(soup)

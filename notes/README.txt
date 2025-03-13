@@ -45,6 +45,10 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/6-missing-verses.sh
 #Result stored in ./xml-missingv
 
+#7) Mark concatenated verses with a mark.
+./bin/7-marking-concatenated-verses.sh
+#Result stored in ./concatenated
+
 #7) Apply specific modification.
 ./bin/7-specificStuff.sh
 #Result stored in ./specific
@@ -53,10 +57,6 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
 ./bin/8-strongStuff.sh
 #Result stored in ./strong
-
-#9) Mark concatenated verses with a pilcrow mark.
-./bin/9-marking-concatenated-verses.sh
-#Result stored in ./pilcrow
 
 #10) Concatenate stuff
 ./bin/10-concatenate.sh

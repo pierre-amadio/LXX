@@ -21,7 +21,7 @@ EOF
 
 for i in `ls pilcrow/` ; do 
  echo $i;
- cat pilcrow/$i >> lxx.osis.xml
+ cat strong/$i >> lxx.osis.xml
 done
 
 echo  "</osisText></osis>">>lxx.osis.xml

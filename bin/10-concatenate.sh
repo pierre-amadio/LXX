@@ -19,7 +19,7 @@ cat <<EOF > lxx.osis.xml
 	</header>
 EOF
 
-for i in `ls pilcrow/` ; do 
+for i in `ls strong/` ; do 
  echo $i;
  cat strong/$i >> lxx.osis.xml
 done

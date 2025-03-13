@@ -49,8 +49,8 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/7-marking-concatenated-verses.sh
 #Result stored in ./concatenated
 
-#7) Apply specific modification.
-./bin/7-specificStuff.sh
+#8) Apply specific modification.
+./bin/8-specificStuff.sh
 #Result stored in ./specific
 
 #8) Add stong numbers.

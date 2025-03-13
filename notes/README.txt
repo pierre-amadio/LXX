@@ -53,9 +53,9 @@ virtualenv -p /usr/bin/python3 ~/dev/lxxmodule --system-site-packages
 ./bin/8-specificStuff.sh
 #Result stored in ./specific
 
-#8) Add stong numbers.
+#9) Add stong numbers.
 # Be sure you have the python Sword module installed, as well as the previous Sword LXX module (2.5)
-./bin/8-strongStuff.sh
+./bin/9-strongStuff.sh
 #Result stored in ./strong
 
 #10) Concatenate stuff

@@ -8,9 +8,8 @@ rm -rf original-text imp mod concatenated specific strong xml0 tmp xml-missingv 
 ./bin/5-sort-verses.sh 
 ./bin/6-missing-verses.sh 
 ./bin/7-marking-concatenated-verses.sh
-
-./bin/7-specificStuff.sh 
-./bin/8-strongStuff.sh 
+./bin/8-specificStuff.sh 
+./bin/9-strongStuff.sh 
 ./bin/10-concatenate.sh
 
 

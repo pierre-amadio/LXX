@@ -1,3 +1,8 @@
+When there are concatenated verses for text with two variants, as in Daniel 4:37
+the variant concatenated verses appears in both variants.
+The ./bin/9-marking-concatenated-verses.sh script should occurs before ./bin/7-specificStuff.sh
+in order to fix that.
+################
 https://en.katabiblon.com/us/index.php?text=LXX
 ################
 * what is actually valid in a lemma as far as lex is concerned ?

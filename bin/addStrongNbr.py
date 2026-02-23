@@ -51,7 +51,7 @@ def findStrongIdFor(osisId,fullWord):
         Return the strong number if it find it, 0 otherwise.
     """
     #print("What is the strong id for %s / %s"%(osisId,fullWord))
-    m=re.match("(\S+)\.(\d+)\.(\d+)",osisId)
+    m=re.match(r"(\S+)\.(\d+)\.(\d+)",osisId)
     swordVerse=""
     if m:
         bookAbr=m.group(1)
@@ -69,7 +69,7 @@ def findStrongIdFor(osisId,fullWord):
           #print("no lemma for %s"%w)
           return 0
         candidateLemma=w["lemma"]
-        m=re.match("strong:G(\d+)",candidateLemma)
+        m=re.match(r"strong:G(\d+)",candidateLemma)
         candidateStrong=0
         if m:
             candidateStrong=m.group(1)
@@ -88,7 +88,7 @@ def parseLXX(fileName):
     with open("codesStrong.strong") as fp:
       for line in fp:
         #print(line)
-        m=re.search("(\d+)#(.+)",line)
+        m=re.search(r"(\d+)#(.+)",line)
         if m:
           #print("%s -> %s"%(m.group(1),m.group(2)))
           strongDic[m.group(2)]=m.group(1)
@@ -170,7 +170,7 @@ inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
 
-m=re.search(".*\/(\S+)$",inputFile)
+m=re.search(r".*\/(\S+)$",inputFile)
 if m:
   shortName=m.group(1)
 else:

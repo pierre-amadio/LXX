@@ -59,8 +59,8 @@ with open(inputFile) as fp:
             word=line[0:25].strip()
             parse=line[25:36].strip()
             lemma=line[36:].strip()
-            lemma=re.sub('\s+',', ',lemma)
-            parse=re.sub('\s+',' ',parse)
+            lemma=re.sub(r'\s+',', ',lemma)
+            parse=re.sub(r'\s+',' ',parse)
             if not first :
                 """
                     space between words

@@ -55,3 +55,9 @@ sed -ri 's|Jer 7:27/28|Jer 7:27|' original-text/lxxmorph/52.Jer1.mlxx
 #Psalm 118:41 should have a Ϝ instead of a V. 
 #Looks like the betacode module does not know about it.
 sed -ri 's/V#                       M          V#/Ϝ#                       M          V#/g' original-text/lxxmorph/29.Psalms2.mlxx
+
+#In Ezekiel 9:11 the last word (μοι) has no lexical entry.
+#MOI                      RP  DS
+#should be 
+#MOI                      RP  DS     E)GW/
+sed -ri 's|MOI                      RP  DS\s*$|MOI                      RP  DS     E)GW/|' original-text/lxxmorph/57.Ezek1.mlxx

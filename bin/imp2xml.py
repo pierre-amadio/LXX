@@ -43,13 +43,13 @@ for curFileName in sys.argv[1:]:
     knownChapterNbr=0
     for line in fp:
       #let s ignore blank line.
-      if re.search("^\s$",line):
+      if re.search(r"^\s$",line):
         continue
       if newVerseFlag:
         """we are in a $$$bookname sort of line"""
-        verseLineReg=re.search("\$\$\$(\S+)/(\d+)/(\d+\S*)",line)
-        chapterLineReg=re.search("\$\$\$(\S+)/(\d+)",line)
-        sirPrologReg=re.search("\$\$\$Sir/Prolog/(\d+)",line)
+        verseLineReg=re.search(r"\$\$\$(\S+)/(\d+)/(\d+\S*)",line)
+        chapterLineReg=re.search(r"\$\$\$(\S+)/(\d+)",line)
+        sirPrologReg=re.search(r"\$\$\$Sir/Prolog/(\d+)",line)
         if verseLineReg:
           """we are in a book/chapter/verse definition line"""
           bookName=verseLineReg.group(1)
@@ -59,7 +59,7 @@ for curFileName in sys.argv[1:]:
           Lets store the suffixed verse index in curVerseNbrFull and the numerical in curVerseNbr
           """
           curVerseNbrFull=verseLineReg.group(3)
-          suffixre=re.search("(\d+)\D+",curVerseNbrFull)
+          suffixre=re.search(r"(\d+)\D+",curVerseNbrFull)
           if suffixre:
               curVerseNbr=int(suffixre.group(1))
           else:

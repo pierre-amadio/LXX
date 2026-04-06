@@ -35,7 +35,7 @@ with open(inputFile) as fp:
 #2Esdr-> 1-10  -> 16-Ezra
 ezra.div["osisID"]="Ezra"
 for chapter in ezra.find_all("chapter"):
-  m=re.search("2Esdr\.(\d+)",chapter["osisID"])
+  m=re.search(r"2Esdr\.(\d+)",chapter["osisID"])
   if not m:
     print("Cannot parse %s"%chapter["osisID"])
     sys.exit()
@@ -45,7 +45,7 @@ for chapter in ezra.find_all("chapter"):
     chapter.decompose()
   else:
     for verse in chapter.find_all("verse"):
-      v=re.search("2Esdr\.%s\.(\d+)"%chapterNbr,verse["osisID"])
+      v=re.search(r"2Esdr\.%s\.(\d+)"%chapterNbr,verse["osisID"])
       if v:
         verse["osisID"]="Ezra.%s.%s"%(chapterNbr,v.group(1))
       else:
@@ -56,7 +56,7 @@ for chapter in ezra.find_all("chapter"):
 #2Esdr-> 11-23 -> 17-Neh
 neh.div["osisID"]="Neh"
 for chapter in neh.find_all("chapter"): 
-  m=re.search("2Esdr\.(\d+)",chapter["osisID"])
+  m=re.search(r"2Esdr\.(\d+)",chapter["osisID"])
   if not m:
     print("Cannot parse %s"%chapter["osisID"])
     sys.exit()
@@ -67,7 +67,7 @@ for chapter in neh.find_all("chapter"):
   chapterNbr=origChapterNbr-10
   chapter["osisID"]="Neh.%s"%chapterNbr
   for verse in chapter.find_all("verse"):
-    v=re.search("2Esdr\.%s\.(\d+)"%origChapterNbr,verse["osisID"])
+    v=re.search(r"2Esdr\.%s\.(\d+)"%origChapterNbr,verse["osisID"])
     if v:
       verse["osisID"]="Neh.%s.%s"%(chapterNbr,v.group(1))
     else:

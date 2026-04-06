@@ -30,7 +30,7 @@ def moveChapter(xml,fro,to):
   for chapter in xml.find_all("chapter",osisID="Prov.%s"%fro):
     chapter["osisID"]="Prov.%s"%to
     for verse in chapter.find_all("verse"):
-      tregsnt="Prov.%s.(\w+)"%fro
+      tregsnt=r"Prov.%s.(\w+)"%fro
       treg=re.search(tregsnt,verse["osisID"])
       if not treg:
         print("Cannot parse '%s' with '%s'"%(verse["osisID"],tregsnt))

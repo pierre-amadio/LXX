@@ -29,7 +29,7 @@ def getBookName(xml):
   """
   out=""
   chapter=xml.find("chapter")
-  m=re.search("(\S+)\.\d+",chapter["osisID"])
+  m=re.search(r"(\S+)\.\d+",chapter["osisID"])
   if m:
    out=m.group(1)
   else:
@@ -57,7 +57,7 @@ def addVariant(xml,subType):
 
 def combine(xmlB,xmlA,bookName):
   for chapter in xmlA.find_all('chapter'):
-    m=re.search("%s\.(\d+)"%bookName,chapter["osisID"])
+    m=re.search(r"%s\.(\d+)"%bookName,chapter["osisID"])
     curChapter=0
     if m:
       curChapter=m.group(1)

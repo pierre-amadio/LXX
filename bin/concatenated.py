@@ -20,7 +20,7 @@ def deconc(myFile):
   with open(myFile) as fp:
     soup = BeautifulSoup(fp,'xml')
     for verse in soup.find_all('verse'):
-      concFlag=re.match("(.*)\.(\d+)(\D+)$",verse["osisID"])
+      concFlag=re.match(r"(.*)\.(\d+)(\D+)$",verse["osisID"])
       if concFlag:
         numericalVerseIndex="%s.%s"%(concFlag.group(1),concFlag.group(2))
         verseNbr=concFlag.group(2)
@@ -38,7 +38,7 @@ def deconc(myFile):
 
 newXml=deconc(inputFile)
 
-m=re.search(".*\/(\S+)$",inputFile)
+m=re.search(r".*\/(\S+)$",inputFile)
 shortName=None
 if m:
   shortName=m.group(1)

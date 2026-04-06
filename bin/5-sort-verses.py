@@ -25,7 +25,7 @@ inputFile=sys.argv[1]
 outputDir=sys.argv[2]
 
 def get_verse_nbr(fullv):
-  test=re.match("\w+\.\d+\.(\d+)",fullv["osisID"])
+  test=re.match(r"\w+\.\d+\.(\d+)",fullv["osisID"])
   if not test:
     print("Cannot parse %s"%fullv)
   out=int(test.group(1))
